@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thiệp cưới cá nhân hóa - Mẫu 1</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="background-overlay">
+    <div class="invitation-container animate-fade">
+      <div class="invitation-card">
+        <h1 class="title">Lễ Thành Hôn</h1>
+        <p class="names">Minh 💖 Linh</p>
+        <p class="date">Chủ Nhật, 20 tháng 7, 2025</p>
+        <p class="location">Trung Tâm Hội Nghị White Palace, TP.HCM</p>
+        <p class="message">Trân trọng kính mời bạn đến chung vui cùng chúng tôi!</p>
+      </div>
+
+      <div class="invitation" id="invitation">
+        <p>Loading...</p>
+      </div>
+
+      <div id="rsvp" style="display:none;">
+        <h3>Phản hồi tham dự</h3>
+        <button onclick="sendRSVP('accepted')">Tham dự</button>
+        <button onclick="sendRSVP('declined')">Không tham dự</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="firebase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
