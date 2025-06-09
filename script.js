@@ -6,22 +6,14 @@ function getQueryParam(param) {
 const guestId = getQueryParam('guest');
 const invitationDiv = document.getElementById('invitation');
 const rsvpDiv = document.getElementById('rsvp');
-const nameElem = document.querySelector('.names');
 
 if (!guestId) {
   invitationDiv.innerHTML = '<p>Link không hợp lệ hoặc không có thông tin khách mời.</p>';
-  rsvpDiv.style.display = 'none';
 } else {
   db.collection('guests').doc(guestId).get()
     .then(doc => {
       if (doc.exists) {
         const data = doc.data();
-
-        // Hiển thị tên khách mời lên phần .names
-        if (data.name && nameElem) {
-          nameElem.textContent = data.name;
-        }
-
         let rsvpStatus = '';
         switch (data.rsvp) {
           case 'accepted': rsvpStatus = 'Sẽ tham dự 💖'; break;
@@ -30,23 +22,21 @@ if (!guestId) {
         }
 
         invitationDiv.innerHTML = `
-          <p>${data.message || 'Chúng tôi rất mong bạn đến chung vui cùng chúng tôi.'}</p>
+          <h2>Chào bạn, ${data.name}!</h2>
+          <p>${data.message}</p>
+          <p>Chúng tôi rất mong bạn đến chung vui cùng chúng tôi.</p>
           <p><strong>Trạng thái phản hồi:</strong> ${rsvpStatus}</p>
         `;
 
-        if (data.rsvp === 'pending' || !data.rsvp) {
+        if (data.rsvp === 'pending') {
           rsvpDiv.style.display = 'block';
-        } else {
-          rsvpDiv.style.display = 'none';
         }
       } else {
         invitationDiv.innerHTML = '<p>Không tìm thấy thông tin khách mời.</p>';
-        rsvpDiv.style.display = 'none';
       }
     })
     .catch(error => {
       invitationDiv.innerHTML = `<p>Lỗi khi tải dữ liệu: ${error.message}</p>`;
-      rsvpDiv.style.display = 'none';
     });
 }
 
