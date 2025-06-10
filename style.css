@@ -10,27 +10,70 @@ body {
 
 .background-overlay {
   backdrop-filter: blur(3px);
+  background-color: rgba(56, 55, 55, 0.6);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;  /* <-- xếp các phần tử theo hàng ngang */
+  justify-content: center;
+  align-items: flex-start; /* canh trên nếu bạn muốn khớp đầu dòng */
+  padding: 20px;
+  gap: 40px; /* <-- tạo khoảng cách giữa hai khung */
+  flex-wrap: wrap; /* <-- để không bị vỡ giao diện trên mobile */
+}
+
+/* .background-overlay {
+  backdrop-filter: blur(3px);
   background-color: rgba(0, 0, 0, 0.6);
   min-height: 100vh;
   display: flex;
+  flex-direction: column; 
   justify-content: center;
   align-items: center;
   padding: 20px;
-}
+  gap: 40px; 
+} */
 
 .invitation-container {
-  background: rgba(255, 255, 255, 0.95);
+  background-image: url('images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 20px;
   max-width: 520px;
   width: 100%;
-  box-shadow: 0 0 50px rgba(0,0,0,0.3);
+  min-height: 300px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
   padding: 40px 30px;
   box-sizing: border-box;
-  color: #333;
+  color: #ffffff;
   animation: fadeIn 2s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  /* margin-bottom: 40px; */
+}
+
+.invitation-container_2 {
+  background-image: url('images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  max-width: 520px;
+  width: 100%;
+  min-height: 300px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+  padding: 40px 30px;
+  box-sizing: border-box;
+  color: #ffffff;
+  animation: fadeIn 2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-height: 800px;        /* hoặc giá trị lớn hơn */
+  padding-bottom: 80px;     /* chừa chỗ cho ảnh mái vòm */
 }
 
 .invitation-card {
@@ -46,13 +89,13 @@ body {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   font-family: 'Great Vibes', cursive;
-  color: #d6336c;
+  color: #ffffff;
 }
 
 .names {
   font-size: clamp(1.5rem, 4vw, 2.2rem);
   font-weight: bold;
-  color: #d6336c;
+  color: #ffffff;
   margin-bottom: 1rem;
   word-break: break-word;
   white-space: normal;
@@ -77,7 +120,7 @@ body {
 #rsvp {
   width: 100%;
   text-align: center;
-  color: #333;
+  color: #ffffff;
 }
 
 #rsvp button {
@@ -101,3 +144,160 @@ body {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+
+.invitation-container {
+  position: relative;
+  border-radius: 20px; /* viền bo tròn */
+  overflow: hidden;    /* ẩn phần ảnh vượt ra ngoài viền */
+  /* các style khác */
+  min-height: 800px;        /* hoặc giá trị lớn hơn */
+  padding-bottom: 80px;     /* chừa chỗ cho ảnh mái vòm */
+}
+
+/* style chung cho ảnh hoa */
+.flower {
+  position: absolute;
+  width: 25%; /* hoa chiếm 25% chiều rộng khung */
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* góc trên trái */
+.flower-top-left {
+  top: 0;
+  left: 0;
+  width: 40%;
+  /* height: 30%; */
+  transform: translate(0, 0); /* đặt sát góc */
+}
+
+/* góc trên phải */
+.flower-top-right {
+  top: 0;
+  right: 0;
+  width: 40%;
+  transform: translate(0, 0);
+}
+
+.arch-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+/* .date-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  color: #fff;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.weekday {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.date-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.weekday, .day, .time {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.month::before {
+  content: "Tháng";
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+
+.day {
+  font-size: 3rem;
+  color: #ffd700;
+}
+
+/* .time::before {
+  content: "Giờ";
+  font-size: 0.8rem;
+  font-weight: normal;
+} 
+
+.year {
+  margin-top: 5px;
+  font-size: 1.2rem;
+} */
+
+.date-display {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  color: #fff;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.date-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+}
+
+.side-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.side-box .label {
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-bottom: 5px;
+}
+
+.side-box .value {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.center-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.center-box .month {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.center-box .day {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.center-box .year {
+  margin-top: 5px;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
