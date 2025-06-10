@@ -24,7 +24,28 @@ if (!guestId) {
         invitationDiv.innerHTML = `
           <h2> ${data.name} </h2>
           <p>Thân mời ${data.message}</p>
-          <p>Chúng tôi rất mong bạn đến chung vui cùng chúng tôi.</p>
+          <p>Tới dự bữa cơm thân mật chung vui cùng gia đình chúng tôi.</p>
+          <p>Vào lúc: 10:00 Thứ bảy</p>
+          <p>24.01.2026</p>
+          <p>(Tức ngày 06 tháng 12 năm Ất Tỵ)</p>
+          <p>Tại : Phủ Chủ tịch</p>
+          <p>Số 01 Hoàn Kiếm Hà Nội</p>
+          <p>Sự hiện diện của quý vị</p>
+          <p>là niềm vinh hạnh cho gia đình chúng tôi.</p>
+          <div class="footer-display_2">
+            <div class="footer_2">
+              <div class="left-box_2">
+                <div class="label_2">Nhà Trai</div>
+                <div class="label_2">Nguyễn Văn Tỵ</div>
+                <div class="label_2">Đỗ Thị Hải</div>
+              </div>
+              <div class="right-box_2">
+                <div class="label_2">Nhà Gái</div>
+                <div class="label_2">Trương Tiến Thục</div>
+                <div class="label_2">Phan Thị Hồng The</div>
+              </div>
+            </div>
+          </div>
           <p><strong>Trạng thái phản hồi:</strong> ${rsvpStatus}</p>
         `;
 

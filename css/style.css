@@ -362,4 +362,95 @@ body {
   color: #fff;
 }
 
+.date-display_2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #000000;
+  font-family: 'Quicksand', sans-serif;
+}
 
+.date-layout_2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.side-box_2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.side-box_2 .label_2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5); /* dòng kẻ ngang */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* .side-box .value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+} */
+
+.center-box_2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.center-box_2 .month_2 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #000000;
+}
+
+.center-box_2 .day_2 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.center-box_2 .year_2 {
+  margin-top: 5px;
+  font-size: 1.1rem;
+  color: #000000;
+}
+
+.footer-display_2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #000000;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.footer_2{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.left-box_2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.right-box_2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
