@@ -113,9 +113,22 @@ body {
   font-size: 1.8rem; /* tim nhỏ hơn một chút */
 }
 
-.date, .location, .message {
-  margin: 0.5rem 0;
+.location {
+  position: relative;
   font-size: 1.1rem;
+  margin: 1rem 0;
+  padding-top: 10px;
+}
+
+.location::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px; /* độ dài dòng kẻ */
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .invitation {
@@ -125,6 +138,8 @@ body {
   border-radius: 15px;
   box-shadow: 0 0 25px rgba(0,0,0,0.1);
   font-size: 1.1rem;
+  margin-top: 40px;
+  text-align: center;
   margin-bottom: 25px;
   color: #333;
 }
@@ -173,13 +188,14 @@ body {
   height: auto;
   object-fit: contain;
   pointer-events: none;
+  animation: pulse 4s ease-in-out infinite;
 }
 
 /* góc trên trái */
 .flower-top-left {
   top: 0;
   left: 0;
-  width: 40%;
+  width: 35%;
   /* height: 30%; */
   transform: translate(0, 0); /* đặt sát góc */
 }
@@ -188,18 +204,46 @@ body {
 .flower-top-right {
   top: 0;
   right: 0;
-  width: 40%;
+  width: 35%;
   transform: translate(0, 0);
 }
 
-.arch-bottom {
+.arch-wrapper {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  height: auto;
   pointer-events: none;
+  z-index: 10;
+}
+
+.arch-bottom {
+  width: 100%;
+  height: auto;
+  transform-origin: bottom center;
+  animation: flyInFromBottom 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes flyInFromBottom {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 /* .date-display {
@@ -258,6 +302,7 @@ body {
 .date-display {
   display: flex;
   justify-content: center;
+  margin-top: 10px;
   margin-bottom: 10px;
   color: #fff;
   font-family: 'Quicksand', sans-serif;
@@ -267,7 +312,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
 }
 
 .side-box {
@@ -278,15 +323,19 @@ body {
 }
 
 .side-box .label {
-  font-size: 0.8rem;
-  color: #ccc;
-  margin-bottom: 5px;
-}
-
-.side-box .value {
   font-size: 1.2rem;
   font-weight: bold;
+  color: #ccc;
+  margin-bottom: 5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5); /* dòng kẻ ngang */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
+
+/* .side-box .value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+} */
 
 .center-box {
   display: flex;
@@ -312,4 +361,5 @@ body {
   font-size: 1.1rem;
   color: #fff;
 }
+
 

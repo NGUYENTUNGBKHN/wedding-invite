@@ -22,8 +22,8 @@ if (!guestId) {
         }
 
         invitationDiv.innerHTML = `
-          <h2>Chào bạn, ${data.name}!</h2>
-          <p>${data.message}</p>
+          <h2> ${data.name} </h2>
+          <p>Thân mời ${data.message}</p>
           <p>Chúng tôi rất mong bạn đến chung vui cùng chúng tôi.</p>
           <p><strong>Trạng thái phản hồi:</strong> ${rsvpStatus}</p>
         `;
