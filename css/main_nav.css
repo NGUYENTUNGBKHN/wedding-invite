@@ -1,0 +1,83 @@
+/* Thêm vào đầu file style.css hoặc bất kỳ vị trí nào phù hợp */
+
+.main-nav {
+    position: fixed; /* Cố định thanh điều hướng ở đầu trang */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Nền hơi trong suốt */
+    z-index: 1000; /* Đảm bảo nó luôn nằm trên cùng */
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center; /* Căn giữa các nút */
+    align-items: center;
+    max-width: 1200px; /* Chiều rộng tối đa của container */
+    margin: 0 auto; /* Căn giữa container */
+    padding: 0 20px;
+}
+
+.nav-button {
+    color: #fff;
+    text-decoration: none; /* Bỏ gạch chân mặc định của link */
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    /* Hiệu ứng di chuột */
+    display: block; /* Để padding hoạt động tốt */
+}
+
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Nền hơi sáng khi di chuột qua */
+    color: #ffd700; /* Màu vàng khi di chuột qua */
+    transform: translateY(-2px); /* Hơi nhấc lên một chút */
+}
+
+/* Thêm padding top cho body để nội dung không bị thanh nav che khuất */
+body {
+    /* ... (giữ nguyên các style đã có) ... */
+    padding-top: 60px; /* Điều chỉnh giá trị này bằng chiều cao của .main-nav */
+}
+
+/* Điều chỉnh lại .background-overlay để không có khoảng trống thừa ở trên */
+.background-overlay {
+    /* ... (giữ nguyên các style đã có) ... */
+    min-height: calc(100vh - 60px); /* Đảm bảo vẫn full chiều cao trừ đi nav */
+    /* Hoặc đơn giản là loại bỏ min-height nếu bạn muốn nội dung cuộn tự do */
+    padding-top: 0; /* Đảm bảo không có padding thừa đẩy nội dung xuống */
+}
+
+/* @media queries cho mobile (tùy chọn) */
+/* Media queries cho mobile (giữ nguyên) */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .nav-button {
+        padding: 8px 15px;
+        font-size: 1rem;
+        margin: 5px;
+    }
+
+    body {
+        padding-top: 100px;
+    }
+
+    .couple-name {
+        font-size: 2.5rem; /* Điều chỉnh kích thước chữ trên mobile */
+    }
+
+    .couple-names h1:nth-child(2) {
+        font-size: 1.5rem;
+    }
+}

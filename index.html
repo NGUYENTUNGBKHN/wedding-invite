@@ -2,43 +2,90 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <title>Wedding invitation</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Thanh Tùng💖Thục Anh</title>
+  <link rel="icon" href="images/favicon.png">
+  <link rel="stylesheet" href="css/invitation.css" />
+  <link rel="stylesheet" href="css/main_nav.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/music.css" />
+  <link rel="stylesheet" href="css/rsvp.css" />
+  <link rel="stylesheet" href="css/corner-menu.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
-  <div class="background-overlay">
+  <!-- Show menu -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="#home" class="nav-button">Home</a>
+      <a href="#thiep" class="nav-button">Invitation</a>
+      <a href="#gallery" class="nav-button">Gallery</a>
+      <a href="#rsvp" class="nav-button">RSVP</a>
+    </div>
+  </nav>
+  <!-- audio -->
+  <audio id="backgroundMusic" loop>
+    <source src="music/wedding-song.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- button music -->
+  <button id="musicToggleButton" class="music-toggle-button">
+    <i class="fas fa-volume-mute"></i> 
+  </button>
+  <!-- button menu -->
+  <div class="expandable-corner-menu">
+    <button id="menuToggleButton" class="corner-button menu-toggle">
+      <i class="fas fa-times"></i> 
+    </button>
+    <div class="sub-buttons-container">
+      <button class="corner-button">Gửi lời chúc</button>
+      <button class="corner-button">Gửi tiền mừng</button>
+      <button class="corner-button">Album ảnh</button>
+    </div>
+  </div>
+  <!-- Show Home page -->
+  <div id="home" class="home-container">
+    <div class="couple-image">
+      <img src="images/bottom.png" alt="Thanh Tùng và Thục Anh">
+    </div>
+    <div class="couple-names">
+      <h1 class="couple-name">Nguyễn Thanh Tùng</h1>
+      <h1 class="couple-name">&</h1>
+      <h1 class="couple-name">Trương Thục Anh</h1>
+    </div>
+  </div>
+  <div id="thiep" class="background-overlay">
     <div class="invitation-container animate-fade">
       <img src="images/image1.png" alt="hoa góc trái" class="flower flower-top-left" />
       <img src="images/image2.png" alt="hoa góc phải" class="flower flower-top-right" />
       <div class="invitation-card">
-        <h1 class="title">Thiệp mời</h1>
+        <h1 class="title">Lễ Thanh Hôn</h1>
         <div class="names-group">
           <p class="names">Nguyễn Thanh Tùng</p>
-          <p class="names heart">💖</p>
+          <p class="names heart">&</p>
           <p class="names">Trương Thục Anh</p>
         </div>
         <div class="date-display">
           <div class="date-layout">
             <div class="side-box">
-              <div class="label">Thứ Bảy</div>
+              <div class="label animate-text-on-scroll">Thứ Bảy</div>
             </div>
 
             <div class="center-box">
-              <div class="month">Tháng 01</div>
-              <div class="day">24</div>
-              <div class="year">2026</div>
+              <div class="month animate-text-on-scroll">Tháng 01</div>
+              <div class="day animate-text-on-scroll">24</div>
+              <div class="year animate-text-on-scroll">2026</div>
             </div>
 
             <div class="side-box">
-              <div class="label">Giờ 10:00</div>
+              <div class="label animate-text-on-scroll">Giờ 10:00</div>
             </div>
           </div>
         </div>
-        <p class="location">Trung tâm hội nghị Quốc Gia, Hà Nội</p>
+        <p class="location animate-text-on-scroll">Trung tâm hội nghị Quốc Gia, Hà Nội</p>
       </div>
 
       <div class="arch-wrapper">
@@ -51,16 +98,17 @@
       <div id="invitation" class="invitation">
         <p>Loading...</p>
       </div>
-
-      <div id="rsvp" style="display:none;">
-        <h3>Phản hồi tham dự</h3>
-        <button onclick="sendRSVP('accepted')">Tham dự</button>
-        <button onclick="sendRSVP('declined')">Không tham dự</button>
-      </div>
     </div>
   </div>
-
+  <div id="rsvp" class="rsvp-page" style="display:none;">
+    <h3>Phản hồi tham dự</h3>
+    <button onclick="sendRSVP('accepted')">Tham dự</button>
+    <button onclick="sendRSVP('declined')">Không tham dự</button>
+  </div>
   <script src="scripts/firebase-config.js"></script>
   <script src="scripts/script.js"></script>
+  <script src="scripts/animation.js"></script>
+  <script src="scripts/music-control.js"></script>
+  <script src="scripts/menu-extend-btn.js"></script>
 </body>
 </html>

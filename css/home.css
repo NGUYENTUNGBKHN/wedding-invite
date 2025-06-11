@@ -1,0 +1,54 @@
+/* --- Home Section Styles (Cập nhật) --- */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Căn giữa nội dung theo chiều dọc */
+    align-items: center; /* Căn giữa nội dung theo chiều ngang */
+    min-height: calc(100vh - 60px); /* Chiều cao đầy đủ trừ đi navbar */
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    /* Bạn có thể thêm background-image hoặc background-color riêng cho home-container tại đây nếu muốn nó khác với body */
+    /* background-image: url('images/home_bg.jpg'); */
+    /* background-size: cover; */
+    /* background-position: center; */
+    background-image: url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1280&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+}
+
+.couple-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.couple-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.couple-names {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.couple-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    margin: 5px 0;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.couple-names h1:nth-child(2) {
+    font-size: 2rem;
+    color: #fff;
+}

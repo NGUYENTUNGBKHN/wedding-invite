@@ -1,0 +1,48 @@
+/* ... (Các style đã có của bạn) ... */
+
+/* Style cho nút bật/tắt nhạc */
+.music-toggle-button {
+    position: fixed; /* Cố định vị trí trên màn hình */
+    bottom: 20px; /* Cách đáy 20px */
+    left: 20px;  /* Đã thay đổi: Cách trái 20px */
+    z-index: 1000; /* Đảm bảo nút luôn nằm trên cùng */
+    background-color: #d6336c; /* Màu nền */
+    color: #fff; /* Màu icon */
+    border: none;
+    border-radius: 50%; /* Hình tròn */
+    width: 50px; /* Kích thước nút */
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem; /* Kích thước icon */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.music-toggle-button:hover {
+    background-color: #a7284f;
+    transform: scale(1.1); /* Hiệu ứng phóng to nhẹ khi di chuột */
+}
+
+/* Xóa bỏ hoặc comment phần này nếu bạn đã di chuyển nút ra khỏi nav-container */
+/* .main-nav .nav-container .music-toggle-button {
+    position: static;
+    margin-left: 20px;
+    flex-shrink: 0;
+} */
+
+
+/* @media queries cho mobile (điều chỉnh vị trí nếu cần) */
+@media (max-width: 768px) {
+    /* ... (Các style media query đã có) ... */
+
+    .music-toggle-button { /* Chỉ cần selector này vì nó là fixed */
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        bottom: 15px; /* Điều chỉnh vị trí cho mobile */
+        left: 15px;
+    }
+}

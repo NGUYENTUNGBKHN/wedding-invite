@@ -1,0 +1,470 @@
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  /* background-image: url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1280&q=80'); */
+  /* background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
+  background-image: none; /* Rất quan trọng: Loại bỏ ảnh nền toàn trang */
+  background-color: #333; /* Đặt một màu nền dự phòng hoặc màu đồng nhất */
+  color: #fff;
+}
+
+
+.background-overlay {
+  /* Đây sẽ là nơi chứa ảnh nền cho các phần Event, Gallery, RSVP */
+  background-image: url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1280&q=80');
+  background-size: cover;
+  /* background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; */
+  backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.6);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;  /* <-- xếp các phần tử theo hàng ngang */
+  justify-content: center;
+  align-items: flex-start; /* canh trên nếu bạn muốn khớp đầu dòng */
+  padding: 20px;
+  gap: 40px; /* <-- tạo khoảng cách giữa hai khung */
+  flex-wrap: wrap; /* <-- để không bị vỡ giao diện trên mobile */
+}
+
+/* .background-overlay {
+  backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.6);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 40px; 
+} */
+
+.invitation-container,
+.invitation-container_2 {
+  background-image: url('../images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  max-width: 520px;
+  width: 100%;
+  min-height: 300px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+  padding: 40px 30px;
+  box-sizing: border-box;
+  color: #ffffff;
+  animation: fadeIn 2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-top: 20px;
+  /* margin-bottom: 40px; */
+}
+
+.invitation-container_2 {
+  min-height: 800px;        /* hoặc giá trị lớn hơn */
+  padding-bottom: 80px;     /* chừa chỗ cho ảnh mái vòm */
+}
+
+.invitation-card {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-top: 0; /* bỏ margin trên mặc định */
+  margin-bottom: 0.5rem;
+  font-family: 'Great Vibes', cursive;
+  color: #ffffff;
+}
+
+.names-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px; /* khoảng cách giữa các dòng tên, bạn có thể giảm nữa nếu muốn sát hơn */
+}
+
+.names {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  margin: 0;
+}
+
+.names.heart {
+  font-size: 1.8rem; /* tim nhỏ hơn một chút */
+}
+
+.location {
+  position: relative;
+  font-size: 1.1rem;
+  margin: 1rem 0;
+  padding-top: 10px;
+}
+
+.location::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px; /* độ dài dòng kẻ */
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.invitation {
+  width: 100%;
+  background: #fefefe;
+  padding: 25px 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.1);
+  font-size: 1.1rem;
+  margin-top: 40px;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.invitation-container {
+  position: relative;
+  border-radius: 20px; /* viền bo tròn */
+  overflow: hidden;    /* ẩn phần ảnh vượt ra ngoài viền */
+  /* các style khác */
+  min-height: 800px;        /* hoặc giá trị lớn hơn */
+  padding-bottom: 80px;     /* chừa chỗ cho ảnh mái vòm */
+}
+
+/* style chung cho ảnh hoa */
+.flower {
+  position: absolute;
+  width: 25%; /* hoa chiếm 25% chiều rộng khung */
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+/* góc trên trái */
+.flower-top-left {
+  top: 0;
+  left: 0;
+  width: 35%;
+  /* height: 30%; */
+  transform: translate(0, 0); /* đặt sát góc */
+}
+
+/* góc trên phải */
+.flower-top-right {
+  top: 0;
+  right: 0;
+  width: 35%;
+  transform: translate(0, 0);
+}
+
+.arch-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.arch-bottom {
+  width: 100%;
+  height: auto;
+  transform-origin: bottom center;
+  opacity: 0;
+  /* animation: flyInFromBottom 1.5s ease-out forwards; */
+}
+
+.animate-text-on-scroll {
+    opacity: 0; /* Mặc định ẩn */
+    transform: translateY(20px); /* Vị trí ban đầu hơi thấp hơn */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Chuyển động mượt mà */
+    /* Hoặc dùng animation trực tiếp khi add class 'is-visible-text' */
+}
+
+.animate-text-on-scroll {
+    opacity: 0; /* Mặc định ẩn */
+    transform: translateY(20px); /* Vị trí ban đầu hơi thấp hơn */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Chuyển động mượt mà */
+    /* Hoặc dùng animation trực tiếp khi add class 'is-visible-text' */
+}
+
+/* Khi class 'is-visible-text' được thêm vào */
+.animate-text-on-scroll.is-visible-text {
+    animation: flyInFromBottom 1s ease-out forwards; /* Chạy animation */
+}
+
+/* Bạn có thể tạo độ trễ cho từng phần tử để chúng xuất hiện lần lượt */
+.date-layout .side-box .label {
+    /* Đảm bảo class 'animate-text-on-scroll' được thêm vào phần tử này */
+    /* opacity và transform ban đầu được định nghĩa trong .animate-text-on-scroll */
+}
+
+.date-layout .center-box .month,
+.date-layout .center-box .day,
+.date-layout .center-box .year {
+    /* Đảm bảo class 'animate-text-on-scroll' được thêm vào phần tử này */
+    /* opacity và transform ban đầu được định nghĩa trong .animate-text-on-scroll */
+}
+
+/* Thêm độ trễ cho từng phần tử để hiệu ứng xuất hiện tuần tự */
+.side-box .label.is-visible-text { animation-delay: 0.1s; }
+.center-box .month.is-visible-text { animation-delay: 0.3s; }
+.center-box .day.is-visible-text { animation-delay: 0.5s; }
+.center-box .year.is-visible-text { animation-delay: 0.7s; }
+.side-box + .side-box .label.is-visible-text { animation-delay: 0.9s; } /* Cho label thứ 2 */
+.location {animation-delay: 1s;}
+.arch-bottom.is-visible{
+  animation: flyInFromBottom 1.5s ease-out forwards;
+}
+
+@keyframes flyInFromBottom {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* .date-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  color: #fff;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.weekday {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.date-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.weekday, .day, .time {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.month::before {
+  content: "Tháng";
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+
+.day {
+  font-size: 3rem;
+  color: #ffd700;
+}
+
+/* .time::before {
+  content: "Giờ";
+  font-size: 0.8rem;
+  font-weight: normal;
+} 
+
+.year {
+  margin-top: 5px;
+  font-size: 1.2rem;
+} */
+
+.date-display {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.date-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.side-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.side-box .label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ccc;
+  margin-bottom: 5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5); /* dòng kẻ ngang */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* .side-box .value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+} */
+
+.center-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.center-box .month {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.center-box .day {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.center-box .year {
+  margin-top: 5px;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.date-display_2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #000000;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.date-layout_2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.side-box_2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.side-box_2 .label_2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5); /* dòng kẻ ngang */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* .side-box .value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+} */
+
+.center-box_2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.center-box_2 .month_2 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #000000;
+}
+
+.center-box_2 .day_2 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.center-box_2 .year_2 {
+  margin-top: 5px;
+  font-size: 1.1rem;
+  color: #000000;
+}
+
+.footer-display_2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #000000;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.footer_2{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.left-box_2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.right-box_2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
