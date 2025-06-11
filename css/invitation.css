@@ -6,14 +6,14 @@ body {
   background-position: center;
   background-repeat: no-repeat; */
   background-image: none; /* Rất quan trọng: Loại bỏ ảnh nền toàn trang */
-  background-color: #333; /* Đặt một màu nền dự phòng hoặc màu đồng nhất */
+  background-color: #ffffff; /* Đặt một màu nền dự phòng hoặc màu đồng nhất */
   color: #fff;
 }
 
 
 .background-overlay {
   /* Đây sẽ là nơi chứa ảnh nền cho các phần Event, Gallery, RSVP */
-  background-image: url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1280&q=80');
+  background-image: url('../images/gallery_background.jpg');
   background-size: cover;
   /* background-position: center;
   background-repeat: no-repeat;
@@ -66,7 +66,7 @@ body {
 }
 
 .invitation-container_2 {
-  min-height: 800px;        /* hoặc giá trị lớn hơn */
+  min-height: 850px;        /* hoặc giá trị lớn hơn */
   padding-bottom: 80px;     /* chừa chỗ cho ảnh mái vòm */
 }
 
@@ -91,16 +91,18 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px; /* khoảng cách giữa các dòng tên, bạn có thể giảm nữa nếu muốn sát hơn */
+  gap: 0px; /* khoảng cách giữa các dòng tên, bạn có thể giảm nữa nếu muốn sát hơn */
 }
 
 .names {
-  font-size: clamp(1.5rem, 4vw, 2.2rem);
   font-weight: bold;
   color: #ffffff;
   margin-top: 0;
   margin-bottom: 1rem;
-  margin: 0;
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  margin: 5px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .names.heart {
@@ -148,8 +150,12 @@ body {
   border-radius: 20px; /* viền bo tròn */
   overflow: hidden;    /* ẩn phần ảnh vượt ra ngoài viền */
   /* các style khác */
-  min-height: 800px;        /* hoặc giá trị lớn hơn */
+  min-height: 850px;        /* hoặc giá trị lớn hơn */
   padding-bottom: 80px;     /* chừa chỗ cho ảnh mái vòm */
+}
+
+.flower-section{
+
 }
 
 /* style chung cho ảnh hoa */
@@ -159,7 +165,7 @@ body {
   height: auto;
   object-fit: contain;
   pointer-events: none;
-  animation: pulse 4s ease-in-out infinite;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 /* góc trên trái */
@@ -198,23 +204,65 @@ body {
 }
 
 .animate-text-on-scroll {
-    opacity: 0; /* Mặc định ẩn */
-    transform: translateY(20px); /* Vị trí ban đầu hơi thấp hơn */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Chuyển động mượt mà */
-    /* Hoặc dùng animation trực tiếp khi add class 'is-visible-text' */
+  opacity: 0;
+  /* Mặc định ẩn */
+  transform: translateY(20px);
+  /* Vị trí ban đầu hơi thấp hơn */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  /* Chuyển động mượt mà */
+  /* Hoặc dùng animation trực tiếp khi add class 'is-visible-text' */
 }
 
-.animate-text-on-scroll {
-    opacity: 0; /* Mặc định ẩn */
-    transform: translateY(20px); /* Vị trí ban đầu hơi thấp hơn */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Chuyển động mượt mà */
-    /* Hoặc dùng animation trực tiếp khi add class 'is-visible-text' */
+.animate-text-on-scroll_2 {
+  opacity: 0;
+  /* Mặc định ẩn */
+  transform: translateY(20px);
+  /* Vị trí ban đầu hơi thấp hơn */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  /* Chuyển động mượt mà */
+  /* Hoặc dùng animation trực tiếp khi add class 'is-visible-text' */
+}
+
+.animate-flower-on{
+  opacity: 0;
+  /* Mặc định ẩn */
+  transform: translateY(20px);
+  /* Vị trí ban đầu hơi thấp hơn */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  /* Chuyển động mượt mà */
+  /* Hoặc dùng animation trực tiếp khi add class 'is-visible-text' */
 }
 
 /* Khi class 'is-visible-text' được thêm vào */
 .animate-text-on-scroll.is-visible-text {
-    animation: flyInFromBottom 1s ease-out forwards; /* Chạy animation */
+  animation: flyInFromBottom 1s ease-out forwards; /* Chạy animation */
 }
+
+/* Khi class 'is-visible-text' được thêm vào */
+.animate-text-on-scroll_2.is-visible-text {
+  animation: flyInFromBottom 1s ease-out forwards; /* Chạy animation */
+}
+
+/* Khi class 'is-visible-text' được thêm vào */
+.animate-flower-on.is-visible-text {
+  animation: flyInFromBottom 1s ease-out forwards; /* Chạy animation */
+}
+
+.flower-section .flower {
+
+}
+
+.title .names{
+    
+}
+
+.names-group .title,
+.names-group .names {
+
+}
+
+.names-group .title.is-visible-text { animation-delay: 0.1s;}
+.names-group .names.is-visible-text { animation-delay: 0.5s;}
 
 /* Bạn có thể tạo độ trễ cho từng phần tử để chúng xuất hiện lần lượt */
 .date-layout .side-box .label {
@@ -224,7 +272,8 @@ body {
 
 .date-layout .center-box .month,
 .date-layout .center-box .day,
-.date-layout .center-box .year {
+.date-layout .center-box .year
+.location {
     /* Đảm bảo class 'animate-text-on-scroll' được thêm vào phần tử này */
     /* opacity và transform ban đầu được định nghĩa trong .animate-text-on-scroll */
 }

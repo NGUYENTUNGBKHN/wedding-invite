@@ -12,7 +12,7 @@
     /* background-image: url('images/home_bg.jpg'); */
     /* background-size: cover; */
     /* background-position: center; */
-    background-image: url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1280&q=80');
+    background-image: url('../images/gallery_background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

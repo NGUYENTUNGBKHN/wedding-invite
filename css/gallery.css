@@ -1,7 +1,7 @@
 /* style.css */
 .gallery-section {
     display: flex;
-    background-image: url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1280&q=80');
+    background-image: url('../images/gallery_background.jpg');
     background-size: cover;
     position: relative;
 }
@@ -12,12 +12,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 216, 242, 0.5); /* Màu đen trong suốt (50% opacity) */
+    background-color: rgba(0, 0, 0, 0.5); /* Màu đen trong suốt (50% opacity) */
     /* Bạn có thể thay đổi màu và độ trong suốt ở đây */
     /* Ví dụ: rgba(255, 255, 255, 0.3) cho lớp phủ trắng trong suốt */
     z-index: 1; /* Đảm bảo lớp phủ nằm trên ảnh nền nhưng dưới nội dung */
 }
-
 
 .gallery-container {
     position: relative;

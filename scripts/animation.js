@@ -8,6 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const textElements = document.querySelectorAll('.animate-text-on-scroll');
     const textContainer = document.querySelector('.date-layout'); // Hoặc một container chung cho các chữ này
 
+    // flower
+    const flowerElements = document.querySelectorAll('.animate-flower-on');
+    const flowerContainer = document.querySelector('.flower-section');
+
+    // name group
+    const textElements_2 = document.querySelectorAll('.animate-text-on-scroll_2');
+    const textContainer_2 = document.querySelector('.names-group');
+
     // --- Observer cho mái vòm ---
     if (archBottom && archwrapper) {
         const archObserverOptions = {
@@ -54,5 +62,58 @@ document.addEventListener('DOMContentLoaded', function() {
         }, textObserverOptions);
 
         textObserver.observe(textContainer); // Theo dõi container chung của các chữ
+    }
+    // Chữ names-group
+    if (textElements_2.length > 0 && textContainer_2) {
+        const textObserverOptions_2 = {
+            root: null,
+            rootMargin: '0px',
+            threshold: [0, 0.5] // Kích hoạt khi 0% và 50% hiển thị
+        };
+
+        const textObserver_2 = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                    // Khi container chứa chữ xuất hiện
+                    textElements_2.forEach(textEl => {
+                        textEl.classList.add('is-visible-text');
+                    });
+                } else if (!entry.isIntersecting && entry.intersectionRatio === 0) {
+                    // Khi container chứa chữ khuất khỏi tầm nhìn, xóa class
+                    textElements_2.forEach(textEl => {
+                        textEl.classList.remove('is-visible-text');
+                    });
+                }
+            });
+        }, textObserverOptions_2);
+
+        textObserver_2.observe(textContainer_2); // Theo dõi container chung của các chữ
+    }
+
+    // flower
+    if (flowerElements.length > 0 && flowerContainer) {
+        const flowerObserverOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: [0, 0.5] // Kích hoạt khi 0% và 50% hiển thị
+        };
+
+        const flowerObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                    // Khi container chứa chữ xuất hiện
+                    flowerElements.forEach(textEl => {
+                        textEl.classList.add('is-visible-text');
+                    });
+                } else if (!entry.isIntersecting && entry.intersectionRatio === 0) {
+                    // Khi container chứa chữ khuất khỏi tầm nhìn, xóa class
+                    flowerElements.forEach(textEl => {
+                        textEl.classList.remove('is-visible-text');
+                    });
+                }
+            });
+        }, flowerObserverOptions);
+
+        flowerObserver.observe(flowerContainer); // Theo dõi container chung của các chữ
     }
 });
