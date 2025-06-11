@@ -1,0 +1,141 @@
+/* style.css */
+.gallery-section {
+    display: flex;
+    background-image: url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1280&q=80');
+    background-size: cover;
+    position: relative;
+}
+
+.gallery-layout {
+    position: absolute; /* Lớp phủ tuyệt đối so với .gallery-section-with-overlay */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 216, 242, 0.5); /* Màu đen trong suốt (50% opacity) */
+    /* Bạn có thể thay đổi màu và độ trong suốt ở đây */
+    /* Ví dụ: rgba(255, 255, 255, 0.3) cho lớp phủ trắng trong suốt */
+    z-index: 1; /* Đảm bảo lớp phủ nằm trên ảnh nền nhưng dưới nội dung */
+}
+
+
+.gallery-container {
+    position: relative;
+    width: 800px;
+    height: 850px;
+    overflow: visible;
+    /* Bỏ background-color và box-shadow ở đây để container không có nền trắng */
+    /* background-color: #F8F8F8; */
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */
+    border-radius: 8px; /* Giữ bo góc cho container tổng thể nếu muốn */
+    perspective: 1000px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+}
+
+.gallery-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out;
+}
+
+.gallery-slide {
+    position: absolute;
+    width: 60%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.8s ease-in-out, visibility 0.5s;
+    /* Bỏ background-color ở đây nếu bạn muốn ảnh "trôi nổi" trên nền body */
+    /* background-color: #f8f8f8; */
+    border-radius: 8px;
+    /* Có thể giữ box-shadow nếu muốn ảnh có hiệu ứng nổi nhẹ */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2); /* Tăng bóng để nổi bật hơn */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.gallery-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Bỏ border-top-left-radius và border-top-right-radius nếu bạn đã có border-radius trên .gallery-slide */
+    /* border-top-left-radius: 8px; */
+    /* border-top-right-radius: 8px; */
+    /* Giữ box-shadow nếu bạn muốn chỉ ảnh có bóng riêng */
+    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1); */
+}
+
+.slide-caption {
+    padding: 10px;
+    font-size: 1em;
+    color: #555;
+    /* Đặt nền trong suốt hoặc màu nhạt hơn nếu muốn chú thích ít nổi bật */
+    background-color: rgba(255, 255, 255, 0.7); /* Nền trắng trong suốt */
+    border-top: 1px solid #ddd;
+    text-align: center;
+    /* Giữ bo góc cho chú thích nếu muốn */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Các styles cho .active, .prev-visible, .next-visible vẫn giữ nguyên */
+.gallery-slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) rotateY(0deg) translateZ(0px) scale(1);
+    z-index: 10;
+}
+
+.gallery-slide.prev-visible {
+    opacity: 0.7;
+    visibility: visible;
+    transform: translate(-50%, -50%) rotateY(30deg) translateZ(-200px) translateX(200px) scale(0.9);
+    z-index: 5;
+}
+
+.gallery-slide.next-visible {
+    opacity: 0.7;
+    visibility: visible;
+    transform: translate(-50%, -50%) rotateY(-30deg) translateZ(-200px) translateX(-200px) scale(0.9);
+    z-index: 5;
+}
+
+/* Các nút điều khiển vẫn giữ nguyên */
+.gallery-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    cursor: pointer;
+    font-size: 1.8em;
+    border-radius: 50%;
+    z-index: 20;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.gallery-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-button.prev {
+    left: 20px;
+}
+
+.gallery-button.next {
+    right: 20px;
+}
