@@ -11,7 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let isDragging = false;
     let startPosX = 0;
-    let autoScrollInterval = null; // Khai báo biến này ở phạm vi cao hơn
+    let autoScrollInterval = null;
+
+    // THAY ĐỔI MỚI: Biến trạng thái để kiểm soát việc kéo
+    let dragEnabled = false;
 
     // 1. Tạo động các slide
     for (let i = 1; i <= numberOfSlides; i++) {
@@ -52,22 +55,38 @@ document.addEventListener('DOMContentLoaded', () => {
     nextButton.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % totalSlides;
         updateGallery();
-        // Sau khi click nút, bạn có thể muốn tự động cuộn lại
-        // hoặc giữ nguyên trạng thái nếu người dùng đang điều khiển thủ công
-        startAutoScroll(); // Tùy chọn: Khởi động lại tự động cuộn sau tương tác thủ công
+        startAutoScroll();
     });
 
     // Xử lý sự kiện khi click nút "Trước"
     prevButton.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
         updateGallery();
-        startAutoScroll(); // Tùy chọn: Khởi động lại tự động cuộn sau tương tác thủ công
+        startAutoScroll();
     });
 
     // --- Drag functionality ---
 
+    // THAY ĐỔI MỚI: Xử lý Double Click
+    galleryTrack.addEventListener('dblclick', () => {
+        dragEnabled = !dragEnabled; // Đảo ngược trạng thái
+        if (dragEnabled) {
+            console.log('Kéo cuộn đã được kích hoạt!');
+            // Bạn có thể thêm một số hiệu ứng trực quan ở đây, ví dụ: thay đổi con trỏ chuột
+            galleryTrack.style.cursor = 'grab';
+        } else {
+            console.log('Kéo cuộn đã bị vô hiệu hóa!');
+            galleryTrack.style.cursor = 'default';
+        }
+        // Dừng tự động cuộn khi trạng thái kéo thay đổi để tránh xung đột
+        stopAutoScroll();
+    });
+
     // Mouse Down / Touch Start
     galleryTrack.addEventListener('mousedown', (e) => {
+        // THAY ĐỔI MỚI: Chỉ bắt đầu kéo nếu dragEnabled là true
+        if (!dragEnabled) return;
+
         e.preventDefault();
         isDragging = true;
         startPosX = e.clientX;
@@ -76,6 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     galleryTrack.addEventListener('touchstart', (e) => {
+        // THAY ĐỔI MỚI: Chỉ bắt đầu kéo nếu dragEnabled là true
+        if (!dragEnabled) return;
+
         e.preventDefault();
         isDragging = true;
         startPosX = e.touches[0].clientX;
@@ -83,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stopAutoScroll(); // Dừng tự động cuộn khi bắt đầu kéo
     });
 
-    // Mouse Move / Touch Move
+    // Mouse Move / Touch Move (không cần thay đổi logic, chỉ bị ảnh hưởng bởi isDragging)
     galleryTrack.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
         e.preventDefault();
@@ -105,13 +127,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (endPosX - startPosX > dragThreshold){
             currentIndex = (currentIndex + 1) % totalSlides;
-        } else if (startPosX - endPosX > dragThreshold)  {
+        } else if (startPosX - endPosX > dragThreshold) {
             currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
         }
         updateGallery();
-        // Không gọi startAutoScroll ở đây. Sẽ được gọi trong mouseleave.
-        // Điều này đảm bảo rằng nếu người dùng đang kéo và giữ chuột trong gallery,
-        // nó vẫn sẽ dừng lại.
+        // Không gọi startAutoScroll ở đây. Sẽ được gọi trong mouseleave nếu không đang kéo.
     });
 
     document.addEventListener('touchend', (e) => {
@@ -122,9 +142,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const endPosX = e.changedTouches[0].clientX;
         const dragThreshold = 50;
 
-        if (startPosX - endPosX > dragThreshold) {
+        if (endPosX - startPosX > dragThreshold){
             currentIndex = (currentIndex + 1) % totalSlides;
-        } else if (endPosX - startPosX > dragThreshold) {
+        } else if (startPosX - endPosX > dragThreshold) {
             currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
         }
         updateGallery();
@@ -137,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     galleryTrack.addEventListener('mouseleave', () => {
-        // Chỉ bắt đầu lại tự động cuộn nếu không đang kéo
+        // Chỉ bắt đầu lại tự động cuộn nếu không đang kéo và dragEnabled không ảnh hưởng đến việc khởi động lại auto-scroll sau mouseleave
         if (!isDragging) {
             startAutoScroll();
         }

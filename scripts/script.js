@@ -61,6 +61,8 @@ if (!guestId) {
     });
 }
 
+const wishesInput = document.getElementById('wishesText'); // Thêm dòng này
+
 function sendRSVP(status) {
   const confirmText = status === 'accepted'
     ? 'Bạn xác nhận sẽ tham dự chứ?'
@@ -68,7 +70,9 @@ function sendRSVP(status) {
 
   if (!confirm(confirmText)) return;
 
-  db.collection('guests').doc(guestId).update({ rsvp: status })
+  const guestWishes = wishesInput ? wishesInput.value : '';
+
+  db.collection('guests').doc(guestId).update({ rsvp: status, wishes: guestWishes })
     .then(() => {
       alert('Cảm ơn bạn đã phản hồi!');
       location.reload();
@@ -77,3 +81,33 @@ function sendRSVP(status) {
       alert('Lỗi khi gửi phản hồi: ' + err.message);
     });
 }
+
+// function sendRSVP(status) {
+//   const confirmText = status === 'accepted'
+//     ? 'Bạn xác nhận sẽ tham dự chứ?'
+//     : 'Bạn xác nhận sẽ không tham dự?';
+
+//   if (!confirm(confirmText)) return;
+
+//   // Kiểm tra guestId có tồn tại trước khi gửi
+//   if (!guestId) {
+//     alert('Không tìm thấy ID khách mời để gửi phản hồi.');
+//     return;
+//   }
+
+//   // Lấy lời chúc từ input
+//   const guestWishes = wishesInput ? wishesInput.value : ''; // Lấy giá trị, nếu input tồn tại
+
+//   // Tạo đối tượng dữ liệu để cập nhật
+//   const updateData = { rsvp: status, wishes: guestWishes };
+
+//   updateDoc(doc(db, 'guests', guestId), updateData) // Sửa thành updateData
+//     .then(() => {
+//       alert('Cảm ơn bạn đã phản hồi!');
+//       location.reload(); // Tải lại trang để hiển thị trạng thái mới
+//     })
+//     .catch(err => {
+//       alert('Lỗi khi gửi phản hồi: ' + err.message);
+//       console.error("Lỗi khi cập nhật RSVP:", err);
+//     });
+// }

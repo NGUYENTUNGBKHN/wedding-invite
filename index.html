@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="css/corner-menu.css" />
   <link rel="stylesheet" href="css/flower-fly.css" />
   <link rel="stylesheet" href="css/gallery.css" />
+  <link rel="stylesheet" href="css/dialog-money-gift.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
@@ -34,6 +36,14 @@
       <a href="#rsvp" class="nav-button">RSVP</a>
     </div>
   </nav>
+  <!-- dialog -->
+  <div id="moneyGiftDialog" class="dialog-overlay">
+  <div class="dialog-content">
+    <button class="close-button" id="closeMoneyGiftDialog">&times;</button>
+    <h3>Gửi tiền mừng</h3>
+    <p>Thông tin tài khoản ngân hàng hoặc phương thức thanh toán.</p>
+    </div>
+  </div>
   <!-- audio -->
   <audio id="backgroundMusic" loop>
     <source src="music/wedding-song.mp3" type="audio/mpeg">
@@ -49,15 +59,15 @@
       <i class="fas fa-times"></i> 
     </button>
     <div class="sub-buttons-container">
-      <button class="corner-button">
+      <button class="corner-button" id="wishesButton">
         <i class="fas fa-pen"></i>
         Gửi lời chúc
       </button>
-      <button class="corner-button">
+      <button class="corner-button" id="giftMoneyButton">
         <i class="fas fa-gift"></i>
         Gửi tiền mừng
       </button>
-      <button class="corner-button">
+      <button class="corner-button" id="albumImageButton">
         <i class="fas fa-images"></i>
         Album ảnh
       </button>
@@ -137,8 +147,11 @@
   <!-- Response status -->
   <div id="rsvp" class="rsvp-page" style="display:none;">
     <h3>Phản hồi tham dự</h3>
-    <button onclick="sendRSVP('accepted')">Tham dự</button>
-    <button onclick="sendRSVP('declined')">Không tham dự</button>
+    <label for="wishesText">Lời chúc gửi đến cô dâu chú rể (tùy chọn):</label>
+    <textarea id="wishesText" rows="4" placeholder="Ví dụ: Chúc mừng hạnh phúc hai bạn!"></textarea>
+    <div class="rsvp-actions"> <button class="rsvp-button accept-button" onclick="sendRSVP('accepted')">Tham dự</button>
+        <button class="rsvp-button decline-button" onclick="sendRSVP('declined')">Không tham dự</button>
+    </div>
   </div>
   <!-- Script JS -->
   <script src="scripts/firebase-config.js"></script>

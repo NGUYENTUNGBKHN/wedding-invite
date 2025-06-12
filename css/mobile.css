@@ -1,0 +1,431 @@
+/* mobile.css - Tối ưu cho thiết bị di động */
+
+/* Base styles for all screens (Mobile-First Approach) */
+/* Bạn có thể đặt các style cơ bản phù hợp với mobile ở đây nếu chưa có */
+body {
+    font-size: 15px; /* Kích thước font cơ bản cho mobile */
+}
+
+/* ------------------------------------------- */
+/* Media Queries cho các thiết bị có chiều rộng tối đa 768px (Phổ biến cho Tablet Portrait và Large Phones) */
+/* ------------------------------------------- */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px; /* Giảm cỡ chữ chung cho màn hình nhỏ hơn */
+    }
+
+    /* Main Navigation */
+    .main-nav .nav-container {
+        flex-direction: column; /* Xếp các nút nav theo chiều dọc */
+        align-items: center;
+        padding: 8px 0; /* Giảm padding */
+    }
+
+    .main-nav .logo-link {
+        margin-bottom: 10px;
+    }
+
+    .main-nav .logo {
+        height: 70px; /* Giảm kích thước logo */
+        width: auto;
+    }
+
+    .main-nav .nav-button {
+        margin: 4px 0; /* Giảm khoảng cách giữa các nút */
+        width: 90%; /* Chiếm gần hết chiều rộng */
+        text-align: center;
+        padding: 8px 10px; /* Giảm padding nút */
+        font-size: 0.95rem;
+    }
+
+    /* Home Section */
+    .home-container {
+        padding: 15px;
+        min-height: calc(100vh - 70px); /* Điều chỉnh chiều cao trừ đi nav mới */
+    }
+
+    .couple-image {
+        width: 150px; /* Giảm kích thước ảnh cặp đôi */
+        height: 150px;
+        margin-bottom: 15px;
+    }
+
+    .couple-names .couple-name {
+        font-size: 2.5em; /* Giảm cỡ chữ tên cô dâu chú rể */
+        margin: 3px 0;
+    }
+
+    /* Invitation Section */
+    .invitation-container,
+    .invitation-container_2 {
+        padding: 15px;
+    }
+
+    .flower-section .flower {
+        max-width: 80px; /* Giảm kích thước hoa góc */
+    }
+
+    .invitation-card {
+        padding: 15px;
+        margin: 10px; /* Giảm margin */
+    }
+
+    .invitation-card .title {
+        font-size: 1.3em; /* Giảm cỡ chữ tiêu đề */
+    }
+
+    .invitation-card .names {
+        font-size: 2em; /* Giảm cỡ chữ tên */
+    }
+
+    .invitation-card .names.heart {
+        font-size: 1.2em; /* Giảm kích thước trái tim */
+    }
+
+    .date-display {
+        flex-direction: column; /* Xếp ngày tháng theo chiều dọc */
+        align-items: center;
+    }
+
+    .date-layout > div {
+        width: 100%; /* Chiếm hết chiều rộng */
+        margin-bottom: 8px;
+    }
+
+    .date-layout .center-box {
+        order: -1; /* Đặt tháng, ngày, năm lên trên */
+        margin-bottom: 12px;
+    }
+
+    .date-layout .month,
+    .date-layout .day,
+    .date-layout .year {
+        font-size: 1.1em; /* Giảm cỡ chữ ngày tháng */
+    }
+
+    .location {
+        font-size: 0.85em; /* Giảm cỡ chữ địa điểm */
+        margin: 0.5rem 0;
+    }
+
+    .location::before {
+        width: 120px; /* Giảm độ dài đường kẻ */
+    }
+
+    .arch-wrapper img {
+        max-width: 100%;
+        height: auto;
+        padding-bottom: 30px; /* Điều chỉnh padding cho mái vòm */
+    }
+
+    /* Gallery Section */
+    .gallery-container {
+        height: 500px; /* Giảm chiều cao container gallery */
+        max-width: 95%;
+        margin: 0 auto;
+    }
+    .gallery-slide {
+        width: 85%; /* Tăng chiều rộng slide trên mobile để dễ nhìn hơn */
+        height: 80%; /* Điều chỉnh chiều cao slide */
+    }
+    .gallery-slide.prev-visible,
+    .gallery-slide.next-visible {
+        /* Điều chỉnh transform cho mobile để không bị tràn màn hình */
+        transform: translate(-50%, -50%) rotateY(20deg) translateZ(-100px) translateX(100px) scale(0.7);
+        z-index: 5;
+    }
+    .gallery-button {
+        font-size: 1.3em;
+        padding: 6px 10px;
+        width: 35px;
+        height: 35px;
+        top: 50%; /* Giữ ở giữa */
+        transform: translateY(-50%);
+    }
+
+    /* RSVP Section */
+    .rsvp-page {
+        padding: 20px 15px;
+        margin: 20px auto;
+        max-width: 95%; /* Chiếm gần hết chiều rộng */
+    }
+
+    .rsvp-page h3 {
+        font-size: 1.5em;
+    }
+
+    .rsvp-page label {
+        font-size: 0.9em;
+    }
+
+    .rsvp-page textarea {
+        width: calc(100% - 20px); /* Điều chỉnh chiều rộng textarea */
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .rsvp-actions {
+        flex-direction: column; /* Xếp nút RSVP theo chiều dọc */
+        margin-top: 15px;
+    }
+
+    .rsvp-button {
+        width: 90%; /* Chiếm gần hết chiều rộng */
+        margin: 5px 0; /* Khoảng cách giữa các nút */
+        padding: 10px 15px;
+        font-size: 0.95em;
+    }
+
+    /* Music Toggle Button */
+    .music-toggle-button {
+        bottom: 15px;
+        left: 15px; /* Giữ ở bên trái */
+        width: 45px;
+        height: 45px;
+        font-size: 1.3em;
+    }
+
+    /* Expandable Corner Menu */
+    .expandable-corner-menu {
+        bottom: 15px;
+        right: 15px;
+        gap: 8px; /* Giảm khoảng cách giữa các nút */
+    }
+
+    .corner-button.menu-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3em;
+    }
+
+    .sub-buttons-container {
+        gap: 8px;
+    }
+
+    .sub-buttons-container button {
+        white-space: nowrap;
+        font-size: 0.85em; /* Điều chỉnh cỡ chữ nút con */
+        padding: 6px 10px;
+    }
+
+    /* Flower Fly */
+    #flower-fly-container .flower-fly {
+        width: 15px; /* Giảm kích thước cánh hoa bay */
+        height: 15px;
+        animation-duration: 6s; /* Có thể giảm thời gian bay để chúng nhanh hơn */
+    }
+
+    /* Dialog Tiền Mừng */
+    .dialog-overlay {
+        padding: 5px; /* Giảm padding cho overlay */
+    }
+
+    .dialog-content {
+        max-width: 95%; /* Chiếm phần lớn chiều rộng màn hình */
+        margin: 10px; /* Giảm margin */
+        padding: 15px; /* Giảm padding bên trong */
+        max-height: 85vh; /* Giảm chiều cao tối đa một chút */
+    }
+
+    .dialog-content h3 {
+        font-size: 1.3em; /* Giảm cỡ chữ tiêu đề */
+        margin-bottom: 10px;
+    }
+
+    .dialog-content p {
+        font-size: 0.85em; /* Giảm cỡ chữ nội dung */
+        line-height: 1.4;
+    }
+
+    .close-button {
+        font-size: 1.6em; /* Kích thước nút đóng vẫn rõ ràng */
+        top: 8px;
+        right: 12px;
+        padding: 3px;
+    }
+}
+
+/* ------------------------------------------- */
+/* Media Queries cho các thiết bị có chiều rộng tối đa 480px (Small Phones) */
+/* ------------------------------------------- */
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+
+    /* Home Section */
+    .couple-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .couple-names .couple-name {
+        font-size: 2em; /* Giảm cỡ chữ tên cô dâu chú rể thêm */
+    }
+
+    /* Invitation Section */
+    .invitation-card .names {
+        font-size: 1.8em;
+    }
+
+    .invitation-card .names.heart {
+        font-size: 1.1em;
+    }
+
+    .date-layout .month,
+    .date-layout .day,
+    .date-layout .year {
+        font-size: 1em;
+    }
+
+    .location {
+        font-size: 0.8em;
+    }
+
+    .location::before {
+        width: 100px;
+    }
+
+    /* Gallery Section */
+    .gallery-container {
+        height: 400px; /* Giảm chiều cao container gallery hơn nữa */
+    }
+    .gallery-slide {
+        width: 90%; /* Tăng chiều rộng slide */
+        height: 75%;
+    }
+    .gallery-slide.prev-visible,
+    .gallery-slide.next-visible {
+        transform: translate(-50%, -50%) rotateY(15deg) translateZ(-80px) translateX(80px) scale(0.6);
+    }
+    .gallery-button {
+        font-size: 1.1em;
+        width: 30px;
+        height: 30px;
+    }
+
+    /* RSVP Section */
+    .rsvp-page {
+        padding: 15px 10px;
+    }
+
+    .rsvp-page h3 {
+        font-size: 1.3em;
+    }
+
+    .rsvp-button {
+        width: 95%; /* Chiếm gần hết chiều rộng */
+        font-size: 0.9em;
+    }
+
+    /* Music Toggle Button */
+    .music-toggle-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1em;
+    }
+
+    /* Expandable Corner Menu */
+    .corner-button.menu-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1em;
+    }
+
+    .sub-buttons-container button {
+        font-size: 0.8em;
+        padding: 5px 8px;
+    }
+
+    /* Dialog Tiền Mừng */
+    .dialog-content {
+        margin: 5px;
+        padding: 12px;
+    }
+
+    .dialog-content h3 {
+        font-size: 1.2em;
+    }
+
+    .dialog-content p {
+        font-size: 0.8em;
+    }
+
+    .close-button {
+        font-size: 1.4em;
+    }
+}
+
+/* ------------------------------------------- */
+/* Media Queries cho các thiết bị rất nhỏ (Smallest Phones, e.g., iPhone SE/5) */
+/* ------------------------------------------- */
+@media screen and (max-width: 375px) {
+    body {
+        font-size: 12px;
+    }
+
+    /* Home Section */
+    .couple-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .couple-names .couple-name {
+        font-size: 1.8em;
+    }
+
+    /* Invitation Section */
+    .invitation-card .names {
+        font-size: 1.6em;
+    }
+
+    .invitation-card .names.heart {
+        font-size: 1em;
+    }
+
+    .date-layout .month,
+    .date-layout .day,
+    .date-layout .year {
+        font-size: 0.9em;
+    }
+
+    .location {
+        font-size: 0.75em;
+    }
+
+    /* Gallery Section */
+    .gallery-container {
+        height: 350px;
+    }
+    .gallery-slide {
+        height: 70%;
+    }
+    .gallery-button {
+        font-size: 1em;
+        width: 28px;
+        height: 28px;
+    }
+
+    /* RSVP Section */
+    .rsvp-page h3 {
+        font-size: 1.2em;
+    }
+
+    .rsvp-button {
+        font-size: 0.85em;
+        padding: 8px 12px;
+    }
+
+    /* Dialog Tiền Mừng */
+    .dialog-content {
+        padding: 10px;
+    }
+
+    .dialog-content h3 {
+        font-size: 1.1em;
+    }
+
+    .dialog-content p {
+        font-size: 0.75em;
+    }
+}

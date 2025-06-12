@@ -38,3 +38,59 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const albumImgButton = document.getElementById('albumImageButton');
+    if (albumImgButton) {
+        albumImgButton.addEventListener('click', function() {
+            const gallerySection = document.getElementById('gallery');
+            if (gallerySection) {
+                gallerySection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+
+    const wishesButton = document.getElementById('wishesButton');
+    if (wishesButton) {
+        wishesButton.addEventListener('click', function() {
+            const gallerySection = document.getElementById('rsvp');
+            if (gallerySection) {
+                gallerySection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const moneyGiftButton = document.getElementById('giftMoneyButton'); // Nút "Gửi tiền mừng" là nút thứ 2 trong sub-buttons-container
+    const moneyGiftDialog = document.getElementById('moneyGiftDialog');
+    const closeMoneyGiftDialogButton = document.getElementById('closeMoneyGiftDialog');
+
+    // Mở dialog khi nhấn nút "Gửi tiền mừng"
+    if (moneyGiftButton) {
+        moneyGiftButton.addEventListener('click', function() {
+            if (moneyGiftDialog) {
+                moneyGiftDialog.style.display = 'flex'; // Hiển thị dialog
+            }
+        });
+    }
+
+    // Đóng dialog khi nhấn nút 'X'
+    if (closeMoneyGiftDialogButton) {
+        closeMoneyGiftDialogButton.addEventListener('click', function() {
+            if (moneyGiftDialog) {
+                moneyGiftDialog.style.display = 'none'; // Ẩn dialog
+            }
+        });
+    }
+
+    // Đóng dialog khi click ra ngoài vùng dialog content
+    if (moneyGiftDialog) {
+        moneyGiftDialog.addEventListener('click', function(event) {
+            if (event.target === moneyGiftDialog) { // Chỉ đóng khi click trực tiếp vào overlay
+                moneyGiftDialog.style.display = 'none';
+            }
+        });
+    }
+});

@@ -1,9 +1,9 @@
 // script.js
 document.addEventListener('DOMContentLoaded', () => {
     const flowerContainer = document.getElementById('flower-fly-container');
-    const numberOfFlowers = 30; // Số lượng bông hoa bạn muốn hiển thị đồng thời
-    const minFallDuration = 8; // Thời gian rơi tối thiểu (giây)
-    const maxFallDuration = 15; // Thời gian rơi tối đa (giây)
+    const numberOfFlowers = 10; // Số lượng bông hoa bạn muốn hiển thị đồng thời
+    const minFallDuration = 5; // Thời gian rơi tối thiểu (giây)
+    const maxFallDuration = 10; // Thời gian rơi tối đa (giây)
     const flowerTypes = ['type1', 'type2', 'type3']; // Các loại hoa để đa dạng màu sắc
 
     function createFlower() {
@@ -41,5 +41,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Liên tục tạo hoa mới để duy trì hiệu ứng
     setInterval(() => {
         createFlower();
-    }, 1000); // Tăng thời gian tạo hoa mới lên một chút, ví dụ 1.5 giây
+    }, 5000); // Tăng thời gian tạo hoa mới lên một chút, ví dụ 1.5 giây
 });

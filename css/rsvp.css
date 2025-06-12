@@ -1,80 +1,142 @@
+/* Styling cho toàn bộ khung RSVP (từ class rsvp-page) */
 .rsvp-page {
-  background-image: url('../images/background.png');
-  /* Có thể dùng lại nền của thẻ mời */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 20px;
-  max-width: 600px;
-  /* Chiều rộng tối đa của form */
-  width: 100%;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
-  padding: 40px 30px;
-  box-sizing: border-box;
-  color: #ffffff;
-  animation: fadeIn 2s ease-in-out;
-  /* Giữ hiệu ứng xuất hiện */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 40px;
-  /* Khoảng cách với phần trước đó */
-  margin-bottom: 40px;
-  /* Khoảng cách với phần dưới */
-  margin-left: auto;
-  /* Đẩy sang trái hết mức có thể */
-  margin-right: auto;
-  /* Đẩy sang phải hết mức có thể */
+    background-image: url('../images/background.png'); /* Nền từ ảnh */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    max-width: 600px; /* Chiều rộng tối đa của form */
+    width: 100%; /* Đảm bảo chiếm 100% không gian khả dụng trong max-width */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn */
+    padding: 40px 30px;
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng tổng chiều rộng */
+    color: #ffffff; /* Màu chữ mặc định cho toàn bộ khối rsvp-page */
+    animation: fadeIn 2s ease-in-out; /* Giữ hiệu ứng xuất hiện */
+    display: flex; /* Bật Flexbox cho khối chính */
+    flex-direction: column; /* Sắp xếp các phần tử con theo chiều dọc */
+    align-items: center; /* Căn giữa các phần tử con theo chiều ngang */
+    margin: 40px auto; /* Căn giữa và khoảng cách trên/dưới */
 }
 
+/* Các thuộc tính cụ thể cho thẻ div có ID 'rsvp'
+   Nếu #rsvp là div bao ngoài các phần tử trong rsvp-page,
+   thì có thể một số thuộc tính sẽ bị ghi đè bởi .rsvp-page.
+   Thông thường, rsvp-page là div chính chứa tất cả nội dung.
+   Nếu #rsvp và .rsvp-page cùng là một thẻ, bạn chỉ cần dùng .rsvp-page
+   và xóa selector #rsvp riêng biệt đi để tránh trùng lặp và xung đột.
+   Tôi giả định #rsvp chính là .rsvp-page trong trường hợp này.
+*/
 #rsvp {
-  width: 100%;
-  text-align: center;
-  color: #ffffff;
+    /* Đảm bảo nó là div chính hoặc một div con có kích thước đầy đủ */
+    width: 100%;
+    text-align: center;
+    /* color: #ffffff; // Đã định nghĩa ở .rsvp-page, có thể xóa */
 }
 
-#rsvp button {
-  margin: 0 12px;
-  padding: 12px 26px;
-  font-weight: 600;
-  background-color: #d6336c;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s;
-  font-size: 1rem;
+/* Tiêu đề H3 bên trong .rsvp-page */
+.rsvp-page h3 {
+    color: #ffffff; /* Màu vàng Gold để nổi bật trên nền đậm, thay vì nâu đất */
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Thêm bóng cho chữ để dễ đọc trên nền ảnh */
 }
 
-#rsvp button:hover {
-  background-color: #a7284f;
+/* Nhãn cho các input/textarea */
+.rsvp-page label {
+    display: block;
+    text-align: center; /* Căn giữa nhãn để phù hợp với căn giữa tổng thể */
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #FFFFFF; /* Màu trắng cho nhãn, dễ đọc trên nền ảnh */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Thêm bóng cho chữ */
 }
 
+/* Textarea cho lời chúc */
+.rsvp-page textarea {
+    width: calc(100% - 20px); /* Đảm bảo chiều rộng chuẩn */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    resize: vertical;
+    min-height: 80px;
+    max-height: 200px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.8); /* Nền hơi trong suốt */
+    color: #333; /* Màu chữ tối cho dễ đọc */
+}
+
+/* Styling cho các nút (áp dụng cho tất cả button trực tiếp trong #rsvp hoặc .rsvp-page) */
+/* Nếu bạn muốn giữ các class accept-button, decline-button, bạn có thể tách ra */
+.rsvp-page button { /* Hoặc nếu #rsvp chính là .rsvp-page: #rsvp button */
+    margin: 0 12px;
+    padding: 12px 26px;
+    font-weight: 600;
+    background-color: #d6336c; /* Màu hồng đậm */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease; /* Thêm transition cho transform */
+    font-size: 1rem;
+    text-transform: uppercase; /* Chữ in hoa */
+    letter-spacing: 0.5px; /* Khoảng cách chữ */
+}
+
+.rsvp-page button:hover {
+    background-color: #a7284f; /* Màu hồng đậm hơn khi hover */
+    transform: translateY(-2px); /* Hiệu ứng nâng nhẹ khi hover */
+}
+
+/* Nếu bạn muốn có màu khác nhau cho nút Tham dự/Không tham dự */
+/* Bạn có thể thêm class vào HTML như accept-button, decline-button và định nghĩa ở đây */
+/*
+.rsvp-page .accept-button {
+    background-color: #4CAF50; // Màu xanh lá cây
+}
+.rsvp-page .accept-button:hover {
+    background-color: #45a049;
+}
+.rsvp-page .decline-button {
+    background-color: #f44336; // Màu đỏ
+}
+.rsvp-page .decline-button:hover {
+    background-color: #da190b;
+}
+*/
+
+/* Media Queries cho màn hình nhỏ */
 @media (max-width: 768px) {
-  .rsvp-page {
-    padding: 25px 15px; /* Giảm padding bên trong form */
-    margin-top: 20px; /* Giảm margin top */
-    margin-bottom: 20px; /* Giảm margin bottom */
-  }
+    .rsvp-page {
+        padding: 25px 15px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 
-  #rsvp h2 {
-    font-size: 1.8rem; /* Điều chỉnh kích thước tiêu đề */
-  }
+    .rsvp-page h3 { /* Cập nhật selector từ #rsvp h2 sang .rsvp-page h3 */
+        font-size: 1.5em; /* Điều chỉnh kích thước tiêu đề cho mobile */
+    }
 
-  #rsvp p {
-    font-size: 0.95rem; /* Điều chỉnh kích thước văn bản */
-  }
+    .rsvp-page p {
+        font-size: 0.95rem;
+    }
 
-  #rsvp button {
-    margin: 0 8px; /* Giảm khoảng cách giữa các nút */
-    padding: 10px 20px; /* Giảm padding nút */
-    font-size: 0.9rem; /* Giảm kích thước chữ nút */
-  }
+    .rsvp-page button { /* Cập nhật selector từ #rsvp button sang .rsvp-page button */
+        margin: 0 5px; /* Giảm khoảng cách giữa các nút hơn nữa */
+        padding: 10px 18px; /* Giảm padding nút */
+        font-size: 0.85rem; /* Giảm kích thước chữ nút */
+    }
+    /* Các input/textarea đã nằm trong .rsvp-page nên không cần selector #rsvp */
+    .rsvp-page textarea {
+        padding: 8px;
+        font-size: 0.95rem;
+    }
 
-  #rsvp input[type="text"],
-  #rsvp input[type="email"],
-  #rsvp textarea {
-    padding: 8px; /* Giảm padding input */
-    font-size: 0.95rem; /* Giảm kích thước chữ input */
-  }
+    /* Nếu bạn muốn các nút nằm trên 2 dòng ở mobile, có thể dùng flex-wrap */
+    .rsvp-page .rsvp-actions { /* Nếu bạn dùng div bao quanh các nút */
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
