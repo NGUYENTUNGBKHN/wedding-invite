@@ -49,3 +49,32 @@
 #rsvp button:hover {
   background-color: #a7284f;
 }
+
+@media (max-width: 768px) {
+  .rsvp-page {
+    padding: 25px 15px; /* Giảm padding bên trong form */
+    margin-top: 20px; /* Giảm margin top */
+    margin-bottom: 20px; /* Giảm margin bottom */
+  }
+
+  #rsvp h2 {
+    font-size: 1.8rem; /* Điều chỉnh kích thước tiêu đề */
+  }
+
+  #rsvp p {
+    font-size: 0.95rem; /* Điều chỉnh kích thước văn bản */
+  }
+
+  #rsvp button {
+    margin: 0 8px; /* Giảm khoảng cách giữa các nút */
+    padding: 10px 20px; /* Giảm padding nút */
+    font-size: 0.9rem; /* Giảm kích thước chữ nút */
+  }
+
+  #rsvp input[type="text"],
+  #rsvp input[type="email"],
+  #rsvp textarea {
+    padding: 8px; /* Giảm padding input */
+    font-size: 0.95rem; /* Giảm kích thước chữ input */
+  }
+}

@@ -10,27 +10,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const flower = document.createElement('div');
         flower.classList.add('flower-fly');
 
-        // Chọn một loại hoa ngẫu nhiên
         const randomType = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
         flower.classList.add(randomType);
 
-        // Đặt vị trí bắt đầu ngẫu nhiên
         const startX = Math.random() * window.innerWidth;
         flower.style.left = `${startX}px`;
 
-        // Kích thước ngẫu nhiên (tùy chọn)
-        const randomSize = Math.random() * (30 - 10) + 10; // Từ 10px đến 30px
+        const randomSize = Math.random() * (30 - 10) + 10;
         flower.style.width = `${randomSize}px`;
         flower.style.height = `${randomSize}px`;
 
-        // Thời gian rơi ngẫu nhiên
         const fallDuration = Math.random() * (maxFallDuration - minFallDuration) + minFallDuration;
         flower.style.animationDuration = `${fallDuration}s`;
-        flower.style.animationDelay = `${Math.random() * 5}s`; // Thêm độ trễ để hoa không rơi cùng lúc
+
+        // --- Bỏ comment dòng này hoặc thêm vào nếu chưa có ---
+        flower.style.animationDelay = `${Math.random() * 0.1}s`; // Thêm độ trễ ngẫu nhiên từ 0 đến 5 giây
 
         flowerContainer.appendChild(flower);
 
-        // Xóa bông hoa sau khi nó rơi ra khỏi màn hình để tối ưu hiệu suất
         flower.addEventListener('animationend', () => {
             flower.remove();
         });
@@ -44,5 +41,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Liên tục tạo hoa mới để duy trì hiệu ứng
     setInterval(() => {
         createFlower();
-    }, 1000); // Tạo một bông hoa mới mỗi 1 giây (có thể điều chỉnh)
+    }, 1000); // Tăng thời gian tạo hoa mới lên một chút, ví dụ 1.5 giây
 });

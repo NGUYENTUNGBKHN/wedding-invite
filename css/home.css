@@ -52,3 +52,19 @@
     font-size: 2rem;
     color: #fff;
 }
+
+@media (max-width: 768px) {
+  .home-container {
+    padding: 10px; /* Giảm padding trên mobile */
+  }
+  .couple-image {
+    width: 150px; /* Giảm kích thước ảnh trên mobile */
+    height: 150px;
+  }
+  .couple-name {
+    font-size: 2.5rem; /* Điều chỉnh kích thước chữ trên mobile */
+  }
+  .couple-names h1:nth-child(2) { /* Điều chỉnh kích thước chữ "Và" hoặc tên thứ hai */
+    font-size: 1.5rem;
+  }
+}

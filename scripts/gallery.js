@@ -103,9 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const endPosX = e.clientX;
         const dragThreshold = 50;
 
-        if (startPosX - endPosX > dragThreshold) {
+        if (endPosX - startPosX > dragThreshold){
             currentIndex = (currentIndex + 1) % totalSlides;
-        } else if (endPosX - startPosX > dragThreshold) {
+        } else if (startPosX - endPosX > dragThreshold)  {
             currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
         }
         updateGallery();

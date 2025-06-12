@@ -20,12 +20,14 @@
 
 .gallery-container {
     position: relative;
-    width: 800px;
+    max-width: 800px;
+    width: 95%;
     height: 850px;
     overflow: visible;
     /* Bỏ background-color và box-shadow ở đây để container không có nền trắng */
     /* background-color: #F8F8F8; */
     /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */
+    overflow: visible;
     border-radius: 8px; /* Giữ bo góc cho container tổng thể nếu muốn */
     perspective: 1000px;
     margin-top: 20px;
@@ -137,4 +139,35 @@
 
 .gallery-button.next {
     right: 20px;
+}
+
+@media (max-width: 768px) {
+    .gallery-container {
+        height: 550px; /* Giảm chiều cao của container trên mobile */
+        /* Có thể giảm thêm nếu ảnh quá lớn */
+    }
+    .gallery-slide {
+        width: 80%; /* Tăng chiều rộng slide trên mobile để dễ nhìn hơn */
+        height: 70%; /* Điều chỉnh chiều cao slide */
+    }
+    .gallery-slide.prev-visible {
+        /* Điều chỉnh transform cho mobile để không bị tràn màn hình */
+        transform: translate(-50%, -50%) rotateY(20deg) translateZ(-150px) translateX(150px) scale(0.8);
+        z-index: 5;
+    }
+    .gallery-slide.next-visible {
+        /* Điều chỉnh transform cho mobile */
+        transform: translate(-50%, -50%) rotateY(-20deg) translateZ(-150px) translateX(-150px) scale(0.8);
+        z-index: 5;
+    }
+    .gallery-button {
+        padding: 8px 12px; /* Giảm padding nút điều khiển */
+        font-size: 1.2em; /* Giảm kích thước icon */
+    }
+    .gallery-button.prev {
+        left: 10px; /* Điều chỉnh vị trí nút */
+    }
+    .gallery-button.next {
+        right: 10px; /* Điều chỉnh vị trí nút */
+    }
 }

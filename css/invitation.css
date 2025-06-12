@@ -517,3 +517,77 @@ body {
   align-items: center;
   text-align: center;
 }
+
+@media (max-width: 768px) {
+  .background-overlay {
+  /* Giữ nguyên các thuộc tính responsive đã có */
+  flex-wrap: wrap; /* Rất quan trọng để các container xuống dòng */
+  gap: 20px; /* Giảm khoảng cách giữa các khung trên mobile */
+  padding: 10px; /* Giảm padding chung */
+  }
+
+  .invitation-container,
+  .invitation-container_2 {
+    padding: 20px 15px; /* Giảm padding bên trong container */
+    min-height: 700px; /* Cho phép chiều cao tự động co giãn */
+    margin-top: 10px; /* Giảm margin top */
+    margin-bottom: 10px; /* Giảm margin bottom */
+  }
+
+  .invitation-container_2 {
+    min-height: 600px; /* Giảm chiều cao cho khung có mái vòm trên mobile nếu cần */
+    padding-bottom: 50px; /* Điều chỉnh padding cho mái vòm */
+  }
+
+  .title {
+    font-size: 1.8rem; /* Giảm kích thước tiêu đề */
+  }
+
+  .names {
+    font-size: 2.5rem; /* Giảm kích thước tên */
+  }
+
+  .names.heart {
+    font-size: 1.5rem; /* Giảm kích thước trái tim */
+  }
+
+  .location {
+    font-size: 0.9rem; /* Giảm kích thước chữ địa điểm */
+    margin: 0.8rem 0; /* Điều chỉnh margin */
+  }
+
+  .location::before {
+    width: 150px; /* Giảm độ dài dòng kẻ */
+  }
+
+  .invitation {
+    padding: 15px 10px; /* Giảm padding cho nội dung thư mời */
+    font-size: 0.95rem; /* Giảm kích thước chữ thư mời */
+    margin-top: 20px; /* Điều chỉnh margin top */
+    margin-bottom: 15px; /* Điều chỉnh margin bottom */
+  }
+
+  .flower {
+    width: 25%; /* Giữ nguyên % nhưng có thể kiểm tra trực tiếp trên thiết bị */
+    /* Nếu ảnh hoa quá lớn, bạn có thể giảm % hoặc sử dụng media query cụ thể */
+  }
+
+  /* Các phần date-display, side-box, center-box */
+  .date-layout_2, .footer_2 {
+    flex-direction: column; /* Xếp thành cột trên mobile */
+    gap: 10px; /* Giảm khoảng cách */
+  }
+
+  .side-box .label, .side-box_2 .label_2 {
+    font-size: 1rem; /* Giảm kích thước nhãn */
+  }
+
+  .center-box .day, .center-box_2 .day_2 {
+    font-size: 2.5rem; /* Giảm kích thước ngày */
+  }
+
+  .center-box .month, .center-box .year,
+  .center-box_2 .month_2, .center-box_2 .year_2 {
+    font-size: 0.9rem; /* Giảm kích thước tháng/năm */
+  }
+}

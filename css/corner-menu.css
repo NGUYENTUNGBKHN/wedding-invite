@@ -68,24 +68,22 @@
 }
 
 /* Responsive cho màn hình nhỏ hơn */
+/* Responsive cho màn hình nhỏ hơn */
 @media (max-width: 768px) {
   .expandable-corner-menu {
     bottom: 15px;
     right: 15px;
     gap: 8px;
   }
-
   .corner-button.menu-toggle {
     font-size: 1rem;
     padding: 10px 12px;
     min-width: 45px;
     min-height: 45px;
   }
-
   .sub-buttons-container {
     gap: 8px;
   }
-
   .corner-button {
     padding: 8px 12px;
     font-size: 0.8rem;

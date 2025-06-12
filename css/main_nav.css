@@ -54,13 +54,31 @@ body {
     padding-top: 0; /* Đảm bảo không có padding thừa đẩy nội dung xuống */
 }
 
+.main-nav .logo-link {
+    display: flex;
+    align-items: center;
+    /* margin-right: 10px;  */
+}
+
+.main-nav .logo {
+  height: 100px; /* Adjust as needed for your logo's size */
+  width: auto; /* Maintains aspect ratio */
+  /* You can add more styling here, e.g., padding, border-radius */
+}
+
+.main-nav .logo-link .logo {
+  height: 100px; /* Hoặc chiều cao mong muốn khác, ví dụ: 60px */
+  width: auto; /* Giữ tỷ lệ khung hình */
+  display: block; /* Giúp ngăn chặn khoảng trống thừa bên dưới hình ảnh */
+}
+
 /* @media queries cho mobile (tùy chọn) */
 /* Media queries cho mobile (giữ nguyên) */
 @media (max-width: 768px) {
     .nav-container {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 5px;
+        gap: 1px;
     }
 
     .nav-button {
@@ -79,5 +97,13 @@ body {
 
     .couple-names h1:nth-child(2) {
         font-size: 1.5rem;
+    }
+
+    .main-nav .logo-link .logo {
+      height: 60px; /* Giảm chiều cao logo trên mobile */
+    }
+    /* Đảm bảo padding-top của body khớp với chiều cao mới của nav */
+    body {
+        padding-top: 70px; /* Ví dụ: nếu nav cao 60px + 10px padding */
     }
 }

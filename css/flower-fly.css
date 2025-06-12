@@ -28,7 +28,7 @@
 /* Hoạt ảnh rơi */
 @keyframes fall {
     0% {
-        transform: translateY(-100px) rotate(0deg); /* Bắt đầu từ trên cao */
+        transform: translateY(0px) rotate(0deg); /* Bắt đầu từ trên cao */
         opacity: 0;
     }
     10% {
@@ -38,4 +38,11 @@
         transform: translateY(100vh) rotate(720deg); /* Rơi xuống cuối trang và xoay */
         opacity: 0; /* Biến mất khi chạm đáy */
     }
+}
+
+@media (max-width: 768px) {
+  .flower-fly {
+    width: 15px; /* Giảm kích thước hoa trên mobile */
+    height: 15px;
+  }
 }

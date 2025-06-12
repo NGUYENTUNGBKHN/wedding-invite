@@ -2,6 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thanh Tùng💖Thục Anh</title>
   <link rel="icon" href="images/favicon.png">
   <link rel="stylesheet" href="css/invitation.css" />
@@ -24,6 +25,9 @@
   <!-- Show menu -->
   <nav class="main-nav">
     <div class="nav-container">
+      <a href="#home" class="logo-link">
+        <img src="images/wedding_logo/Page_12.png" alt="Home" class="logo">
+      </a>
       <a href="#home" class="nav-button">Home</a>
       <a href="#thiep" class="nav-button">Invitation</a>
       <a href="#gallery" class="nav-button">Gallery</a>
@@ -70,12 +74,15 @@
       <h1 class="couple-name">Trương Thục Anh</h1>
     </div>
   </div>
+  <!-- Invitation -->
   <div id="thiep" class="background-overlay">
     <div class="invitation-container animate-fade">
+      <!-- Invitaiton -> flower  -->
       <div class="flower-section">
         <img src="images/image1.png" alt="hoa góc trái" class="flower flower-top-left animate-flower-on" />
         <img src="images/image2.png" alt="hoa góc phải" class="flower flower-top-right animate-flower-on" />
       </div>
+      <!-- Invitation card -->
       <div class="invitation-card">
         <div class="names-group">
           <p class="title animate-text-on-scroll_2">Lễ Thanh Hôn</p>
@@ -102,11 +109,12 @@
         </div>
         <p class="location animate-text-on-scroll">Trung tâm hội nghị Quốc Gia, Hà Nội</p>
       </div>
-
+      <!-- Invitation images -->
       <div class="arch-wrapper">
         <img src="images/bottom.png" alt="mái vòm" class="arch-bottom" />
       </div>
     </div>
+    <!-- Invitation 2 -->
     <div class="invitation-container_2 animate-fade">
       <img src="images/image1.png" alt="hoa góc trái" class="flower flower-top-left" />
       <img src="images/image2.png" alt="hoa góc phải" class="flower flower-top-right" />
@@ -115,6 +123,7 @@
       </div>
     </div>
   </div>
+  <!-- Gallery -->
   <div id="gallery" class="gallery-section ">
     <div class="gallery-layout">
     </div>
@@ -125,11 +134,13 @@
       <button class="gallery-button next">❯</button>
     </div>
   </div>
+  <!-- Response status -->
   <div id="rsvp" class="rsvp-page" style="display:none;">
     <h3>Phản hồi tham dự</h3>
     <button onclick="sendRSVP('accepted')">Tham dự</button>
     <button onclick="sendRSVP('declined')">Không tham dự</button>
   </div>
+  <!-- Script JS -->
   <script src="scripts/firebase-config.js"></script>
   <script src="scripts/script.js"></script>
   <script src="scripts/animation.js"></script>
