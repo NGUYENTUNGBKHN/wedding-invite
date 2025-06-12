@@ -1,109 +1,185 @@
-/* Thêm vào đầu file style.css hoặc bất kỳ vị trí nào phù hợp */
-
+/* --- Main Navigation Styles --- */
 .main-nav {
-    position: fixed; /* Cố định thanh điều hướng ở đầu trang */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Nền hơi trong suốt */
-    z-index: 1000; /* Đảm bảo nó luôn nằm trên cùng */
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
     padding: 10px 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center; /* Giữ nguyên: căn giữa nav-container */
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .nav-container {
     display: flex;
-    justify-content: center; /* Căn giữa các nút */
+    /* THAY ĐỔI DÒNG NÀY ĐỂ LOGO VÀ NÚT ĐƯỢC CĂN GIỮA CÙNG NHAU TRÊN DESKTOP */
+    justify-content: center;
     align-items: center;
     max-width: 1200px; /* Chiều rộng tối đa của container */
-    margin: 0 auto; /* Căn giữa container */
+    width: 100%;
+    margin: 0 auto; /* Căn giữa nav-container trong main-nav */
     padding: 0 20px;
-}
-
-.nav-button {
-    color: #fff;
-    text-decoration: none; /* Bỏ gạch chân mặc định của link */
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 10px 20px;
-    margin: 0 10px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-    /* Hiệu ứng di chuột */
-    display: block; /* Để padding hoạt động tốt */
-}
-
-.nav-button:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Nền hơi sáng khi di chuột qua */
-    color: #ffd700; /* Màu vàng khi di chuột qua */
-    transform: translateY(-2px); /* Hơi nhấc lên một chút */
-}
-
-/* Thêm padding top cho body để nội dung không bị thanh nav che khuất */
-body {
-    /* ... (giữ nguyên các style đã có) ... */
-    padding-top: 60px; /* Điều chỉnh giá trị này bằng chiều cao của .main-nav */
-}
-
-/* Điều chỉnh lại .background-overlay để không có khoảng trống thừa ở trên */
-.background-overlay {
-    /* ... (giữ nguyên các style đã có) ... */
-    min-height: calc(100vh - 60px); /* Đảm bảo vẫn full chiều cao trừ đi nav */
-    /* Hoặc đơn giản là loại bỏ min-height nếu bạn muốn nội dung cuộn tự do */
-    padding-top: 0; /* Đảm bảo không có padding thừa đẩy nội dung xuống */
+    position: relative;
 }
 
 .main-nav .logo-link {
     display: flex;
     align-items: center;
-    /* margin-right: 10px;  */
+    /* Có thể thêm margin-right nếu bạn muốn một khoảng cách nhỏ giữa logo và các nút */
+    margin-right: 30px; /* Ví dụ: tạo khoảng cách 30px giữa logo và các nút */
 }
 
 .main-nav .logo {
-  height: 100px; /* Adjust as needed for your logo's size */
-  width: auto; /* Maintains aspect ratio */
-  /* You can add more styling here, e.g., padding, border-radius */
+    height: 100px;
+    width: auto;
+    display: block;
 }
 
-.main-nav .logo-link .logo {
-  height: 100px; /* Hoặc chiều cao mong muốn khác, ví dụ: 60px */
-  width: auto; /* Giữ tỷ lệ khung hình */
-  display: block; /* Giúp ngăn chặn khoảng trống thừa bên dưới hình ảnh */
+/* Container cho các nút điều hướng */
+.nav-links-container {
+    display: flex;
+    justify-content: center; /* Vẫn căn giữa các nav-button bên trong nó */
+    align-items: center;
+    transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+    overflow: hidden;
+    max-height: 100px; /* Giá trị đủ lớn để chứa các nút trên desktop */
 }
 
-/* @media queries cho mobile (tùy chọn) */
-/* Media queries cho mobile (giữ nguyên) */
+.nav-button {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    margin: 0 10px; /* Khoảng cách giữa các nút */
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Nút Hamburger Menu (Mặc định ẩn trên desktop) */
+.hamburger-menu-toggle {
+    display: none; /* Ẩn trên desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Đảm bảo nó nằm trên nav-links-container khi mở */
+}
+
+.hamburger-menu-toggle .bar {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+    border-radius: 2px;
+}
+
+/* Khi hamburger được click và menu mở (JS sẽ thêm lớp này) */
+/* CÁC STYLE NÀY SẼ ĐƯỢC CHUYỂN VÀO MEDIA QUERY TRÊN MOBILE */
+/* .nav-links-container.active {
+    max-height: 300px; /* Đủ lớn để hiện tất cả các nút khi mở */
+    /* opacity: 1; */
+/* } */
+
+/* .nav-links-container.closed {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+} */
+
+
+/* ------------------------------------------- */
+/* Media Queries cho mobile (tối đa 768px) */
+/* ------------------------------------------- */
 @media (max-width: 768px) {
-    .nav-container {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1px;
+    .main-nav .nav-container {
+        /* Đặt lại display và position cho mobile để logo được căn giữa và hamburger bên phải */
+        display: block; /* Hoặc flex, nhưng cần điều chỉnh để logo ở giữa */
+        position: relative;
+        height: 70px; /* Đảm bảo có chiều cao cho thanh nav mobile */
+        padding: 0 15px;
+        justify-content: initial; /* Đặt lại justify-content cho mobile */
     }
 
-    .nav-button {
-        padding: 8px 15px;
+    .main-nav .logo-link {
+        position: absolute; /* Vị trí tuyệt đối để căn giữa logo */
+        left: 50%;
+        transform: translate(-50%, -50%); /* Dùng translate để căn giữa thực sự */
+        top: 50%;
+        margin-bottom: 0;
+        height: 70px;
+        display: flex;
+        align-items: center;
+    }
+
+    .main-nav .logo {
+        height: 60px; /* Kích thước logo trên mobile */
+        width: auto;
+    }
+
+    .hamburger-menu-toggle {
+        display: block; /* Hiển thị hamburger */
+        position: absolute; /* Vị trí tuyệt đối cho hamburger */
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* Các style khác cho nav-links-container và nav-button trên mobile giữ nguyên */
+    .nav-links-container {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        padding: 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-links-container.active {
+        max-height: 300px;
+        opacity: 1;
+        padding: 10px 0;
+    }
+
+    .nav-links-container .nav-button {
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+        padding: 12px 0;
         font-size: 1rem;
-        margin: 5px;
     }
 
-    body {
-        padding-top: 100px;
+    .nav-links-container .nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
     }
 
-    .couple-name {
-        font-size: 2.5rem; /* Điều chỉnh kích thước chữ trên mobile */
+    .hamburger-menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
     }
 
-    .couple-names h1:nth-child(2) {
-        font-size: 1.5rem;
+    .hamburger-menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
     }
 
-    .main-nav .logo-link .logo {
-      height: 60px; /* Giảm chiều cao logo trên mobile */
-    }
-    /* Đảm bảo padding-top của body khớp với chiều cao mới của nav */
-    body {
-        padding-top: 70px; /* Ví dụ: nếu nav cao 60px + 10px padding */
+    .hamburger-menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
     }
 }

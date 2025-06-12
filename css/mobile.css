@@ -14,30 +14,6 @@ body {
         font-size: 14px; /* Giảm cỡ chữ chung cho màn hình nhỏ hơn */
     }
 
-    /* Main Navigation */
-    .main-nav .nav-container {
-        flex-direction: column; /* Xếp các nút nav theo chiều dọc */
-        align-items: center;
-        padding: 8px 0; /* Giảm padding */
-    }
-
-    .main-nav .logo-link {
-        margin-bottom: 10px;
-    }
-
-    .main-nav .logo {
-        height: 70px; /* Giảm kích thước logo */
-        width: auto;
-    }
-
-    .main-nav .nav-button {
-        margin: 4px 0; /* Giảm khoảng cách giữa các nút */
-        width: 90%; /* Chiếm gần hết chiều rộng */
-        text-align: center;
-        padding: 8px 10px; /* Giảm padding nút */
-        font-size: 0.95rem;
-    }
-
     /* Home Section */
     .home-container {
         padding: 15px;
@@ -427,5 +403,154 @@ body {
 
     .dialog-content p {
         font-size: 0.75em;
+    }
+}
+
+/* mobile.css - Tối ưu cho thiết bị di động */
+
+/* Base styles for all screens (Mobile-First Approach) */
+body {
+    font-size: 15px; /* Kích thước font cơ bản cho mobile */
+}
+
+/* ------------------------------------------- */
+/* Media Queries cho các thiết bị có chiều rộng tối đa 412px (vd: Google Pixel 4a) */
+/* ------------------------------------------- */
+@media screen and (max-width: 412px) {
+    body {
+        font-size: 13px; /* Giảm cỡ chữ tổng thể một chút cho màn hình 412px */
+    }
+
+    /* Main Navigation */
+    .main-nav .logo {
+        height: 60px; /* Giảm logo nhỏ hơn nữa */
+    }
+    .main-nav .nav-button {
+        font-size: 0.9rem; /* Giảm cỡ chữ nút nav */
+        padding: 6px 12px;
+    }
+
+    /* Home Section */
+    .couple-image {
+        width: 120px; /* Nhỏ hơn nữa */
+        height: 120px;
+    }
+
+    .couple-names .couple-name {
+        font-size: 2em; /* Giảm cỡ chữ tên */
+    }
+
+    /* Invitation Section */
+    .invitation-card .title {
+        font-size: 1.6rem;
+    }
+
+    .invitation-card .names {
+        font-size: 2.2rem;
+    }
+
+    .invitation-card .names.heart {
+        font-size: 1.3rem;
+    }
+
+    .location {
+        font-size: 0.85rem;
+    }
+
+    .location::before {
+        width: 120px; /* Giảm độ dài đường kẻ */
+    }
+
+    .invitation {
+        font-size: 0.9rem; /* Giảm cỡ chữ thư mời */
+        padding: 12px 8px;
+    }
+
+    .flower {
+        width: 20%; /* Giảm kích thước hoa nếu cần */
+    }
+
+    .date-display {
+        font-size: 0.9rem;
+    }
+
+    .date-layout .month,
+    .date-layout .day,
+    .date-layout .year {
+        font-size: 1.1em;
+    }
+
+    .date-layout .time {
+        font-size: 0.8em;
+    }
+
+    .date-layout .location-address {
+        font-size: 0.75em;
+    }
+
+    /* Gallery Section */
+    .gallery-container {
+        height: 450px; /* Giảm chiều cao gallery container */
+    }
+    .gallery-slide {
+        width: 90%; /* Tăng chiều rộng slide để lấp đầy hơn */
+        height: 60%; /* Giảm chiều cao slide */
+    }
+    .gallery-slide.prev-visible {
+        /* Điều chỉnh để ảnh vẫn nằm trong khung nhìn */
+        transform: translate(-50%, -50%) rotateY(25deg) translateZ(-120px) translateX(120px) scale(0.75);
+    }
+    .gallery-slide.next-visible {
+        /* Điều chỉnh để ảnh vẫn nằm trong khung nhìn */
+        transform: translate(-50%, -50%) rotateY(-25deg) translateZ(-120px) translateX(-120px) scale(0.75);
+    }
+    .gallery-button {
+        font-size: 1.3em;
+        padding: 6px 10px;
+        width: 40px; /* Kích thước nút nhỏ hơn */
+        height: 40px;
+    }
+
+    /* RSVP Section */
+    .rsvp-page {
+        padding: 20px 10px;
+    }
+
+    .rsvp-page h3 {
+        font-size: 1.3em;
+    }
+
+    .rsvp-page p {
+        font-size: 0.85rem;
+    }
+
+    .rsvp-page button {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    /* Dialog (Money Gift) */
+    .dialog-content {
+        padding: 15px;
+    }
+
+    .dialog-content h3 {
+        font-size: 1.3em;
+    }
+
+    .dialog-content p {
+        font-size: 0.85em;
+    }
+
+    .close-button {
+        font-size: 1.5em;
+        top: 5px;
+        right: 10px;
+    }
+
+    /* Flower Fly (nếu muốn giảm số lượng/kích thước trên màn hình nhỏ hơn nữa) */
+    .flower-fly {
+        width: 15px;
+        height: 15px;
     }
 }

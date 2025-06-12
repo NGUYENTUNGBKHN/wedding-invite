@@ -111,3 +111,30 @@ function sendRSVP(status) {
 //       console.error("Lỗi khi cập nhật RSVP:", err);
 //     });
 // }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerToggle = document.querySelector('.hamburger-menu-toggle');
+    const navLinksContainer = document.querySelector('.nav-links-container');
+    const navButtons = document.querySelectorAll('.nav-links-container .nav-button'); // Chọn tất cả các nút nav
+
+    if (hamburgerToggle && navLinksContainer) {
+        hamburgerToggle.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+            hamburgerToggle.classList.toggle('active'); // Thêm class 'active' cho icon hamburger
+        });
+
+        // Đóng menu khi click vào một nút điều hướng
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Kiểm tra nếu menu đang mở (có class 'active') trên mobile thì đóng lại
+                if (window.innerWidth <= 768 && navLinksContainer.classList.contains('active')) {
+                    navLinksContainer.classList.remove('active');
+                    hamburgerToggle.classList.remove('active');
+                }
+            });
+        });
+    }
+
+    // --- Các đoạn mã JavaScript khác của bạn (gallery.js, music.js, v.v.) sẽ ở đây ---
+    // Đảm bảo rằng bạn đã kết hợp tất cả logic JS vào một tệp hoặc tải chúng theo đúng thứ tự.
+});
