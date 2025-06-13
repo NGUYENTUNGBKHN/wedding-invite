@@ -14,11 +14,12 @@ if (!guestId) {
     .then(doc => {
       if (doc.exists) {
         const data = doc.data();
-        let rsvpStatus = '';
+        let str_rsvpStatus = '';
+        let val_rsvpStatus = 0;
         switch (data.rsvp) {
-          case 'accepted': rsvpStatus = 'Sẽ tham dự 💖'; break;
-          case 'declined': rsvpStatus = 'Không tham dự 😢'; break;
-          default: rsvpStatus = 'Chưa phản hồi';
+          case 'accepted': str_rsvpStatus = 'sẽ tham dự 💖'; val_rsvpStatus = 1; break;
+          case 'declined': str_rsvpStatus = 'không tham dự 😢'; val_rsvpStatus = 2; break;
+          default: str_rsvpStatus = 'chưa phản hồi'; val_rsvpStatus = 3;
         }
 
         invitationDiv.innerHTML = `
@@ -46,8 +47,27 @@ if (!guestId) {
               </div>
             </div>
           </div>
-          <p><strong>Trạng thái phản hồi:</strong> ${rsvpStatus}</p>
+          
         `;
+        if (val_rsvpStatus == 1)
+        {
+          invitationDiv.innerHTML += `
+          <p>Bạn ${str_rsvpStatus}</p>
+          <strong>Tùng và Thục Anh rất vui !! Cảm ơn bạn.</strong>`;
+        } 
+        else if (val_rsvpStatus == 2)
+        {
+          invitationDiv.innerHTML += `
+          <p>Bạn ${str_rsvpStatus} </p>
+          <strong>Tùng và Thục Anh rất tiếc !! Cảm ơn bạn.</strong>`;
+        }
+        else // val_rsvpStatus == 3
+        {
+          invitationDiv.innerHTML += `
+          <p>Bạn ${str_rsvpStatus} </p>
+          <p>Hãy phản hồi cho cô dâu chú rể <a href="#rsvp"><strong>ở đây nhé !!</strong></a></p>`;
+        }
+        
 
         if (data.rsvp === 'pending') {
           rsvpDiv.style.display = 'block';
