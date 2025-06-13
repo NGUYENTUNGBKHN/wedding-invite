@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const startX = Math.random() * window.innerWidth;
         flower.style.left = `${startX}px`;
 
-        const randomSize = Math.random() * (10 - 5) + 5;
+        const randomSize = Math.random() * (15 - 10) + 10;
         flower.style.width = `${randomSize}px`;
         flower.style.height = `${randomSize}px`;
 
