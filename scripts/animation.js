@@ -1,4 +1,4 @@
-// scripts/scroll-animation.js
+// animation.js
 
 document.addEventListener('DOMContentLoaded', function() {
     const archBottom = document.querySelector('.arch-bottom');

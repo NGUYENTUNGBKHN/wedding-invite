@@ -1,4 +1,4 @@
-// Cấu hình Firebase
+// Configure Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyBWjM5rbtl4j6JaKjRJ9L0cfj2mFKbBoRs",
   authDomain: "wedding-invite-c4e55.firebaseapp.com",
@@ -9,6 +9,6 @@ const firebaseConfig = {
   measurementId: "G-1S1L0X06WG"
 };
 
-// Khởi tạo Firebase
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();

@@ -1,11 +1,12 @@
-// script.js
+// flower-fly.js
 document.addEventListener('DOMContentLoaded', () => {
     const flowerContainer = document.getElementById('flower-fly-container');
-    const numberOfFlowers = 10; // Số lượng bông hoa bạn muốn hiển thị đồng thời
-    const minFallDuration = 5; // Thời gian rơi tối thiểu (giây)
-    const maxFallDuration = 10; // Thời gian rơi tối đa (giây)
-    const flowerTypes = ['type1', 'type2', 'type3']; // Các loại hoa để đa dạng màu sắc
+    const numberOfFlowers = 10; // Number of flowers simultaneously display
+    const minFallDuration = 5; // Min of time fall (second)
+    const maxFallDuration = 10; // Max of time fall (second)
+    const flowerTypes = ['type1', 'type2', 'type3']; // type of flower
 
+    // create flower
     function createFlower() {
         const flower = document.createElement('div');
         flower.classList.add('flower-fly');
@@ -23,8 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const fallDuration = Math.random() * (maxFallDuration - minFallDuration) + minFallDuration;
         flower.style.animationDuration = `${fallDuration}s`;
 
-        // --- Bỏ comment dòng này hoặc thêm vào nếu chưa có ---
-        flower.style.animationDelay = `${Math.random() * 0.1}s`; // Thêm độ trễ ngẫu nhiên từ 0 đến 5 giây
+        flower.style.animationDelay = `${Math.random() * 0.1}s`; // delay 0.1s
 
         flowerContainer.appendChild(flower);
 
@@ -33,13 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Tạo một số lượng hoa ban đầu
+    //  create initial number of flowers 
     for (let i = 0; i < numberOfFlowers; i++) {
         createFlower();
     }
 
-    // Liên tục tạo hoa mới để duy trì hiệu ứng
+    // After 5s create flower
     setInterval(() => {
         createFlower();
-    }, 5000); // Tăng thời gian tạo hoa mới lên một chút, ví dụ 1.5 giây
+    }, 5000);
 });
