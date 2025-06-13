@@ -1,7 +1,6 @@
 /* mobile.css - Tối ưu cho thiết bị di động */
 
 /* Base styles for all screens (Mobile-First Approach) */
-/* Bạn có thể đặt các style cơ bản phù hợp với mobile ở đây nếu chưa có */
 body {
     font-size: 15px; /* Kích thước font cơ bản cho mobile */
 }
@@ -147,7 +146,7 @@ body {
 
     .rsvp-button {
         width: 90%; /* Chiếm gần hết chiều rộng */
-        margin: 5px 0; /* Khoảng cách giữa các nút */
+        margin: 10px 0; /* Đã thay đổi từ 5px 0 thành 10px 0 */
         padding: 10px 15px;
         font-size: 0.95em;
     }
@@ -292,6 +291,7 @@ body {
     .rsvp-button {
         width: 95%; /* Chiếm gần hết chiều rộng */
         font-size: 0.9em;
+        margin: 10px 0; /* Đã giữ 10px 0 để nhất quán với media query 768px */
     }
 
     /* Music Toggle Button */
@@ -390,6 +390,7 @@ body {
     .rsvp-button {
         font-size: 0.85em;
         padding: 8px 12px;
+        margin: 10px 0; /* Đã giữ 10px 0 để nhất quán */
     }
 
     /* Dialog Tiền Mừng */
@@ -527,6 +528,7 @@ body {
     .rsvp-page button {
         font-size: 0.9rem;
         padding: 8px 12px;
+        margin: 10px 0; /* Đã giữ 10px 0 để nhất quán */
     }
 
     /* Dialog (Money Gift) */
