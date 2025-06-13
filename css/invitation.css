@@ -1,9 +1,19 @@
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
-  background-image: none; /* Importance : Remove all background of pages */
-  background-color: #ffffff; /* background color for pages. It is default color */
-  color: #fff;
+  /* background-image: url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1280&q=80'); */
+  /* background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
+  background-image: none; /* Rất quan trọng: Loại bỏ ảnh nền toàn trang */
+  background-color: #ffffff; /* Đặt một màu nền dự phòng hoặc màu đồng nhất */
+}
+
+html, body {
+  overflow-x: hidden; /* Ẩn thanh cuộn ngang nếu có */
+  width: 100%; /* Đảm bảo cả html và body chiếm đúng 100% chiều rộng */
+  margin: 0; /* Đảm bảo không có margin mặc định */
+  padding: 0; /* Đảm bảo không có padding mặc định */
 }
 
 

@@ -71,11 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
     galleryTrack.addEventListener('dblclick', () => {
         dragEnabled = !dragEnabled; // Đảo ngược trạng thái
         if (dragEnabled) {
-            console.log('Kéo cuộn đã được kích hoạt!');
+            // console.log('Kéo cuộn đã được kích hoạt!');
             // Bạn có thể thêm một số hiệu ứng trực quan ở đây, ví dụ: thay đổi con trỏ chuột
             galleryTrack.style.cursor = 'grab';
         } else {
-            console.log('Kéo cuộn đã bị vô hiệu hóa!');
+            // console.log('Kéo cuộn đã bị vô hiệu hóa!');
+            startAutoScroll();
             galleryTrack.style.cursor = 'default';
         }
         // Dừng tự động cuộn khi trạng thái kéo thay đổi để tránh xung đột
@@ -153,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Thêm chức năng dừng/chạy khi di chuột vào/ra ---
     galleryTrack.addEventListener('mouseenter', () => {
-        stopAutoScroll();
+        // stopAutoScroll();
     });
 
     galleryTrack.addEventListener('mouseleave', () => {
