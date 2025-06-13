@@ -1,18 +1,14 @@
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
-  /* background-image: url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1280&q=80'); */
-  /* background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; */
-  background-image: none; /* Rất quan trọng: Loại bỏ ảnh nền toàn trang */
-  background-color: #ffffff; /* Đặt một màu nền dự phòng hoặc màu đồng nhất */
+  background-image: none; /* Importance : Remove all background of pages */
+  background-color: #ffffff; /* background color for pages. It is default color */
   color: #fff;
 }
 
 
 .background-overlay {
-  /* Đây sẽ là nơi chứa ảnh nền cho các phần Event, Gallery, RSVP */
+  /* Background for background-overlay */
   background-image: url('../images/gallery_background.jpg');
   background-size: cover;
   /* background-position: center;
@@ -22,7 +18,7 @@ body {
   background-color: rgba(0, 0, 0, 0.6);
   min-height: 100vh;
   display: flex;
-  flex-direction: row;  /* <-- xếp các phần tử theo hàng ngang */
+  flex-direction: row;  /* <-- align all element into row */
   justify-content: center;
   align-items: flex-start; /* canh trên nếu bạn muốn khớp đầu dòng */
   padding: 20px;
@@ -66,6 +62,7 @@ body {
 }
 
 .invitation-container_2 {
+  overflow: hidden;         /* ẩn phần ảnh vượt ra ngoài viền */
   min-height: 850px;        /* hoặc giá trị lớn hơn */
   padding-bottom: 80px;     /* chừa chỗ cho ảnh mái vòm */
 }

@@ -1,0 +1,94 @@
+/* css/event.css */
+
+.event-section {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.event-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.map-container {
+  display: flex;
+  flex-wrap: wrap; /* Cho phép các mục xuống dòng nếu không đủ chỗ */
+  justify-content: center; /* Căn giữa các bản đồ khi xuống dòng */
+  max-width: 1200px; /* Đặt lại max-width đủ rộng để 2 bản đồ hiển thị cạnh nhau trên desktop */
+  margin: 0 auto; /* Căn giữa map-container */
+  gap: 20px; /* Tạo khoảng cách giữa 2 bản đồ */
+}
+
+.groom-map-container,
+.bride-map-container {
+    /* Loại bỏ max-width: 600px; ở đây để flexbox kiểm soát */
+    width: 100%; /* Mặc định là 100% trên mobile */
+    flex: 1 1 45%; /* flex-grow, flex-shrink, flex-basis (đặt basis ~45% để chừa gap) */
+    min-width: 300px; /* Đảm bảo không quá nhỏ */
+
+    margin: 0; /* Loại bỏ margin: 0 auto; vì flexbox sẽ căn chỉnh */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.groom-map-container p,
+.bride-map-container p {
+    font-family: 'Quicksand', sans-serif; /* Chọn font phù hợp, ví dụ Quicksand bạn đã import */
+    font-size: 1.2em; /* Kích thước chữ rõ ràng */
+    color: #555; /* Màu chữ rõ ràng, không quá tối cũng không quá sáng */
+    margin-bottom: 10px; /* Tạo khoảng cách dưới tiêu đề bản đồ */
+    font-weight: 600; /* Làm chữ đậm hơn một chút */
+    text-align: center; /* Đảm bảo chữ căn giữa */
+    padding-top: 10px; /* Thêm padding trên để tách khỏi viền trên của container */
+}
+
+.groom-map-container iframe,
+.bride-map-container iframe {
+    display: block;
+    width: 100%; /* Đảm bảo iframe chiếm toàn bộ chiều rộng của container cha */
+    height: 450px; /* Chiều cao cố định trên desktop */
+    border: none;
+}
+
+
+/* Responsive cho thiết bị di động và desktop */
+@media (min-width: 769px) { /* Từ 769px trở lên, hiển thị 2 cột */
+    .groom-map-container,
+    .bride-map-container {
+        max-width: calc(50% - 10px); /* Giới hạn kích thước từng bản đồ, tính cả gap */
+    }
+}
+
+@media (max-width: 768px) {
+    .event-section {
+        padding: 30px 15px;
+    }
+
+    .event-section h2 {
+        font-size: 2em;
+    }
+
+    .groom-map-container,
+    .bride-map-container {
+        max-width: 100%; /* Full chiều rộng trên di động */
+        flex-basis: 100%; /* Luôn chiếm toàn bộ chiều rộng trên mobile */
+    }
+
+    .groom-map-container iframe,
+    .bride-map-container iframe {
+        height: 300px; /* Giảm chiều cao trên di động */
+    }
+
+    .groom-map-container p,
+    .bride-map-container p {
+        font-size: 1em; /* Giảm kích thước chữ trên di động */
+        margin-bottom: 5px; /* Giảm khoảng cách */
+        padding-top: 5px;
+    }
+}
