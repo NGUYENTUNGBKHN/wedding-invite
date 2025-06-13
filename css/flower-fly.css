@@ -42,7 +42,14 @@
 
 @media (max-width: 768px) {
   .flower-fly {
-    width: 15px; /* Giảm kích thước hoa trên mobile */
-    height: 15px;
+    width: 5px; /* Giảm kích thước hoa trên mobile */
+    height: 5px;
   }
 }
+
+@media (max-width: 375px) {
+    .flower-fly {
+      width: 5px; /* Giảm kích thước hoa trên mobile */
+      height: 5px;
+    }
+  }

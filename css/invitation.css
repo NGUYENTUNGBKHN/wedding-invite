@@ -7,7 +7,13 @@ body {
   background-repeat: no-repeat; */
   background-image: none; /* Rất quan trọng: Loại bỏ ảnh nền toàn trang */
   background-color: #ffffff; /* Đặt một màu nền dự phòng hoặc màu đồng nhất */
-  color: #fff;
+}
+
+html, body {
+  overflow-x: hidden; /* Ẩn thanh cuộn ngang nếu có */
+  width: 100%; /* Đảm bảo cả html và body chiếm đúng 100% chiều rộng */
+  margin: 0; /* Đảm bảo không có margin mặc định */
+  padding: 0; /* Đảm bảo không có padding mặc định */
 }
 
 
