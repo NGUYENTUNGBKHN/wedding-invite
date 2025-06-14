@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 musicToggleButton.innerHTML = '<i class="fas fa-volume-up"></i>'; // Icon bật tiếng
                 isPlaying = true;
             }).catch(error => {
-                console.error("Error playing music:", error);
+                // console.error("Error playing music:", error);
                 // Có thể hiển thị thông báo nhẹ nhàng hơn alert
                 // alert("Trình duyệt chặn tự động phát nhạc. Vui lòng bật âm thanh thủ công.");
             });

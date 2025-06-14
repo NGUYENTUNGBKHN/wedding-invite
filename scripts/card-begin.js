@@ -47,7 +47,7 @@ window.addEventListener('load', async ()  => {
                 welcomeText.innerHTML = "Không tìm thấy thông tin khách mời.";
             }
         } catch (error) {
-            console.error("Lỗi khi lấy dữ liệu khách mời:", error);
+            // console.error("Lỗi khi lấy dữ liệu khách mời:", error);
             welcomeText.innerText = "Đã xảy ra lỗi khi tải thông tin.";
         }
     } else {
