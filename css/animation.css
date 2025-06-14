@@ -83,6 +83,18 @@
     }
 }
 
+@keyframes pulse_home_flower {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 
 @keyframes pulse_home {
     0% {

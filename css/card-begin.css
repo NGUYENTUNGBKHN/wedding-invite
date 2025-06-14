@@ -8,6 +8,7 @@ html.no-scroll, body.no-scroll {
     background-image: url('../images/gallery_background.jpg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex ;
     overflow: hidden;
@@ -20,7 +21,7 @@ html.no-scroll, body.no-scroll {
 
 .card-half {
     flex: 1;
-    background-color: lightcoral; /* Màu sắc hoặc hình ảnh của mỗi nửa thiệp */
+    background-color: #59796c ; /* Màu sắc hoặc hình ảnh của mỗi nửa thiệp */
     /* Thay đổi background-size từ 'cover' sang 'contain' */
     background-size: cover; /* Đảm bảo ảnh hiển thị toàn bộ chiều rộng */
     background-repeat: no-repeat; /* Ngăn ảnh lặp lại */
@@ -29,11 +30,11 @@ html.no-scroll, body.no-scroll {
 }
 
 .left-half {
-    background-image: url('../images/card_begin_left.png'); /* Nếu muốn dùng hình ảnh */
+    background-image: url('../images/card_begin_2_left.png'); /* Nếu muốn dùng hình ảnh */
 }
 
 .right-half {
-    background-image: url('../images/card_begin_right.png'); /* Nếu muốn dùng hình ảnh */
+    background-image: url('../images/card_begin_2_right.png'); /* Nếu muốn dùng hình ảnh */
 }
 
 .card-content {

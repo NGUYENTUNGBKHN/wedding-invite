@@ -6,7 +6,7 @@
     bottom: 20px; /* Cách đáy 20px */
     left: 20px;  /* Đã thay đổi: Cách trái 20px */
     z-index: 500; /* Đảm bảo nút luôn nằm trên cùng */
-    background-color: #d6336c; /* Màu nền */
+    background-color: lightcoral; /* Màu nền */
     color: #fff; /* Màu icon */
     border: none;
     border-radius: 50%; /* Hình tròn */
@@ -22,7 +22,7 @@
 }
 
 .music-toggle-button:hover {
-    background-color: #a7284f;
+    background-color: lightcoral;
     transform: scale(1.1); /* Hiệu ứng phóng to nhẹ khi di chuột */
 }
 

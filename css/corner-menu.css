@@ -14,7 +14,7 @@
 
 /* Kiểu cho nút chính (toggle button) */
 .corner-button.menu-toggle {
-  background-color: rgba(214, 51, 108, 0.9);
+  background-color: rgba(240, 128, 128, 0.9);
   font-size: 1.2rem;
   padding: 12px 15px;
   min-width: 50px;
@@ -50,7 +50,7 @@
 /* Các kiểu cho 3 nút phụ (giữ nguyên) */
 .corner-button {
   padding: 10px 15px;
-  background-color: rgba(214, 51, 108, 0.8);
+  background-color: rgba(240, 128, 128, 0.8);
   color: white;
   border: none;
   border-radius: 8px;
@@ -63,7 +63,7 @@
 }
 
 .corner-button:hover {
-  background-color: #d6336c;
+  background-color: lightcoral;
   transform: translateY(-2px);
 }
 

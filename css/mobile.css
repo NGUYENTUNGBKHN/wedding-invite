@@ -26,7 +26,7 @@ body {
     }
 
     .couple-names .couple-name {
-        font-size: 2.5em; /* Giảm cỡ chữ tên cô dâu chú rể */
+        font-size: 3.5em; /* Giảm cỡ chữ tên cô dâu chú rể */
         margin: 3px 0;
     }
 
@@ -73,7 +73,6 @@ body {
     }
 
     .date-layout .month,
-    .date-layout .day,
     .date-layout .year {
         font-size: 1.1em; /* Giảm cỡ chữ ngày tháng */
     }
@@ -248,7 +247,6 @@ body {
     }
 
     .date-layout .month,
-    .date-layout .day,
     .date-layout .year {
         font-size: 1em;
     }
@@ -360,7 +358,6 @@ body {
     }
 
     .date-layout .month,
-    .date-layout .day,
     .date-layout .year {
         font-size: 0.9em;
     }
@@ -476,7 +473,6 @@ body {
     }
 
     .date-layout .month,
-    .date-layout .day,
     .date-layout .year {
         font-size: 1.1em;
     }

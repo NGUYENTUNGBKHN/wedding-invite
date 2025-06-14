@@ -11,10 +11,6 @@
   padding: 20px;
   text-align: center;
   color: #fff;
-  /* Bạn có thể thêm background-image hoặc background-color riêng cho home-container tại đây nếu muốn nó khác với body */
-  /* background-image: url('images/home_bg.jpg'); */
-  /* background-size: cover; */
-  /* background-position: center; */
   background-image: url('../images/gallery_background.jpg');
   background-size: cover;
   background-position: center;
@@ -28,7 +24,7 @@
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
   /* animation: pulse_home 2s ease-in-out; */
 }
 
@@ -47,9 +43,10 @@
 .couple-name {
   font-family: 'Great Vibes', cursive;
   font-size: 3.5rem;
+  font-weight: bold;
   margin: 5px 0;
-  color: lightcoral;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #59796c;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
 }
 
 .couple-name {
@@ -58,7 +55,7 @@
 
 .couple-names h1:nth-child(2) {
   font-size: 2rem;
-  color: lightcoral;
+  color: #59796c;
 }
 
 .animate-home{
@@ -109,7 +106,7 @@
   }
 
   .couple-name {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     /* Điều chỉnh kích thước chữ trên mobile */
   }
 

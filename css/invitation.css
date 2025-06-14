@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   background-image: none; /* Importance : Remove background of all pages */
-  background-color: #000000; /* background color for all */
+  background-color: #59796c; /* background color for all */
 }
 
 html, body {
@@ -32,6 +32,13 @@ html, body {
   flex-wrap: wrap;
 }
 
+.background-overlay h2 {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
 /* .background-overlay {
   backdrop-filter: blur(3px);
   background-color: rgba(0, 0, 0, 0.6);
@@ -46,7 +53,7 @@ html, body {
 
 .invitation-container,
 .invitation-container_2 {
-  background-image: url('../images/background.png');
+  background-image: url('../images/background_invitation.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -151,6 +158,8 @@ html, body {
   min-height: 850px;        /* hoặc giá trị lớn hơn */
   padding-bottom: 80px;     /* chừa chỗ cho ảnh mái vòm */
 }
+
+
 
 .flower-section{
 
@@ -265,7 +274,7 @@ html, body {
 
 /* Khi class 'is-visible-text' được thêm vào */
 .animate-flower-on.is-visible-text {
-  animation: flyInFromBottom 1s ease-out forwards; /* Chạy animation */
+  animation: pulse_home_flower 1s ease-out forwards; /* Chạy animation */
 }
 
 .flower-section .flower {
@@ -365,7 +374,7 @@ html, body {
   margin-top: 10px;
   margin-bottom: 10px;
   color: #fff;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Playfair Display', sans-serif;
 }
 
 .date-layout {
