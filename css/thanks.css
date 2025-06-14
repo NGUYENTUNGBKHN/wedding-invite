@@ -1,0 +1,94 @@
+.thanks-section {
+    /* background-color: #f7f7f7; Màu nền nhẹ nhàng */
+    background-image: url('../images/gallery_background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px; /* Padding trên dưới và hai bên */
+    text-align: center; /* Căn giữa nội dung */
+    font-family: 'Quicksand', sans-serif; /* Font chữ phù hợp */
+    color: #ffffff; /* Màu chữ */
+    position: relative; /* Để có thể đặt các hiệu ứng nếu cần */
+    overflow: hidden; /* Tránh tràn nếu có hiệu ứng */
+}
+
+.thanks-content {
+    max-width: 800px; /* Chiều rộng tối đa của nội dung */
+    margin: 0 auto; /* Căn giữa khối nội dung */
+    background-color: rgba(0, 0, 0, 0.1);; /* Nền trắng cho nội dung */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Bóng đổ nhẹ */
+    animation: fadeIn 1.5s ease-out forwards; /* Hiệu ứng mờ dần khi xuất hiện */
+    opacity: 0; /* Bắt đầu với opacity 0 cho animation */
+}
+
+.thanks-content h2 {
+    font-family: 'Great Vibes', cursive; /* Font chữ lãng mạn cho tiêu đề */
+    font-size: 3.5em; /* Kích thước tiêu đề */
+    color: #e094a4; /* Màu hồng nhẹ nhàng */
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+.thanks-content p {
+    font-size: 2em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.thanks-content .couple-signature {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2em;
+    color: #e094a4;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .thanks-section {
+        padding: 60px 15px;
+    }
+    .thanks-content {
+        padding: 30px;
+    }
+    .thanks-content h2 {
+        font-size: 4.5em;
+    }
+    .thanks-content p {
+        font-size: 3em;
+    }
+    .thanks-content .couple-signature {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .thanks-section {
+        padding: 40px 10px;
+    }
+    .thanks-content {
+        padding: 20px;
+    }
+    .thanks-content h2 {
+        font-size: 3em;
+    }
+    .thanks-content p {
+        font-size: 1.5em;
+    }
+    .thanks-content .couple-signature {
+        font-size: 1.5em;
+    }
+}

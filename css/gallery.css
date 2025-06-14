@@ -1,173 +1,133 @@
 /* style.css */
 .gallery-section {
-    display: flex;
+    display: flex; /* Giữ nguyên flex để căn giữa container */
+    flex-direction: column; /* Đảm bảo nội dung được xếp chồng lên nhau */
+    align-items: center; /* Căn giữa theo chiều ngang */
     background-image: url('../images/gallery_background.jpg');
     background-size: cover;
     position: relative;
+    padding: 50px 0; /* Thêm padding để có không gian xung quanh ảnh */
 }
 
 .gallery-layout {
-    position: absolute; /* Lớp phủ tuyệt đối so với .gallery-section-with-overlay */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Màu đen trong suốt (50% opacity) */
-    /* Bạn có thể thay đổi màu và độ trong suốt ở đây */
-    /* Ví dụ: rgba(255, 255, 255, 0.3) cho lớp phủ trắng trong suốt */
-    z-index: 1; /* Đảm bảo lớp phủ nằm trên ảnh nền nhưng dưới nội dung */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 .gallery-container {
     position: relative;
-    max-width: 800px;
+    max-width: auto; /* Tăng chiều rộng tối đa để chứa nhiều ảnh hơn */
     width: 95%;
-    height: 850px;
+    /* height: auto; */ /* Loại bỏ chiều cao cố định */
     overflow: visible;
-    /* Bỏ background-color và box-shadow ở đây để container không có nền trắng */
-    /* background-color: #F8F8F8; */
-    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */
-    overflow: visible;
-    border-radius: 8px; /* Giữ bo góc cho container tổng thể nếu muốn */
+    border-radius: 8px;
     perspective: 1000px;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     z-index: 2;
+
+    /* Thêm các thuộc tính CSS Grid cho bố cục ảnh */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 cột trên màn hình lớn, tự động điều chỉnh */
+    gap: 20px; /* Khoảng cách giữa các ảnh */
+    padding: 20px; /* Padding bên trong container */
+    background-color: rgb(255, 255, 255); /* Nền nhẹ cho container */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Thêm bóng nhẹ cho container */
 }
 
-.gallery-track {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.8s ease-in-out;
-}
-
-.gallery-slide {
-    position: absolute;
-    width: 60%;
-    height: 80%;
-    top: 50%;
-    left: 50%;
-    transform-origin: center center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease-in-out, transform 0.8s ease-in-out, visibility 0.5s;
-    /* Bỏ background-color ở đây nếu bạn muốn ảnh "trôi nổi" trên nền body */
-    /* background-color: #f8f8f8; */
+.gallery-item { /* Đổi tên từ .gallery-slide thành .gallery-item cho rõ ràng hơn */
+    background-color: #f8f8f8; /* Nền trắng cho mỗi ảnh */
     border-radius: 8px;
-    /* Có thể giữ box-shadow nếu muốn ảnh có hiệu ứng nổi nhẹ */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2); /* Tăng bóng để nổi bật hơn */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: transform 0.3s ease-in-out; /* Thêm hiệu ứng hover */
 }
 
-.gallery-slide img {
+.gallery-item:hover {
+    transform: translateY(-5px); /* Hiệu ứng nổi lên khi hover */
+}
+
+.gallery-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 100%; /* Chiều cao cố định cho ảnh để chúng có kích thước đồng nhất */
+    object-fit: cover; /* Đảm bảo ảnh được cắt để vừa với kích thước */
     display: block;
-    /* Bỏ border-top-left-radius và border-top-right-radius nếu bạn đã có border-radius trên .gallery-slide */
-    /* border-top-left-radius: 8px; */
-    /* border-top-right-radius: 8px; */
-    /* Giữ box-shadow nếu bạn muốn chỉ ảnh có bóng riêng */
-    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1); */
 }
 
 .slide-caption {
     padding: 10px;
     font-size: 1em;
     color: #555;
-    /* Đặt nền trong suốt hoặc màu nhạt hơn nếu muốn chú thích ít nổi bật */
-    background-color: rgba(255, 255, 255, 0.7); /* Nền trắng trong suốt */
+    background-color: rgba(255, 255, 255, 0.9); /* Nền trắng trong suốt */
     border-top: 1px solid #ddd;
     text-align: center;
-    /* Giữ bo góc cho chú thích nếu muốn */
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
 
-/* Các styles cho .active, .prev-visible, .next-visible vẫn giữ nguyên */
-.gallery-slide.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, -50%) rotateY(0deg) translateZ(0px) scale(1);
-    z-index: 10;
-}
-
-.gallery-slide.prev-visible {
-    opacity: 0.7;
-    visibility: visible;
-    transform: translate(-50%, -50%) rotateY(30deg) translateZ(-200px) translateX(200px) scale(0.9);
-    z-index: 5;
-}
-
-.gallery-slide.next-visible {
-    opacity: 0.7;
-    visibility: visible;
-    transform: translate(-50%, -50%) rotateY(-30deg) translateZ(-200px) translateX(-200px) scale(0.9);
-    z-index: 5;
-}
-
-/* Các nút điều khiển vẫn giữ nguyên */
+/* Loại bỏ các styles liên quan đến thanh trượt */
+.gallery-track,
+.gallery-slide,
+.gallery-slide.active,
+.gallery-slide.prev-visible,
+.gallery-slide.next-visible,
 .gallery-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    padding: 12px 18px;
-    cursor: pointer;
-    font-size: 1.8em;
-    border-radius: 50%;
-    z-index: 20;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: none; /* Ẩn hoàn toàn các phần tử của thanh trượt */
 }
 
-.gallery-button:hover {
-    background-color: rgba(0, 0, 0, 0.9);
-    transform: translateY(-50%) scale(1.1);
+/* Đảm bảo hình ảnh bên trong mỗi item chiếm toàn bộ không gian và được căn chỉnh đúng */
+.gallery-item img {
+    width: 100%;
+    height: 200px; /* Chiều cao cố định cho ảnh trên máy tính */
+    object-fit: cover; /* Đảm bảo ảnh được cắt để vừa với kích thước mà không bị biến dạng */
+    display: block;
 }
 
-.gallery-button.prev {
-    left: 20px;
-}
-
-.gallery-button.next {
-    right: 20px;
-}
-
+/* Media query cho các thiết bị có chiều rộng màn hình tối đa 768px (ví dụ: máy tính bảng và điện thoại) */
 @media (max-width: 768px) {
     .gallery-container {
-        height: 550px; /* Giảm chiều cao của container trên mobile */
-        /* Có thể giảm thêm nếu ảnh quá lớn */
+        /* Điều chỉnh lại grid-template-columns để đảm bảo ảnh không quá nhỏ hoặc quá lớn */
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Có thể là 2 cột hoặc hơn tùy kích thước ảnh bạn muốn */
+        gap: 15px; /* Giảm khoảng cách giữa các ảnh trên mobile */
+        padding: 10px; /* Giảm padding */
     }
-    .gallery-slide {
-        width: 80%; /* Tăng chiều rộng slide trên mobile để dễ nhìn hơn */
-        height: 70%; /* Điều chỉnh chiều cao slide */
+    .gallery-item {
+        /* Đảm bảo item ảnh có tỷ lệ phù hợp */
+        width: 100%; /* Đảm bảo mỗi item chiếm hết chiều rộng của cột */
+        height: 100%;
     }
-    .gallery-slide.prev-visible {
-        /* Điều chỉnh transform cho mobile để không bị tràn màn hình */
-        transform: translate(-50%, -50%) rotateY(20deg) translateZ(-150px) translateX(150px) scale(0.8);
-        z-index: 5;
+    .gallery-item img {
+        height: 150px; /* Giảm chiều cao ảnh trên thiết bị di động */
+        /* Nếu ảnh vẫn bị cắt, bạn có thể thử 'contain' thay vì 'cover', nhưng 'cover' thường tốt hơn cho bố cục gallery */
+        object-fit: cover;
     }
-    .gallery-slide.next-visible {
-        /* Điều chỉnh transform cho mobile */
-        transform: translate(-50%, -50%) rotateY(-20deg) translateZ(-150px) translateX(-150px) scale(0.8);
-        z-index: 5;
+    .slide-caption {
+        font-size: 0.9em; /* Giảm kích thước font chú thích */
+        padding: 8px;
     }
-    .gallery-button {
-        padding: 8px 12px; /* Giảm padding nút điều khiển */
-        font-size: 1.2em; /* Giảm kích thước icon */
+}
+
+/* Media query cho các thiết bị di động nhỏ hơn (ví dụ: điện thoại) */
+@media (max-width: 480px) {
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+        padding: 5px;
     }
-    .gallery-button.prev {
-        left: 10px; /* Điều chỉnh vị trí nút */
+    .gallery-item img {
+        height: 100%; /* Tăng chiều cao ảnh trên điện thoại nhỏ để hiển thị rõ hơn */
     }
-    .gallery-button.next {
-        right: 10px; /* Điều chỉnh vị trí nút */
+    .slide-caption {
+        font-size: 0.85em;
+        padding: 6px;
     }
 }

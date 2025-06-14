@@ -92,12 +92,7 @@ body {
         /* padding-bottom: 30px; */
     }
 
-    /* Gallery Section */
-    .gallery-container {
-        height: 500px; /* Giảm chiều cao container gallery */
-        max-width: 95%;
-        margin: 0 auto;
-    }
+
     .gallery-slide {
         width: 85%; /* Tăng chiều rộng slide trên mobile để dễ nhìn hơn */
         height: 80%; /* Điều chỉnh chiều cao slide */
@@ -259,10 +254,6 @@ body {
         width: 100px;
     }
 
-    /* Gallery Section */
-    .gallery-container {
-        height: 400px; /* Giảm chiều cao container gallery hơn nữa */
-    }
     .gallery-slide {
         width: 90%; /* Tăng chiều rộng slide */
         height: 75%;
@@ -366,10 +357,6 @@ body {
         font-size: 0.75em;
     }
 
-    /* Gallery Section */
-    .gallery-container {
-        height: 350px;
-    }
     .gallery-slide {
         height: 70%;
     }
@@ -485,10 +472,6 @@ body {
         font-size: 0.75em;
     }
 
-    /* Gallery Section */
-    .gallery-container {
-        height: 450px; /* Giảm chiều cao gallery container */
-    }
     .gallery-slide {
         width: 90%; /* Tăng chiều rộng slide để lấp đầy hơn */
         height: 60%; /* Giảm chiều cao slide */
