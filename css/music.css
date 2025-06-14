@@ -5,7 +5,7 @@
     position: fixed; /* Cố định vị trí trên màn hình */
     bottom: 20px; /* Cách đáy 20px */
     left: 20px;  /* Đã thay đổi: Cách trái 20px */
-    z-index: 1000; /* Đảm bảo nút luôn nằm trên cùng */
+    z-index: 500; /* Đảm bảo nút luôn nằm trên cùng */
     background-color: #d6336c; /* Màu nền */
     color: #fff; /* Màu icon */
     border: none;

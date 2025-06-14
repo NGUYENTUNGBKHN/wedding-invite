@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" >
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,42 +17,55 @@
   <link rel="stylesheet" href="css/dialog-money-gift.css" />
   <link rel="stylesheet" href="css/event.css" />
   <link rel="stylesheet" href="css/mobile.css" />
+  <link rel="stylesheet" href="css/animation.css" />
+  <link rel="stylesheet" href="css/card-begin.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap"
+    rel="stylesheet">
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 </head>
+
 <body>
+  <div class="card-container" id="cardContainer">
+    <div class="card-half left-half"></div>
+    <div class="card-half right-half"></div>
+    <div class="card-content">
+      <p id="welcomeText">Loading....</p>
+      <button id="openCardBtn" style="display: none;">Mở thiệp</button>
+    </div>
+  </div>
   <!-- flower fly -->
   <div id="flower-fly-container"></div>
   <!-- Show menu -->
   <nav class="main-nav">
     <div class="nav-container">
-        <a href="#home" class="logo-link">
-          <img src="images/wedding_logo/Page_12.png" alt="Logo" class="logo">
-        </a>
+      <a href="#home" class="logo-link">
+        <img src="images/wedding_logo/Page_12.png" alt="Logo" class="logo">
+      </a>
 
-        <button class="hamburger-menu-toggle" aria-label="Toggle menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
+      <button class="hamburger-menu-toggle" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
 
-        <div class="nav-links-container"> <a href="#home" class="nav-button">Home</a>
-          <a href="#invitation" class="nav-button">Invitation</a>
-          <a href="#gallery" class="nav-button">Gallery</a>
-          <a href="#rsvp" class="nav-button">Response</a>
-          <a href="#event-schedule" class="nav-button">Event</a>
-        </div>
+      <div class="nav-links-container"> <a href="#home" class="nav-button">Home</a>
+        <a href="#invitation" class="nav-button">Invitation</a>
+        <a href="#gallery" class="nav-button">Gallery</a>
+        <a href="#rsvp" class="nav-button">Response</a>
+        <a href="#event-schedule" class="nav-button">Event</a>
+      </div>
     </div>
   </nav>
   <!-- dialog -->
   <div id="moneyGiftDialog" class="dialog-overlay">
-  <div class="dialog-content">
-    <button class="close-button" id="closeMoneyGiftDialog">&times;</button>
-    <h3>Gửi tiền mừng</h3>
-    <p>Thông tin tài khoản ngân hàng hoặc phương thức thanh toán.</p>
+    <div class="dialog-content">
+      <button class="close-button" id="closeMoneyGiftDialog">&times;</button>
+      <h3>Gửi tiền mừng</h3>
+      <p>Thông tin tài khoản ngân hàng hoặc phương thức thanh toán.</p>
     </div>
   </div>
   <!-- audio -->
@@ -61,12 +75,12 @@
 
   <!-- button music -->
   <button id="musicToggleButton" class="music-toggle-button">
-    <i class="fas fa-volume-mute"></i> 
+    <i class="fas fa-volume-mute"></i>
   </button>
   <!-- button menu -->
   <div class="expandable-corner-menu">
     <button id="menuToggleButton" class="corner-button menu-toggle">
-      <i class="fas fa-times"></i> 
+      <i class="fas fa-times"></i>
     </button>
     <div class="sub-buttons-container">
       <button class="corner-button" id="wishesButton">
@@ -85,13 +99,13 @@
   </div>
   <!-- Show Home page -->
   <div id="home" class="home-container">
-    <div class="couple-image">
+    <div class="couple-image animate-home">
       <img src="images/bottom.png" alt="Thanh Tùng và Thục Anh">
     </div>
     <div class="couple-names">
-      <h1 class="couple-name-groom">Nguyễn Thanh Tùng</h1>
-      <h1 class="couple-name">&</h1>
-      <h1 class="couple-name-bride">Trương Thục Anh</h1>
+      <h1 class="couple-name animate-home-groom">Nguyễn Thanh Tùng</h1>
+      <h1 class="couple-name animate-home">&</h1>
+      <h1 class="couple-name animate-home-bride">Trương Thục Anh</h1>
     </div>
   </div>
   <!-- Invitation -->
@@ -105,10 +119,10 @@
       <!-- Invitation card -->
       <div class="invitation-card">
         <div class="names-group">
-          <p class="title animate-text-on-scroll_2">Lễ Thanh Hôn</p>
-          <p class="names animate-text-on-scroll_2">Nguyễn Thanh Tùng</p>
-          <p class="names heart animate-text-on-scroll_2">&</p>
-          <p class="names animate-text-on-scroll_2">Trương Thục Anh</p>
+          <p class="title animate-text-pulse">Lễ Thanh Hôn</p>
+          <p class="names animate-text-left-to-right">Nguyễn Thanh Tùng</p>
+          <p class="names heart animate-text-pulse">&</p>
+          <p class="names animate-text-right-to-left">Trương Thục Anh</p>
         </div>
         <div class="date-display">
           <div class="date-layout">
@@ -145,27 +159,21 @@
   </div>
   <!-- Event -->
   <div id="event-schedule" class="event-section">
-  <h2>Địa điểm tổ chức tiệc cưới</h2>
+    <h2>Địa điểm tổ chức tiệc cưới</h2>
     <div class="map-container">
       <div class="bride-map-container">
         <p>Nhà gái</p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12996.967586444069!2d139.45268652667917!3d35.47355840571199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601857ce85a5dffd%3A0xcbc28fda894776f3!2z44Or44Of44Ko44O844Or!5e0!3m2!1sen!2sjp!4v1749794016833!5m2!1sen!2sjp" 
-          width="600" 
-          height="450" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12996.967586444069!2d139.45268652667917!3d35.47355840571199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601857ce85a5dffd%3A0xcbc28fda894776f3!2z44Or44Of44Ko44O844Or!5e0!3m2!1sen!2sjp!4v1749794016833!5m2!1sen!2sjp"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
       <div class="groom-map-container">
         <p>Nhà trai</p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12996.967586444069!2d139.45268652667917!3d35.47355840571199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601857ce85a5dffd%3A0xcbc28fda894776f3!2z44Or44Of44Ko44O844Or!5e0!3m2!1sen!2sjp!4v1749794016833!5m2!1sen!2sjp" 
-          width="600" 
-          height="450" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12996.967586444069!2d139.45268652667917!3d35.47355840571199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601857ce85a5dffd%3A0xcbc28fda894776f3!2z44Or44Of44Ko44O844Or!5e0!3m2!1sen!2sjp!4v1749794016833!5m2!1sen!2sjp"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
@@ -177,21 +185,27 @@
     </div>
     <div class="gallery-container">
       <div class="gallery-track">
-      </div>  
+      </div>
       <button class="gallery-button prev">❮</button>
       <button class="gallery-button next">❯</button>
     </div>
   </div>
-  <!-- Response status -->
-  <div id="rsvp" class="rsvp-page" style="display:none;">
-    <h3>Phản hồi tham dự</h3>
-    <label for="wishesText">Lời chúc gửi đến cô dâu chú rể (tùy chọn):</label>
-    <textarea id="wishesText" rows="4" placeholder="Ví dụ: Chúc mừng hạnh phúc hai bạn!"></textarea>
-    <div class="rsvp-actions"> 
-      <button class="rsvp-button accept-button" onclick="sendRSVP('accepted')">Tham dự</button>
-      <button class="rsvp-button decline-button" onclick="sendRSVP('declined')">Không tham dự</button>
+  <div id="wishesDialog" class="dialog-overlay">
+    <div class="dialog-content">
+      <button class="close-button" id="closeWishesDialog">&times;</button>
+      <!-- Response status -->
+      <div id="rsvp" class="rsvp-page" style="display:none;">
+        <h3>Phản hồi tham dự</h3>
+        <label for="wishesText">Lời chúc gửi đến cô dâu chú rể (tùy chọn):</label>
+        <textarea id="wishesText" rows="4" placeholder="Ví dụ: Chúc mừng hạnh phúc hai bạn!"></textarea>
+        <div class="rsvp-actions">
+          <button class="rsvp-button accept-button" onclick="sendRSVP('accepted')">Tham dự</button>
+          <button class="rsvp-button decline-button" onclick="sendRSVP('declined')">Không tham dự</button>
+        </div>
+      </div>
     </div>
   </div>
+
   <!-- Script JS -->
   <script src="scripts/firebase-config.js"></script>
   <script src="scripts/script.js"></script>
@@ -200,5 +214,8 @@
   <script src="scripts/menu-extend-btn.js"></script>
   <script src="scripts/flower-fly.js"></script>
   <script src="scripts/gallery.js"></script>
+  <script src="scripts/home.js"></script>
+  <script src="scripts/card-begin.js"></script>
 </body>
+
 </html>

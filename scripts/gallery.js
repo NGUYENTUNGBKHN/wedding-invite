@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryTrack = document.querySelector('.gallery-track');
     const prevButton = document.querySelector('.gallery-button.prev');
     const nextButton = document.querySelector('.gallery-button.next');
-    const numberOfSlides = 20;
+    const numberOfSlides = 2;
 
     let currentIndex = 0;
     let slides = [];

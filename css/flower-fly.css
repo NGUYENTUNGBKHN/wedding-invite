@@ -6,7 +6,7 @@
     width: 100%;
     height: 100%;
     pointer-events: none; /* Đảm bảo hoa không chặn các click khác */
-    z-index: 9999; /* Đảm bảo hoa nằm trên các phần tử khác */
+    z-index: 999; /* Đảm bảo hoa nằm trên các phần tử khác */
 }
 
 .flower-fly {
@@ -24,21 +24,6 @@
 .flower-fly.type2 { background-color: lavender; }
 .flower-fly.type3 { background-color: lightcoral; }
 
-
-/* Hoạt ảnh rơi */
-@keyframes fall {
-    0% {
-        transform: translateY(0px) rotate(0deg); /* Bắt đầu từ trên cao */
-        opacity: 0;
-    }
-    10% {
-        opacity: 0.8; /* Hiện rõ dần */
-    }
-    100% {
-        transform: translateY(100vh) rotate(720deg); /* Rơi xuống cuối trang và xoay */
-        opacity: 0; /* Biến mất khi chạm đáy */
-    }
-}
 
 @media (max-width: 768px) {
   .flower-fly {

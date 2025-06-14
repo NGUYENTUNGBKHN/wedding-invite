@@ -95,4 +95,44 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const wishesButton = document.getElementById('wishesButton');
+    const wishesDialog = document.getElementById('wishesDialog');
+    const closeWishesDialogButton = document.getElementById('closeWishesDialog');
+    
+    // Mở dialog khi nhấn nút "Gửi tiền mừng"
+    if (wishesButton) {
+        wishesButton.addEventListener('click', function() {
+            if (wishesDialog) {
+                wishesDialog.style.display = 'flex'; // Hiển thị dialog
+            }
+        });
+    }
+
+    // Đóng dialog khi nhấn nút 'X'
+    if (closeWishesDialogButton) {
+        closeWishesDialogButton.addEventListener('click', function() {
+            if (wishesDialog) {
+                wishesDialog.style.display = 'none'; // Ẩn dialog
+            }
+        });
+    }
+
+    // Đóng dialog khi click ra ngoài vùng dialog content
+    if (wishesDialog) {
+        wishesDialog.addEventListener('click', function(event) {
+            if (event.target === wishesDialog) { // Chỉ đóng khi click trực tiếp vào overlay
+                wishesDialog.style.display = 'none';
+            }
+        });
+    }
+});
+
+function openDialog() {
+    const wishesDialog = document.getElementById('wishesDialog');
+    if (wishesDialog) {
+        wishesDialog.style.display = 'flex'; // Hiển thị dialog
+    }
+}
+
 

@@ -13,7 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const flowerContainer = document.querySelector('.flower-section');
 
     // name group
-    const textElements_2 = document.querySelectorAll('.animate-text-on-scroll_2');
+    const name_left_right = document.querySelectorAll('.animate-text-left-to-right');
+    const name_right_left = document.querySelectorAll('.animate-text-right-to-left');
+    const name_pulse    =  document.querySelectorAll('.animate-text-pulse');
     const textContainer_2 = document.querySelector('.names-group');
 
     // --- Observer cho mái vòm ---
@@ -64,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
         textObserver.observe(textContainer); // Theo dõi container chung của các chữ
     }
     // Chữ names-group
-    if (textElements_2.length > 0 && textContainer_2) {
+    if (textContainer_2) {
         const textObserverOptions_2 = {
             root: null,
             rootMargin: '0px',
@@ -75,12 +77,26 @@ document.addEventListener('DOMContentLoaded', function() {
             entries.forEach(entry => {
                 if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
                     // Khi container chứa chữ xuất hiện
-                    textElements_2.forEach(textEl => {
+                    name_left_right.forEach(textEl => {
                         textEl.classList.add('is-visible-text');
                     });
+                    name_right_left.forEach(textEl => {
+                        textEl.classList.add('is-visible-text');
+                    });
+                    name_pulse.forEach(textEl => {
+                        textEl.classList.add('is-visible-text');
+                    });
+
+                    
                 } else if (!entry.isIntersecting && entry.intersectionRatio === 0) {
                     // Khi container chứa chữ khuất khỏi tầm nhìn, xóa class
-                    textElements_2.forEach(textEl => {
+                    name_left_right.forEach(textEl => {
+                        textEl.classList.remove('is-visible-text');
+                    });
+                    name_right_left.forEach(textEl => {
+                        textEl.classList.remove('is-visible-text');
+                    });
+                    name_pulse.forEach(textEl => {
                         textEl.classList.remove('is-visible-text');
                     });
                 }

@@ -1,0 +1,120 @@
+/* Thêm đoạn này vào card-begin.css */
+html.no-scroll, body.no-scroll {
+    overflow: hidden;
+}
+
+.card-container {
+    position: relative;
+    background-image: url('../images/gallery_background.jpg');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex ;
+    overflow: hidden;
+    transition: all 1s ease-in-out; /* Hiệu ứng chuyển động */
+    transform-origin: center;
+    z-index: 1000; /* Đảm bảo thiệp ở trên cùng */
+    width: 100vw;    /* Chiếm toàn bộ chiều rộng viewport */
+    height: 100vh;   /* Chiếm toàn bộ chiều cao viewport */
+}
+
+.card-half {
+    flex: 1;
+    background-color: lightcoral; /* Màu sắc hoặc hình ảnh của mỗi nửa thiệp */
+    /* Thay đổi background-size từ 'cover' sang 'contain' */
+    background-size: cover; /* Đảm bảo ảnh hiển thị toàn bộ chiều rộng */
+    background-repeat: no-repeat; /* Ngăn ảnh lặp lại */
+    background-position: center; /* Đảm bảo ảnh luôn ở giữa */
+    transition: transform 1s ease-in-out;
+}
+
+.left-half {
+    background-image: url('../images/card_begin_left.png'); /* Nếu muốn dùng hình ảnh */
+}
+
+.right-half {
+    background-image: url('../images/card_begin_right.png'); /* Nếu muốn dùng hình ảnh */
+}
+
+.card-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #333;
+    z-index: 1001; /* Đảm bảo nội dung thiệp ở trên các nửa thiệp */
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    width: 90%; /* Giới hạn chiều rộng nội dung để không tràn trên màn hình nhỏ */
+    max-width: 500px; /* Đảm bảo nội dung không quá rộng trên màn hình lớn */
+    padding: 15px; /* Thêm padding để nội dung không bị dính vào mép */
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+}
+
+/* Điều chỉnh kích thước chữ và các phần tử khác trong card-content cho di động */
+@media (max-width: 768px) {
+    .card-content {
+        font-size: 0.9em; /* Giảm kích thước font trên màn hình nhỏ hơn */
+        padding: 10px;
+    }
+
+    .card-half {
+        background-size: contain; /* Đảm bảo ảnh hiển thị toàn bộ chiều rộng */
+    }
+
+    #openCardBtn {
+        padding: 8px 16px; /* Điều chỉnh kích thước nút trên di động */
+        font-size: 0.9em;
+    }
+}
+
+
+.card-container.open .card-content {
+    opacity: 0; /* Ẩn nội dung thiệp khi mở */
+}
+
+.card-container.open .left-half {
+    transform: translateX(-100%); /* Di chuyển nửa trái ra ngoài */
+}
+
+.card-container.open .right-half {
+    transform: translateX(100%); /* Di chuyển nửa phải ra ngoài */
+}
+
+.website-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* Màu nền của nội dung trang web */
+    display: none; /* Ban đầu ẩn */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    overflow-y: auto; /* Cho phép cuộn nếu nội dung trang web dài */
+    -webkit-overflow-scrolling: touch; /* Cải thiện cuộn trên iOS */
+}
+
+.website-content.show {
+    display: block;
+    opacity: 1;
+}
+
+#openCardBtn {
+    padding: 10px 20px;
+    background-color: lightcoral;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 1em;
+}
+
+#openCardBtn:hover {
+    background-color: lightcoral;
+}

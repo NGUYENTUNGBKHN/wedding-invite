@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   background-image: none; /* Importance : Remove background of all pages */
-  background-color: #ffffff; /* background color for all */
+  background-color: #000000; /* background color for all */
 }
 
 html, body {
@@ -143,11 +143,6 @@ html, body {
   color: #333;
 }
 
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
 .invitation-container {
   position: relative;
   border-radius: 20px; /* viền bo tròn */
@@ -215,14 +210,28 @@ html, body {
   /* Hoặc dùng animation trực tiếp khi add class 'is-visible-text' */
 }
 
-.animate-text-on-scroll_2 {
+.animate-text-left-to-right {
   opacity: 0;
   /* Mặc định ẩn */
-  transform: translateY(20px);
+  transform: translateX(20px);
   /* Vị trí ban đầu hơi thấp hơn */
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   /* Chuyển động mượt mà */
   /* Hoặc dùng animation trực tiếp khi add class 'is-visible-text' */
+}
+
+.animate-text-right-to-left {
+  opacity: 0;
+  /* Mặc định ẩn */
+  transform: translateX(20px);
+  /* Vị trí ban đầu hơi thấp hơn */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  /* Chuyển động mượt mà */
+  /* Hoặc dùng animation trực tiếp khi add class 'is-visible-text' */
+}
+
+.animate-text-pulse{
+  opacity: 0;
 }
 
 .animate-flower-on{
@@ -237,12 +246,21 @@ html, body {
 
 /* Khi class 'is-visible-text' được thêm vào */
 .animate-text-on-scroll.is-visible-text {
-  animation: flyInFromBottom 1s ease-out forwards; /* Chạy animation */
+  animation: run_right_to_left 1s ease-out forwards; /* Chạy animation */
 }
 
 /* Khi class 'is-visible-text' được thêm vào */
-.animate-text-on-scroll_2.is-visible-text {
-  animation: flyInFromBottom 1s ease-out forwards; /* Chạy animation */
+.animate-text-left-to-right.is-visible-text {
+  animation: run_right_to_left 1s ease-out forwards; /* Chạy animation */
+}
+
+.animate-text-right-to-left.is-visible-text {
+  animation: run_left_to_right 1s ease-out forwards; /* Chạy animation */
+}
+
+.animate-text-pulse.is-visible-text{
+  opacity: 1;
+  animation: pulse_home 0.5s ease-in-out;
 }
 
 /* Khi class 'is-visible-text' được thêm vào */
@@ -262,9 +280,6 @@ html, body {
 .names-group .names {
 
 }
-
-.names-group .title.is-visible-text { animation-delay: 0.1s;}
-.names-group .names.is-visible-text { animation-delay: 0.5s;}
 
 /* Bạn có thể tạo độ trễ cho từng phần tử để chúng xuất hiện lần lượt */
 .date-layout .side-box .label {
@@ -289,26 +304,6 @@ html, body {
 .location {animation-delay: 1s;}
 .arch-bottom.is-visible{
   animation: flyInFromBottom 1.5s ease-out forwards;
-}
-
-@keyframes flyInFromBottom {
-  0% {
-    transform: translateY(100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
 }
 
 /* .date-display {

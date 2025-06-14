@@ -29,7 +29,7 @@
   overflow: hidden;
   margin-bottom: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  animation: pulse_home 2s ease-in-out;
+  /* animation: pulse_home 2s ease-in-out; */
 }
 
 .couple-image img {
@@ -44,9 +44,7 @@
   align-items: center;
 }
 
-.couple-name,
-.couple-name-groom,
-.couple-name-bride {
+.couple-name {
   font-family: 'Great Vibes', cursive;
   font-size: 3.5rem;
   margin: 5px 0;
@@ -55,15 +53,7 @@
 }
 
 .couple-name {
-  animation: pulse_home 2s ease-in-out;
-}
-
-.couple-name-groom {
-  animation: run_left_to_right 2s ease-in-out;
-}
-
-.couple-name-bride {
-  animation: run_right_to_left 2s ease-in-out;
+  /* animation: pulse_home 2s ease-in-out; */
 }
 
 .couple-names h1:nth-child(2) {
@@ -71,44 +61,44 @@
   color: lightcoral;
 }
 
-/* aniamtion text run left -> right */
-@keyframes run_left_to_right {
-  0% {
-    transform: translateX(-100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.animate-home{
+  opacity: 0;
+  /* transition: opacity 0.8s ease-out, transform 0.8s ease-out; */
 }
 
-/* aniamtion text run right -> left */
-@keyframes run_right_to_left {
-  0% {
-    transform: translateX(100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.animate-home-groom{
+  opacity: 0;
+  /* transform: translateX(-100px); */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-home-bride{
+  opacity: 0;
+  /* transform: translateX(100px); */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-home.is-visible{
+  opacity: 1;
+  animation: pulse_home 2s ease-in-out;
+}
+
+.animate-home-groom.is-visible{
+  opacity: 1;
+  animation: run_left_to_right 2s ease-in-out;
+}
+
+.animate-home-bride.is-visible{
+  opacity: 1;
+  animation: run_right_to_left 2s ease-in-out;
 }
 
 
-@keyframes pulse_home {
-  0% {
-    transform: scale(0.3);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
 
 @media (max-width: 768px) {
   .home-container {
     padding: 10px;
+    scale: 1;
     /* Giảm padding trên mobile */
   }
 
@@ -118,9 +108,7 @@
     height: 150px;
   }
 
-  .couple-name,
-  .couple-name-groom,
-  .couple-name-bride {
+  .couple-name {
     font-size: 2.5rem;
     /* Điều chỉnh kích thước chữ trên mobile */
   }

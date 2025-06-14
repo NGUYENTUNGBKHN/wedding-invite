@@ -65,7 +65,8 @@ if (!guestId) {
         {
           invitationDiv.innerHTML += `
           <p>Bạn ${str_rsvpStatus} </p>
-          <p>Hãy phản hồi cho cô dâu chú rể <a href="#rsvp"><strong>ở đây nhé !!</strong></a></p>`;
+          <p>Hãy phản hồi cho cô dâu chú rể ở đây nhé !!</p>
+          <button class="corner-button" onclick="openDialog()">Lời chúc</button>`;
         }
         
 

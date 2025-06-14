@@ -1,0 +1,95 @@
+/* animation.css */
+/* Hoạt ảnh rơi */
+@keyframes fall {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        /* Bắt đầu từ trên cao */
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+        /* Hiện rõ dần */
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        /* Rơi xuống cuối trang và xoay */
+        opacity: 0;
+        /* Biến mất khi chạm đáy */
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes flyInFromBottom {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* aniamtion text run left -> right */
+@keyframes run_left_to_right {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* aniamtion text run right -> left */
+@keyframes run_right_to_left {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes pulse_home {
+    0% {
+        transform: scale(0.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
