@@ -57,28 +57,28 @@
     }
 }
 
-/* aniamtion text run left -> right */
+/* animation for gallery images: run left to right */
 @keyframes run_left_to_right {
     0% {
-        transform: translateX(-100px);
+        transform: translateX(-100px); /* Bắt đầu từ -100px bên trái */
         opacity: 0;
     }
 
     100% {
-        transform: translateY(0);
+        transform: translateX(0); /* Di chuyển về vị trí ban đầu (0) */
         opacity: 1;
     }
 }
 
-/* aniamtion text run right -> left */
+/* animation for gallery images: run right to left */
 @keyframes run_right_to_left {
     0% {
-        transform: translateX(100px);
+        transform: translateX(100px); /* Bắt đầu từ 100px bên phải */
         opacity: 0;
     }
 
     100% {
-        transform: translateY(0);
+        transform: translateX(0); /* Di chuyển về vị trí ban đầu (0) */
         opacity: 1;
     }
 }

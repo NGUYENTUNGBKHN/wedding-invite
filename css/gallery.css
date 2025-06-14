@@ -1,12 +1,12 @@
-/* style.css */
+/* gallery.css */
 .gallery-section {
-    display: flex; /* Giữ nguyên flex để căn giữa container */
-    flex-direction: column; /* Đảm bảo nội dung được xếp chồng lên nhau */
-    align-items: center; /* Căn giữa theo chiều ngang */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-image: url('../images/gallery_background.jpg');
     background-size: cover;
     position: relative;
-    padding: 50px 0; /* Thêm padding để có không gian xung quanh ảnh */
+    padding: 50px 0;
 }
 
 .gallery-layout {
@@ -21,9 +21,8 @@
 
 .gallery-container {
     position: relative;
-    max-width: auto; /* Tăng chiều rộng tối đa để chứa nhiều ảnh hơn */
+    max-width: 1200px;
     width: 95%;
-    /* height: auto; */ /* Loại bỏ chiều cao cố định */
     overflow: visible;
     border-radius: 8px;
     perspective: 1000px;
@@ -32,34 +31,34 @@
     margin-right: auto;
     z-index: 2;
 
-    /* Thêm các thuộc tính CSS Grid cho bố cục ảnh */
+    /* Đảm bảo luôn 2 cột cho mọi kích thước màn hình */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 cột trên màn hình lớn, tự động điều chỉnh */
+    grid-template-columns: repeat(2, 1fr); /* LUÔN LUÔN 2 cột */
     gap: 20px; /* Khoảng cách giữa các ảnh */
     padding: 20px; /* Padding bên trong container */
-    background-color: rgb(255, 255, 255); /* Nền nhẹ cho container */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Thêm bóng nhẹ cho container */
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.gallery-item { /* Đổi tên từ .gallery-slide thành .gallery-item cho rõ ràng hơn */
-    background-color: #f8f8f8; /* Nền trắng cho mỗi ảnh */
+.gallery-item {
+    background-color: #f8f8f8;
     border-radius: 8px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.3s ease-in-out; /* Thêm hiệu ứng hover */
+    transition: transform 0.3s ease-in-out;
 }
 
 .gallery-item:hover {
-    transform: translateY(-5px); /* Hiệu ứng nổi lên khi hover */
+    transform: translateY(-5px);
 }
 
 .gallery-item img {
     width: 100%;
-    height: 100%; /* Chiều cao cố định cho ảnh để chúng có kích thước đồng nhất */
-    object-fit: cover; /* Đảm bảo ảnh được cắt để vừa với kích thước */
+    height: 100%; /* Chiều cao cố định cho ảnh trên máy tính */
+    object-fit: cover;
     display: block;
 }
 
@@ -67,12 +66,70 @@
     padding: 10px;
     font-size: 1em;
     color: #555;
-    background-color: rgba(255, 255, 255, 0.9); /* Nền trắng trong suốt */
+    background-color: rgba(255, 255, 255, 0.9);
     border-top: 1px solid #ddd;
     text-align: center;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
+
+/* ----------------------------------------------- */
+/* ĐỊNH NGHĨA HIỆU ỨNG CHO ẢNH GALLERY */
+/* ----------------------------------------------- */
+
+/* Trạng thái ban đầu: ẩn và dịch chuyển ra ngoài */
+.gallery-image-left {
+    opacity: 0;
+    /* transform: translateX(-100px); */
+}
+
+.gallery-image-right {
+    opacity: 0;
+    /* transform: translateX(100px); */
+}
+
+/* Keyframes cho animation chạy từ trái sang phải */
+@keyframes run_left_to_right_gallery {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Keyframes cho animation chạy từ phải sang trái */
+@keyframes run_right_to_left_gallery {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.gallery-section h2 {
+   font-family: 'Patrick Hand', cursive;
+   font-size: 3rem;
+}
+
+/* Lớp 'animated' sẽ kích hoạt animation trên các phần tử ảnh */
+.gallery-image-left.animated {
+    animation: run_left_to_right_gallery 1s forwards ease-out;
+}
+
+.gallery-image-right.animated {
+    animation: run_right_to_left_gallery 1s forwards ease-out;
+}
+
+/* ----------------------------------------------- */
+/* KẾT THÚC ĐỊNH NGHĨA HIỆU ỨNG */
+/* ----------------------------------------------- */
+
 
 /* Loại bỏ các styles liên quan đến thanh trượt */
 .gallery-track,
@@ -81,53 +138,42 @@
 .gallery-slide.prev-visible,
 .gallery-slide.next-visible,
 .gallery-button {
-    display: none; /* Ẩn hoàn toàn các phần tử của thanh trượt */
+    display: none;
 }
 
-/* Đảm bảo hình ảnh bên trong mỗi item chiếm toàn bộ không gian và được căn chỉnh đúng */
-.gallery-item img {
-    width: 100%;
-    height: 200px; /* Chiều cao cố định cho ảnh trên máy tính */
-    object-fit: cover; /* Đảm bảo ảnh được cắt để vừa với kích thước mà không bị biến dạng */
-    display: block;
-}
-
-/* Media query cho các thiết bị có chiều rộng màn hình tối đa 768px (ví dụ: máy tính bảng và điện thoại) */
+/* Media query cho các thiết bị có chiều rộng màn hình tối đa 768px */
 @media (max-width: 768px) {
     .gallery-container {
-        /* Điều chỉnh lại grid-template-columns để đảm bảo ảnh không quá nhỏ hoặc quá lớn */
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Có thể là 2 cột hoặc hơn tùy kích thước ảnh bạn muốn */
-        gap: 15px; /* Giảm khoảng cách giữa các ảnh trên mobile */
-        padding: 10px; /* Giảm padding */
-    }
-    .gallery-item {
-        /* Đảm bảo item ảnh có tỷ lệ phù hợp */
-        width: 100%; /* Đảm bảo mỗi item chiếm hết chiều rộng của cột */
-        height: 100%;
-    }
-    .gallery-item img {
-        height: 150px; /* Giảm chiều cao ảnh trên thiết bị di động */
-        /* Nếu ảnh vẫn bị cắt, bạn có thể thử 'contain' thay vì 'cover', nhưng 'cover' thường tốt hơn cho bố cục gallery */
-        object-fit: cover;
-    }
-    .slide-caption {
-        font-size: 0.9em; /* Giảm kích thước font chú thích */
-        padding: 8px;
-    }
-}
-
-/* Media query cho các thiết bị di động nhỏ hơn (ví dụ: điện thoại) */
-@media (max-width: 480px) {
-    .gallery-container {
+        /* Giữ nguyên 2 cột */
         grid-template-columns: repeat(2, 1fr);
-        gap: 5px;
-        padding: 5px;
+        gap: 10px; /* Giảm gap cho màn hình nhỏ hơn */
+        padding: 10px;
     }
     .gallery-item img {
-        height: 100%; /* Tăng chiều cao ảnh trên điện thoại nhỏ để hiển thị rõ hơn */
+        height: 150px; /* Điều chỉnh chiều cao ảnh cho tablet */
+        object-fit: cover;
     }
     .slide-caption {
         font-size: 0.85em;
         padding: 6px;
+    }
+}
+
+/* Media query cho các thiết bị di động nhỏ hơn (tối đa 480px) */
+@media (max-width: 480px) {
+    .gallery-container {
+        /* Vẫn 2 cột, nhưng với gap nhỏ hơn và padding ít hơn */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px; /* Rất ít khoảng cách cho điện thoại nhỏ */
+        padding: 5px;
+    }
+    .gallery-item img {
+        height: 100%; /* Điều chỉnh chiều cao ảnh cho điện thoại nhỏ */
+        width: 100%; /* Điều chỉnh chiều cao ảnh cho điện thoại nhỏ */
+        object-fit: cover;
+    }
+    .slide-caption {
+        font-size: 0.75em; /* Font nhỏ hơn nữa cho chú thích trên điện thoại */
+        padding: 4px;
     }
 }

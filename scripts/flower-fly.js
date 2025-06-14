@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const minFallDuration = 5; // Min of time fall (second)
     const maxFallDuration = 10; // Max of time fall (second)
     const flowerTypes = ['type1', 'type2', 'type3']; // type of flower
-
+    
     // create flower
     function createFlower() {
         const flower = document.createElement('div');

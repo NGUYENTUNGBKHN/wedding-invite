@@ -87,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         textEl.classList.add('is-visible-text');
                     });
 
-                    
                 } else if (!entry.isIntersecting && entry.intersectionRatio === 0) {
                     // Khi container chứa chữ khuất khỏi tầm nhìn, xóa class
                     name_left_right.forEach(textEl => {
