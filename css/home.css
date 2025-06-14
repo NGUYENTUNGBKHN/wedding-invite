@@ -1,70 +1,132 @@
 /* --- Home Section Styles (Cập nhật) --- */
 .home-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Căn giữa nội dung theo chiều dọc */
-    align-items: center; /* Căn giữa nội dung theo chiều ngang */
-    min-height: calc(100vh - 60px); /* Chiều cao đầy đủ trừ đi navbar */
-    padding: 20px;
-    text-align: center;
-    color: #fff;
-    /* Bạn có thể thêm background-image hoặc background-color riêng cho home-container tại đây nếu muốn nó khác với body */
-    /* background-image: url('images/home_bg.jpg'); */
-    /* background-size: cover; */
-    /* background-position: center; */
-    background-image: url('../images/gallery_background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Căn giữa nội dung theo chiều dọc */
+  align-items: center;
+  /* Căn giữa nội dung theo chiều ngang */
+  min-height: calc(100vh - 60px);
+  /* Chiều cao đầy đủ trừ đi navbar */
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  /* Bạn có thể thêm background-image hoặc background-color riêng cho home-container tại đây nếu muốn nó khác với body */
+  /* background-image: url('images/home_bg.jpg'); */
+  /* background-size: cover; */
+  /* background-position: center; */
+  background-image: url('../images/gallery_background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .couple-image {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  animation: pulse_home 2s ease-in-out;
 }
 
 .couple-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .couple-names {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.couple-name,
+.couple-name-groom,
+.couple-name-bride {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.5rem;
+  margin: 5px 0;
+  color: lightcoral;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .couple-name {
-    font-family: 'Great Vibes', cursive;
-    font-size: 3.5rem;
-    margin: 5px 0;
-    color: lightcoral;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: pulse_home 2s ease-in-out;
+}
+
+.couple-name-groom {
+  animation: run_left_to_right 2s ease-in-out;
+}
+
+.couple-name-bride {
+  animation: run_right_to_left 2s ease-in-out;
 }
 
 .couple-names h1:nth-child(2) {
-    font-size: 2rem;
-    color: lightcoral;
+  font-size: 2rem;
+  color: lightcoral;
+}
+
+/* aniamtion text run left -> right */
+@keyframes run_left_to_right {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* aniamtion text run right -> left */
+@keyframes run_right_to_left {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+@keyframes pulse_home {
+  0% {
+    transform: scale(0.3);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 768px) {
   .home-container {
-    padding: 10px; /* Giảm padding trên mobile */
+    padding: 10px;
+    /* Giảm padding trên mobile */
   }
+
   .couple-image {
-    width: 150px; /* Giảm kích thước ảnh trên mobile */
+    width: 150px;
+    /* Giảm kích thước ảnh trên mobile */
     height: 150px;
   }
-  .couple-name {
-    font-size: 2.5rem; /* Điều chỉnh kích thước chữ trên mobile */
+
+  .couple-name,
+  .couple-name-groom,
+  .couple-name-bride {
+    font-size: 2.5rem;
+    /* Điều chỉnh kích thước chữ trên mobile */
   }
-  .couple-names h1:nth-child(2) { /* Điều chỉnh kích thước chữ "Và" hoặc tên thứ hai */
+
+  .couple-names h1:nth-child(2) {
+    /* Điều chỉnh kích thước chữ "Và" hoặc tên thứ hai */
     font-size: 1.5rem;
   }
 }

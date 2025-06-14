@@ -37,7 +37,7 @@ body {
     }
 
     .flower-section .flower {
-        max-width: 80px; /* Giảm kích thước hoa góc */
+        /* max-width: 80px; Giảm kích thước hoa góc */
     }
 
     .invitation-card {
@@ -90,7 +90,7 @@ body {
     .arch-wrapper img {
         max-width: 100%;
         height: auto;
-        padding-bottom: 30px; /* Điều chỉnh padding cho mái vòm */
+        /* padding-bottom: 30px; */
     }
 
     /* Gallery Section */
@@ -468,7 +468,7 @@ body {
     }
 
     .flower {
-        width: 20%; /* Giảm kích thước hoa nếu cần */
+        /* width: 35%; Giảm kích thước hoa nếu cần */
     }
 
     .date-display {

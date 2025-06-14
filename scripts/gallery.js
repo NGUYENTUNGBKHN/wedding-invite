@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             galleryTrack.style.cursor = 'grab';
         } else {
             // console.log('Kéo cuộn đã bị vô hiệu hóa!');
-            startAutoScroll();
+            // startAutoScroll();
             galleryTrack.style.cursor = 'default';
         }
         // Dừng tự động cuộn khi trạng thái kéo thay đổi để tránh xung đột

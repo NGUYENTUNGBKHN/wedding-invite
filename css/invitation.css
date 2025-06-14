@@ -1,19 +1,15 @@
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
-  /* background-image: url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1280&q=80'); */
-  /* background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; */
-  background-image: none; /* Rất quan trọng: Loại bỏ ảnh nền toàn trang */
-  background-color: #ffffff; /* Đặt một màu nền dự phòng hoặc màu đồng nhất */
+  background-image: none; /* Importance : Remove background of all pages */
+  background-color: #ffffff; /* background color for all */
 }
 
 html, body {
-  overflow-x: hidden; /* Ẩn thanh cuộn ngang nếu có */
-  width: 100%; /* Đảm bảo cả html và body chiếm đúng 100% chiều rộng */
-  margin: 0; /* Đảm bảo không có margin mặc định */
-  padding: 0; /* Đảm bảo không có padding mặc định */
+  overflow-x: hidden; /* hide row scroll */
+  width: 100%; /* html body occupied 100% screen */
+  margin: 0; /* Make sure there not margin default  */
+  padding: 0; /* Make sure there not default padding */
 }
 
 
@@ -30,10 +26,10 @@ html, body {
   display: flex;
   flex-direction: row;  /* <-- align all element into row */
   justify-content: center;
-  align-items: flex-start; /* canh trên nếu bạn muốn khớp đầu dòng */
+  align-items: flex-start;
   padding: 20px;
-  gap: 40px; /* <-- tạo khoảng cách giữa hai khung */
-  flex-wrap: wrap; /* <-- để không bị vỡ giao diện trên mobile */
+  gap: 40px; 
+  flex-wrap: wrap;
 }
 
 /* .background-overlay {
@@ -88,7 +84,7 @@ html, body {
 
 .title {
   font-size: 2.5rem;
-  margin-top: 0; /* bỏ margin trên mặc định */
+  margin-top: 0;
   margin-bottom: 0.5rem;
   font-family: 'Great Vibes', cursive;
   color: #ffffff;
@@ -98,7 +94,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0px; /* khoảng cách giữa các dòng tên, bạn có thể giảm nữa nếu muốn sát hơn */
+  /* gap: 0px;  */
 }
 
 .names {
@@ -113,7 +109,7 @@ html, body {
 }
 
 .names.heart {
-  font-size: 1.8rem; /* tim nhỏ hơn một chút */
+  font-size: 1.8rem; /* size of text  */
 }
 
 .location {
@@ -129,7 +125,7 @@ html, body {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 200px; /* độ dài dòng kẻ */
+  width: 200px; /* width of line */
   height: 1px;
   background: rgba(255, 255, 255, 0.5);
 }
@@ -168,7 +164,6 @@ html, body {
 /* style chung cho ảnh hoa */
 .flower {
   position: absolute;
-  width: 25%; /* hoa chiếm 25% chiều rộng khung */
   height: auto;
   object-fit: contain;
   pointer-events: none;
@@ -536,7 +531,7 @@ html, body {
   .invitation-container,
   .invitation-container_2 {
     padding: 20px 15px; /* Giảm padding bên trong container */
-    min-height: 700px; /* Cho phép chiều cao tự động co giãn */
+    min-height: 680px; /* Cho phép chiều cao tự động co giãn */
     margin-top: 10px; /* Giảm margin top */
     margin-bottom: 10px; /* Giảm margin bottom */
   }
@@ -575,14 +570,13 @@ html, body {
   }
 
   .flower {
-    width: 25%; /* Giữ nguyên % nhưng có thể kiểm tra trực tiếp trên thiết bị */
+    width: 35%; /* Giữ nguyên % nhưng có thể kiểm tra trực tiếp trên thiết bị */
     /* Nếu ảnh hoa quá lớn, bạn có thể giảm % hoặc sử dụng media query cụ thể */
   }
 
   /* Các phần date-display, side-box, center-box */
   .date-layout_2, .footer_2 {
-    flex-direction: column; /* Xếp thành cột trên mobile */
-    gap: 10px; /* Giảm khoảng cách */
+    gap: 40px; 
   }
 
   .side-box .label, .side-box_2 .label_2 {

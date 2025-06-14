@@ -41,5 +41,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // After 5s create flower
     setInterval(() => {
         createFlower();
-    }, 5000);
+    }, 7000);
 });
