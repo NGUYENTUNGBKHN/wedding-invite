@@ -115,7 +115,10 @@
 .gallery-section h2 {
    font-family: 'Patrick Hand', cursive;
    font-size: 3rem;
+   z-index: 4;
 }
+
+
 
 /* Lớp 'animated' sẽ kích hoạt animation trên các phần tử ảnh */
 .gallery-image-left.animated {

@@ -30,18 +30,18 @@ html.no-scroll, body.no-scroll {
 }
 
 .left-half {
-    background-image: url('../images/card_begin_2_left.png'); /* Nếu muốn dùng hình ảnh */
+    background-image: url('../images/card_begin_3_left.png'); /* Nếu muốn dùng hình ảnh */
 }
 
 .right-half {
-    background-image: url('../images/card_begin_2_right.png'); /* Nếu muốn dùng hình ảnh */
+    background-image: url('../images/card_begin_3_right.png'); /* Nếu muốn dùng hình ảnh */
 }
 
 .card-content {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
     text-align: center;
     color: #333;
     z-index: 1001; /* Đảm bảo nội dung thiệp ở trên các nửa thiệp */
@@ -107,7 +107,7 @@ html.no-scroll, body.no-scroll {
 
 #openCardBtn {
     padding: 10px 20px;
-    background-color: lightcoral;
+    background-color: #0d3749;
     color: white;
     border: none;
     border-radius: 5px;
@@ -117,5 +117,5 @@ html.no-scroll, body.no-scroll {
 }
 
 #openCardBtn:hover {
-    background-color: lightcoral;
+    background-color: #0d3749;
 }
