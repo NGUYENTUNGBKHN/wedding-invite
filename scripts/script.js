@@ -85,7 +85,7 @@ if (!guestId) {
         `;
         updateInvitationRSVPStatus(data); // Cập nhật trạng thái phản hồi ban đầu
         // if (data.rsvp === 'pending') {
-          rsvpDiv.style.display = 'block';
+        rsvpDiv.style.display = 'block';
         // }
       } else {
         invitationDiv.innerHTML = '<p>Không tìm thấy thông tin khách mời.</p>';
@@ -167,7 +167,7 @@ function sendRSVP(status) {
             .catch(error => {
               console.error("Lỗi khi tải lại dữ liệu khách mời để cập nhật UI:", error);
             });
-          
+
         });
       }
     })
@@ -207,28 +207,39 @@ function sendRSVP(status) {
 // }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const hamburgerToggle = document.querySelector('.hamburger-menu-toggle');
-    const navLinksContainer = document.querySelector('.nav-links-container');
-    const navButtons = document.querySelectorAll('.nav-links-container .nav-button'); // Chọn tất cả các nút nav
+  const hamburgerToggle = document.querySelector('.hamburger-menu-toggle');
+  const navLinksContainer = document.querySelector('.nav-links-container');
+  const navButtons = document.querySelectorAll('.nav-links-container .nav-button'); // Chọn tất cả các nút nav
 
-    if (hamburgerToggle && navLinksContainer) {
-        hamburgerToggle.addEventListener('click', () => {
-            navLinksContainer.classList.toggle('active');
-            hamburgerToggle.classList.toggle('active'); // Thêm class 'active' cho icon hamburger
-        });
+  if (hamburgerToggle && navLinksContainer) {
+    hamburgerToggle.addEventListener('click', (event) => {
+      event.stopPropagation();
+      navLinksContainer.classList.toggle('active');
+      hamburgerToggle.classList.toggle('active'); // Thêm class 'active' cho icon hamburger
+    });
 
-        // Đóng menu khi click vào một nút điều hướng
-        navButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Kiểm tra nếu menu đang mở (có class 'active') trên mobile thì đóng lại
-                if (window.innerWidth <= 768 && navLinksContainer.classList.contains('active')) {
-                    navLinksContainer.classList.remove('active');
-                    hamburgerToggle.classList.remove('active');
-                }
-            });
-        });
-    }
+    // Đóng menu khi click vào một nút điều hướng
+    navButtons.forEach(button => {
+      button.addEventListener('click', (event) => {
+        event.stopPropagation();
+        // Kiểm tra nếu menu đang mở (có class 'active') trên mobile thì đóng lại
+        if (window.innerWidth <= 768 && navLinksContainer.classList.contains('active')) {
+          navLinksContainer.classList.remove('active');
+          hamburgerToggle.classList.remove('active');
+        }
+      });
+    });
 
-    // --- Các đoạn mã JavaScript khác của bạn (gallery.js, music.js, v.v.) sẽ ở đây ---
-    // Đảm bảo rằng bạn đã kết hợp tất cả logic JS vào một tệp hoặc tải chúng theo đúng thứ tự.
+    // Close menu if click anywhere
+    document.addEventListener('click', (event) => {
+      // Kiểm tra xem click có nằm ngoài khu vực menu và menu đang mở không
+      if (window.innerWidth <= 768 && navLinksContainer.classList.contains('active')) {
+        navLinksContainer.classList.remove('active');
+        hamburgerToggle.classList.remove('active');
+      }
+    });
+  }
+
+  // --- Các đoạn mã JavaScript khác của bạn (gallery.js, music.js, v.v.) sẽ ở đây ---
+  // Đảm bảo rằng bạn đã kết hợp tất cả logic JS vào một tệp hoặc tải chúng theo đúng thứ tự.
 });

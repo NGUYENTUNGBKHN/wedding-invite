@@ -71,7 +71,6 @@
 /* Styling cho các nút (áp dụng cho tất cả button trực tiếp trong #rsvp hoặc .rsvp-page) */
 /* Nếu bạn muốn giữ các class accept-button, decline-button, bạn có thể tách ra */
 .rsvp-page button { /* Hoặc nếu #rsvp chính là .rsvp-page: #rsvp button */
-    margin: 0 12px;
     padding: 12px 26px;
     font-weight: 600;
     background-color: #0d3749; /* Màu hồng đậm */
@@ -171,11 +170,6 @@
         font-size: 0.95rem;
     }
 
-    .rsvp-page button { /* Cập nhật selector từ #rsvp button sang .rsvp-page button */
-        margin: 0 5px; /* Giảm khoảng cách giữa các nút hơn nữa */
-        padding: 10px 18px; /* Giảm padding nút */
-        font-size: 0.85rem; /* Giảm kích thước chữ nút */
-    }
     /* Các input/textarea đã nằm trong .rsvp-page nên không cần selector #rsvp */
     .rsvp-page textarea {
         padding: 8px;
