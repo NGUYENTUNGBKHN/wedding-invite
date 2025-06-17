@@ -44,13 +44,13 @@ html.no-scroll, body.no-scroll {
     transform: translate(-50%, 0%);
     text-align: center;
     color: #333;
-    z-index: 1001; /* Đảm bảo nội dung thiệp ở trên các nửa thiệp */
+    z-index: 1001; 
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
-    width: 90%; /* Giới hạn chiều rộng nội dung để không tràn trên màn hình nhỏ */
-    max-width: 500px; /* Đảm bảo nội dung không quá rộng trên màn hình lớn */
-    padding: 15px; /* Thêm padding để nội dung không bị dính vào mép */
-    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+    width: 90%; 
+    max-width: 500px; 
+    padding: 15px; 
+    box-sizing: border-box; 
 }
 
 /* Điều chỉnh kích thước chữ và các phần tử khác trong card-content cho di động */

@@ -34,7 +34,7 @@
     /* Đảm bảo luôn 2 cột cho mọi kích thước màn hình */
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* LUÔN LUÔN 2 cột */
-    gap: 20px; /* Khoảng cách giữa các ảnh */
+    gap: 10px; 
     padding: 20px; /* Padding bên trong container */
     background-color: rgb(255, 255, 255);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -42,13 +42,14 @@
 
 .gallery-item {
     background-color: #f8f8f8;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.3s ease-in-out;
+    /* border: 2.5px solid #59796c;  */
 }
 
 .gallery-item:hover {
@@ -57,7 +58,7 @@
 
 .gallery-item img {
     width: 100%;
-    height: 100%; /* Chiều cao cố định cho ảnh trên máy tính */
+    height: 100%; /*  */
     object-fit: cover;
     display: block;
 }
@@ -79,12 +80,12 @@
 
 /* Trạng thái ban đầu: ẩn và dịch chuyển ra ngoài */
 .gallery-image-left {
-    opacity: 0;
+    opacity: 1;
     /* transform: translateX(-100px); */
 }
 
 .gallery-image-right {
-    opacity: 0;
+    opacity: 1;
     /* transform: translateX(100px); */
 }
 
@@ -92,7 +93,7 @@
 @keyframes run_left_to_right_gallery {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-150px);
     }
     100% {
         opacity: 1;
@@ -104,7 +105,7 @@
 @keyframes run_right_to_left_gallery {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(150px);
     }
     100% {
         opacity: 1;
@@ -122,11 +123,11 @@
 
 /* Lớp 'animated' sẽ kích hoạt animation trên các phần tử ảnh */
 .gallery-image-left.animated {
-    animation: run_left_to_right_gallery 1s forwards ease-out;
+    animation: run_left_to_right_gallery 2s forwards ease-out;
 }
 
 .gallery-image-right.animated {
-    animation: run_right_to_left_gallery 1s forwards ease-out;
+    animation: run_right_to_left_gallery 2s forwards ease-out;
 }
 
 /* ----------------------------------------------- */
@@ -153,7 +154,7 @@
         padding: 10px;
     }
     .gallery-item img {
-        height: 150px; /* Điều chỉnh chiều cao ảnh cho tablet */
+        height: 100%; /* Điều chỉnh chiều cao ảnh cho tablet */
         object-fit: cover;
     }
     .slide-caption {

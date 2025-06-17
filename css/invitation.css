@@ -77,6 +77,7 @@ html, body {
 .invitation-container_2 {
   overflow: hidden;         /* ẩn phần ảnh vượt ra ngoài viền */
   min-height: 850px;        /* hoặc giá trị lớn hơn */
+  padding: 40px 30px;
   /* padding-bottom: 80px;     chừa chỗ cho ảnh mái vòm */
 }
 
@@ -137,7 +138,7 @@ html, body {
   background: rgba(255, 255, 255, 0.5);
 }
 
-.invitation {
+.invitation-card-2 {
   width: 100%;
   background: #fefefe;
   padding: 25px 20px;
@@ -525,6 +526,27 @@ html, body {
   text-align: center;
 }
 
+.rsvp-status-display{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.confirm-button{
+  padding: 10px 15px;
+  background-color: rgba(13, 55, 73, 0.8);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  /* transition: background-color 0.3s ease, transform 0.2s ease; */
+  white-space: nowrap;
+}
+
 @media (max-width: 768px) {
   .background-overlay {
   /* Giữ nguyên các thuộc tính responsive đã có */
@@ -535,7 +557,8 @@ html, body {
 
   .invitation-container,
   .invitation-container_2 {
-    /* padding: 20px 15px; Giảm padding bên trong container */
+    /*Reduce padding inside container*/
+    /* padding: 20px 15px;  */
     min-height: 680px; /* Cho phép chiều cao tự động co giãn */
     margin-top: 10px; /* Giảm margin top */
     margin-bottom: 10px; /* Giảm margin bottom */
@@ -543,6 +566,7 @@ html, body {
 
   .invitation-container_2 {
     min-height: 600px; /* Giảm chiều cao cho khung có mái vòm trên mobile nếu cần */
+    padding: 20px 15px;
     /* padding-bottom: 50px; Điều chỉnh padding cho mái vòm */
   }
 
@@ -567,7 +591,7 @@ html, body {
     width: 150px; /* Giảm độ dài dòng kẻ */
   }
 
-  .invitation {
+  .invitation-card-2 {
     padding: 15px 10px; /* Giảm padding cho nội dung thư mời */
     font-size: 0.95rem; /* Giảm kích thước chữ thư mời */
     margin-top: 20px; /* Điều chỉnh margin top */
@@ -595,5 +619,10 @@ html, body {
   .center-box .month, .center-box .year,
   .center-box_2 .month_2, .center-box_2 .year_2 {
     font-size: 0.9rem; /* Giảm kích thước tháng/năm */
+  }
+
+  .confirm-button{
+    padding: 8px 12px;
+    font-size: 0.8rem;
   }
 }

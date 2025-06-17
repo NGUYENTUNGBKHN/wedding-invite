@@ -4,7 +4,7 @@ function getQueryParam(param) {
 }
 
 const guestId = getQueryParam('guest');
-const invitationDiv = document.getElementById('invitation');
+const invitationDiv = document.getElementById('invitation-card-2');
 const rsvpDiv = document.getElementById('rsvp');
 
 
@@ -22,17 +22,17 @@ function updateInvitationRSVPStatus(data) {
     rsvpStatusHtml = `
       <p>Bạn ${str_rsvpStatus}</p>
       <strong>Tùng và Thục Anh rất vui !! Cảm ơn bạn.</strong>
-      <button class="corner-button" onclick="openDialog()">Sửa lời chúc</button>`;
+      <button class="confirm-button" onclick="openDialog()">Sửa lời chúc</button>`;
   } else if (val_rsvpStatus === 2) {
     rsvpStatusHtml = `
       <p>Bạn ${str_rsvpStatus} </p>
       <strong>Tùng và Thục Anh rất tiếc !! Cảm ơn bạn.</strong>
-      <button class="corner-button" onclick="openDialog()">Sửa lời chúc</button>`;
+      <button class="confirm-button" onclick="openDialog()">Sửa lời chúc</button>`;
   } else { // val_rsvpStatus === 3
     rsvpStatusHtml = `
       <p>Bạn ${str_rsvpStatus} </p>
       <p>Hãy phản hồi cho cô dâu chú rể ở đây nhé !!</p>
-      <button class="corner-button" onclick="openDialog()">Lời chúc</button>`;
+      <button class="confirm-button" onclick="openDialog()">Lời chúc</button>`;
   }
 
   // Tìm và cập nhật phần trạng thái RSVP trong invitationDiv
