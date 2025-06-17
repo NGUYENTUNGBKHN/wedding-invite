@@ -21,11 +21,13 @@ function updateInvitationRSVPStatus(data) {
   if (val_rsvpStatus === 1) {
     rsvpStatusHtml = `
       <p>Bạn ${str_rsvpStatus}</p>
-      <strong>Tùng và Thục Anh rất vui !! Cảm ơn bạn.</strong>`;
+      <strong>Tùng và Thục Anh rất vui !! Cảm ơn bạn.</strong>
+      <button class="corner-button" onclick="openDialog()">Sửa lời chúc</button>`;
   } else if (val_rsvpStatus === 2) {
     rsvpStatusHtml = `
       <p>Bạn ${str_rsvpStatus} </p>
-      <strong>Tùng và Thục Anh rất tiếc !! Cảm ơn bạn.</strong>`;
+      <strong>Tùng và Thục Anh rất tiếc !! Cảm ơn bạn.</strong>
+      <button class="corner-button" onclick="openDialog()">Sửa lời chúc</button>`;
   } else { // val_rsvpStatus === 3
     rsvpStatusHtml = `
       <p>Bạn ${str_rsvpStatus} </p>
@@ -82,9 +84,9 @@ if (!guestId) {
           </div>
         `;
         updateInvitationRSVPStatus(data); // Cập nhật trạng thái phản hồi ban đầu
-        if (data.rsvp === 'pending') {
+        // if (data.rsvp === 'pending') {
           rsvpDiv.style.display = 'block';
-        }
+        // }
       } else {
         invitationDiv.innerHTML = '<p>Không tìm thấy thông tin khách mời.</p>';
       }

@@ -1,41 +1,42 @@
-// Logic cho menu mở rộng ở góc phải
+// Menu-extend-btn.js
+// Logic for menu corner button
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggleButton = document.getElementById('menuToggleButton');
     const subButtonsContainer = document.querySelector('.sub-buttons-container');
     const expandableCornerMenu = document.querySelector('.expandable-corner-menu');
 
     if (menuToggleButton && subButtonsContainer) {
-        // KHÔNG CẦN THÊM CLASS 'open' Ở ĐÂY NỮA, vì trạng thái mặc định được quản lý bằng CSS
+
 
         menuToggleButton.addEventListener('click', (event) => {
-            event.stopPropagation(); // Ngăn sự kiện click lan truyền ra ngoài
+            event.stopPropagation(); // prevent to click event conflit to other element
 
-            // Chuyển đổi class 'closed'
-            // Nếu có class 'closed' -> xóa đi (mở rộng)
-            // Nếu không có class 'closed' -> thêm vào (thu gọn)
+            // Convert to class 'closed'
+            // if there is class 'closed' -> remove (extend)
+            // if there is not class 'closed' -> add ()
             subButtonsContainer.classList.toggle('closed');
 
-            // Thay đổi biểu tượng của nút chính
+            // Change to toggle button 
             const icon = menuToggleButton.querySelector('i');
             if (subButtonsContainer.classList.contains('closed')) {
-                icon.classList.remove('fa-times'); // Nếu đang đóng, hiển thị 3 gạch
+                icon.classList.remove('fa-times'); // if closed, three line is showed
                 icon.classList.add('fa-bars');
             } else {
-                icon.classList.remove('fa-bars');  // Nếu đang mở, hiển thị dấu X
+                icon.classList.remove('fa-bars');  // if opend, X is showed
                 icon.classList.add('fa-times');
             }
         });
 
-        // Đóng menu khi nhấp ra ngoài
-        document.addEventListener('click', (event) => {
-            // Kiểm tra xem click có nằm ngoài khu vực menu và menu đang mở không
-            if (expandableCornerMenu && !expandableCornerMenu.contains(event.target) && !subButtonsContainer.classList.contains('closed')) {
-                subButtonsContainer.classList.add('closed'); // Thêm class 'closed' để thu gọn
-                const icon = menuToggleButton.querySelector('i');
-                icon.classList.remove('fa-times'); // Trả lại biểu tượng 3 gạch ngang
-                icon.classList.add('fa-bars');
-            }
-        });
+        // Close menu if click anywhere
+        // document.addEventListener('click', (event) => {
+        //     // Kiểm tra xem click có nằm ngoài khu vực menu và menu đang mở không
+        //     if (expandableCornerMenu && !expandableCornerMenu.contains(event.target) && !subButtonsContainer.classList.contains('closed')) {
+        //         subButtonsContainer.classList.add('closed'); // Thêm class 'closed' để thu gọn
+        //         const icon = menuToggleButton.querySelector('i');
+        //         icon.classList.remove('fa-times'); // Trả lại biểu tượng 3 gạch ngang
+        //         icon.classList.add('fa-bars');
+        //     }
+        // });
     }
 });
 
@@ -63,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const moneyGiftButton = document.getElementById('giftMoneyButton'); // Nút "Gửi tiền mừng" là nút thứ 2 trong sub-buttons-container
+    const moneyGiftButton = document.getElementById('giftMoneyButton');
     const moneyGiftDialog = document.getElementById('moneyGiftDialog');
     const closeMoneyGiftDialogButton = document.getElementById('closeMoneyGiftDialog');
 

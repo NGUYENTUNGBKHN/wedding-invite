@@ -62,7 +62,7 @@ html, body {
   width: 100%;
   min-height: 300px;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
-  padding: 40px 30px;
+  /* padding: 40px 30px; */
   box-sizing: border-box;
   color: #ffffff;
   animation: fadeIn 2s ease-in-out;
@@ -77,7 +77,7 @@ html, body {
 .invitation-container_2 {
   overflow: hidden;         /* ẩn phần ảnh vượt ra ngoài viền */
   min-height: 850px;        /* hoặc giá trị lớn hơn */
-  padding-bottom: 80px;     /* chừa chỗ cho ảnh mái vòm */
+  /* padding-bottom: 80px;     chừa chỗ cho ảnh mái vòm */
 }
 
 .invitation-card {
@@ -156,7 +156,7 @@ html, body {
   overflow: hidden;    /* ẩn phần ảnh vượt ra ngoài viền */
   /* các style khác */
   min-height: 850px;        /* hoặc giá trị lớn hơn */
-  padding-bottom: 80px;     /* chừa chỗ cho ảnh mái vòm */
+  /* padding-bottom: 80px;     chừa chỗ cho ảnh mái vòm */
 }
 
 
@@ -192,13 +192,14 @@ html, body {
 }
 
 .arch-wrapper {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  /* position: absolute; */
+  /* bottom: 0; */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
   width: 100%;
   pointer-events: none;
   z-index: 10;
+  margin-top: auto;
 }
 
 .arch-bottom {
@@ -534,7 +535,7 @@ html, body {
 
   .invitation-container,
   .invitation-container_2 {
-    padding: 20px 15px; /* Giảm padding bên trong container */
+    /* padding: 20px 15px; Giảm padding bên trong container */
     min-height: 680px; /* Cho phép chiều cao tự động co giãn */
     margin-top: 10px; /* Giảm margin top */
     margin-bottom: 10px; /* Giảm margin bottom */
@@ -542,7 +543,7 @@ html, body {
 
   .invitation-container_2 {
     min-height: 600px; /* Giảm chiều cao cho khung có mái vòm trên mobile nếu cần */
-    padding-bottom: 50px; /* Điều chỉnh padding cho mái vòm */
+    /* padding-bottom: 50px; Điều chỉnh padding cho mái vòm */
   }
 
   .title {

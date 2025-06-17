@@ -1,30 +1,29 @@
 // scripts/gallery.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Chọn các phần tử ảnh trong gallery
+    // Select a element image in gallery
     const galleryImagesLeft = document.querySelectorAll('.gallery-image-left');
     const galleryImagesRight = document.querySelectorAll('.gallery-image-right');
     const galleryContainer = document.querySelector('.gallery-container');
 
     const observerOptions = {
-        root: null, // Sử dụng viewport làm root
+        root: null, // use viewport to root
         rootMargin: '0px',
-        threshold: 0.5 // Kích hoạt khi 50% của phần tử hiển thị
+        threshold: 0.2 // Trigger from 20% of display element
     };
 
     const observerCallback = (entries, observer) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) { // Nếu phần tử đang hiển thị trong viewport
-                // Thêm lớp 'animated' để kích hoạt animation
+            if (entry.isIntersecting) { // if element display into viewport
+                // add class 'animated' to trigger animation
                 entry.target.classList.add('animated');
-                // Ngừng quan sát phần tử này để animation chỉ chạy một lần
             }
         });
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    // Bắt đầu quan sát từng ảnh
+    // Start observer each photo
     galleryImagesLeft.forEach(image => {
         observer.observe(image);
     });
@@ -38,13 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const textObserverOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0 // Kích hoạt khi 0% và 50% hiển thị
+            threshold: 0 
         };
 
         const textObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Khi container chứa chữ xuất hiện
                     galleryImagesLeft.forEach(textEl => {
                         textEl.classList.remove('animated');
                     });
@@ -55,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, textObserverOptions);
 
-        textObserver.observe(galleryContainer); // Theo dõi container chung của các chữ
+        textObserver.observe(galleryContainer); // Observer container
     }
 
 });
