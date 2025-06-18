@@ -31,7 +31,7 @@
     min-width: 300px; /* Đảm bảo không quá nhỏ */
 
     margin: 0; /* Loại bỏ margin: 0 auto; vì flexbox sẽ căn chỉnh */
-    border: 1px solid #ddd;
+    border: 1px solid #000000;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
