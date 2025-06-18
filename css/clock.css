@@ -1,0 +1,66 @@
+/* clock.css */
+
+.clock-section {
+    align-items: center;
+}
+
+/* Các tùy chỉnh riêng cho FlipClock
+.flip-clock-wrapper ul li a div.up span,
+.flip-clock-wrapper ul li a div.down span {
+    color: #ffffff;
+} */
+
+.flip-clock-divider {
+    color: #2196F3 !important; /* Màu dấu chấm giữa các số */
+}
+
+.flip-clock-wrapper ul li a div {
+    color: #ffffff !important;
+    /* Đảm bảo màu số */
+}
+
+.flip-clock-wrapper ul li {
+    border-radius: 8px !important;
+    /* Bo tròn các ô số */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.flip-clock-wrapper ul li a div.up .shadow,
+.flip-clock-wrapper ul li a div.down .shadow {
+    background-color: rgba(13, 55, 73, 0.05);
+}
+
+/* Điều chỉnh kích thước bộ đếm trên màn hình nhỏ */
+@media screen and (max-width: 768px) {
+    .flip-clock-wrapper {
+        font-size: 1.5em ;
+    }
+    .flip-clock-wrapper ul {
+        height: 80px ;
+        line-height: 80px ;
+    }
+    .flip-clock-label {
+        right: -60px ; 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .flip-clock-wrapper {
+        font-size: 1.5em ;
+    }
+    .flip-clock-wrapper ul {
+        height: 30px ;
+        line-height: 30px ;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .flip-clock-wrapper {
+        font-size: 1.5em ;
+    }
+    .flip-clock-wrapper ul {
+        height: 22px ;
+        line-height: 22px ;
+    }
+}
+
