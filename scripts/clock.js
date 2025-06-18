@@ -2,7 +2,7 @@
 $(document).ready(function() {
     // Đặt ngày và giờ mục tiêu của bạn
     // Định dạng: "YYYY-MM-DD HH:mm"
-    var targetDateString = "2025-06-18 17:20";
+    var targetDateString = "2026-01-24 17:20";
 
     // Đặt múi giờ cho ngày mục tiêu
     // Rất quan trọng để đảm bảo đếm ngược chính xác, đặc biệt với các múi giờ khác nhau.
