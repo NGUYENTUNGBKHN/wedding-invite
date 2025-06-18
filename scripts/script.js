@@ -106,35 +106,6 @@ function sendRSVP(status) {
   if (!confirm(confirmText)) return;
 
   const guestWishes = wishesInput ? wishesInput.value : '';
-  // rsvpDiv.style.display = 'none';
-  // wishesDialog.querySelector('.dialog-content').innerHTML = `
-  // <button class="close-button" id="closeWishesDialogOnThanks">×</button>
-  //   <div class="dialog-thanks-section" style="display:block;">
-  //     <div class="dialog-thanks-content">
-  //       <h2>Xin chân thành cảm ơn!</h2>
-  //       <p>Rất hân hạnh được đón tiếp</p>
-  //       <p class="dialog-couple-signature">Thanh Tùng & Thục Anh</p>
-  //     </div>
-  //   </div>
-  // `;
-  // const closeButtonOnThanks = document.getElementById('closeWishesDialogOnThanks');
-  // if (closeButtonOnThanks) {
-  //   closeButtonOnThanks.addEventListener('click', () => {
-  //     wishesDialog.style.display = 'none';
-  //     // Tùy chọn: tải lại trang sau khi đóng dialog cảm ơn,
-  //     // hoặc bạn có thể cập nhật trạng thái trên trang mà không cần tải lại.
-  //     //location.reload();
-  //     db.collection('guests').doc(guestId).get()
-  //       .then(doc => {
-  //         if (doc.exists) {
-  //           updateInvitationRSVPStatus(doc.data()); // Cập nhật trạng thái trên thiệp mời
-  //         }
-  //       })
-  //       .catch(error => {
-  //         console.error("Lỗi khi tải lại dữ liệu khách mời để cập nhật UI:", error);
-  //       });
-  //   });
-  // }
   db.collection('guests').doc(guestId).update({ rsvp: status, wishes: guestWishes })
     .then(() => {
       alert('Cảm ơn bạn đã phản hồi!');
@@ -175,36 +146,6 @@ function sendRSVP(status) {
       alert('Lỗi khi gửi phản hồi: ' + err.message);
     });
 }
-
-// function sendRSVP(status) {
-//   const confirmText = status === 'accepted'
-//     ? 'Bạn xác nhận sẽ tham dự chứ?'
-//     : 'Bạn xác nhận sẽ không tham dự?';
-
-//   if (!confirm(confirmText)) return;
-
-//   // Kiểm tra guestId có tồn tại trước khi gửi
-//   if (!guestId) {
-//     alert('Không tìm thấy ID khách mời để gửi phản hồi.');
-//     return;
-//   }
-
-//   // Lấy lời chúc từ input
-//   const guestWishes = wishesInput ? wishesInput.value : ''; // Lấy giá trị, nếu input tồn tại
-
-//   // Tạo đối tượng dữ liệu để cập nhật
-//   const updateData = { rsvp: status, wishes: guestWishes };
-
-//   updateDoc(doc(db, 'guests', guestId), updateData) // Sửa thành updateData
-//     .then(() => {
-//       alert('Cảm ơn bạn đã phản hồi!');
-//       location.reload(); // Tải lại trang để hiển thị trạng thái mới
-//     })
-//     .catch(err => {
-//       alert('Lỗi khi gửi phản hồi: ' + err.message);
-//       console.error("Lỗi khi cập nhật RSVP:", err);
-//     });
-// }
 
 document.addEventListener('DOMContentLoaded', () => {
   const hamburgerToggle = document.querySelector('.hamburger-menu-toggle');

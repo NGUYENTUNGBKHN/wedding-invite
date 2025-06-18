@@ -32,8 +32,8 @@ html, body {
   flex-wrap: wrap;
 }
 
-.background-overlay h2 {
-  font-family: 'Patrick Hand', cursive;
+.background-overlay h1 {
+  font-family: 'Great Vibes', cursive;
   font-size: 3rem;
   color: #333;
   margin-bottom: 10px;
@@ -624,5 +624,8 @@ html, body {
   .confirm-button{
     padding: 8px 12px;
     font-size: 0.8rem;
+  }
+  .background-overlay h1{
+    font-size: 2rem;
   }
 }

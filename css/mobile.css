@@ -319,6 +319,10 @@ body {
     .close-button {
         font-size: 1.4em;
     }
+
+    .background-overlay h1{
+        font-size: 3rem;
+    }
 }
 
 /* ------------------------------------------- */
