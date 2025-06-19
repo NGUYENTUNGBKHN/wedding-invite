@@ -81,12 +81,12 @@
 
 /* Trạng thái ban đầu: ẩn và dịch chuyển ra ngoài */
 .gallery-image-left {
-    opacity: 1;
+    opacity: 0;
     /* transform: translateX(-100px); */
 }
 
 .gallery-image-right {
-    opacity: 1;
+    opacity: 0;
     /* transform: translateX(100px); */
 }
 

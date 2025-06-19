@@ -17,12 +17,12 @@ html, body {
   /* Background for background-overlay */
   background-image: url('../images/gallery_background.jpg');
   background-size: cover;
-  /* background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; */
+  background-position: center;
+  /* background-repeat: no-repeat; */
+  /*background-attachment: fixed; */
   backdrop-filter: blur(3px);
-  background-color: rgba(0, 0, 0, 0.6);
-  min-height: 100vh;
+  /* background-color: rgba(0, 0, 0, 0.6); */
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: row;  /* <-- align all element into row */
   justify-content: center;
@@ -549,10 +549,10 @@ html, body {
 
 @media (max-width: 768px) {
   .background-overlay {
-  /* Giữ nguyên các thuộc tính responsive đã có */
-  flex-wrap: wrap; /* Rất quan trọng để các container xuống dòng */
-  gap: 20px; /* Giảm khoảng cách giữa các khung trên mobile */
-  padding: 10px; /* Giảm padding chung */
+    /* Giữ nguyên các thuộc tính responsive đã có */
+    flex-wrap: wrap; /* Rất quan trọng để các container xuống dòng */
+    gap: 20px; /* Giảm khoảng cách giữa các khung trên mobile */
+    padding: 10px; /* Giảm padding chung */
   }
 
   .invitation-container,

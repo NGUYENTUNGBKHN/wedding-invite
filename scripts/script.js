@@ -22,12 +22,12 @@ function updateInvitationRSVPStatus(data) {
     rsvpStatusHtml = `
       <p>Bạn ${str_rsvpStatus}</p>
       <strong>Tùng và Thục Anh rất vui !! Cảm ơn bạn.</strong>
-      <button class="confirm-button" onclick="openDialog()">Sửa lời chúc</button>`;
+      <button class="confirm-button" onclick="openDialog()">Thêm lời chúc</button>`;
   } else if (val_rsvpStatus === 2) {
     rsvpStatusHtml = `
       <p>Bạn ${str_rsvpStatus} </p>
       <strong>Tùng và Thục Anh rất tiếc !! Cảm ơn bạn.</strong>
-      <button class="confirm-button" onclick="openDialog()">Sửa lời chúc</button>`;
+      <button class="confirm-button" onclick="openDialog()">Suy nghĩ lại</button>`;
   } else { // val_rsvpStatus === 3
     rsvpStatusHtml = `
       <p>Bạn ${str_rsvpStatus} </p>
