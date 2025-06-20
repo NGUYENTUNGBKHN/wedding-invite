@@ -6,7 +6,8 @@ function getQueryParam(param) {
 const guestId = getQueryParam('guest');
 const invitationDiv = document.getElementById('invitation-card-2');
 const rsvpDiv = document.getElementById('rsvp');
-
+const rsvpThanksDiv = document.getElementById('rsvp-thanks');
+const wishesInput = document.getElementById('wishesText'); 
 
 function updateInvitationRSVPStatus(data) {
   let str_rsvpStatus = '';
@@ -96,8 +97,6 @@ if (!guestId) {
     });
 }
 
-const wishesInput = document.getElementById('wishesText'); // Thêm dòng này
-
 function sendRSVP(status) {
   const confirmText = status === 'accepted'
     ? 'Bạn xác nhận sẽ tham dự chứ?'
@@ -112,17 +111,8 @@ function sendRSVP(status) {
       // rsvpDiv.style.display = 'none'; // Ẩn phần RSVP
       // location.reload();
       rsvpDiv.style.display = 'none';
-      wishesDialog.querySelector('.dialog-content').innerHTML = `
-      <button class="close-button" id="closeWishesDialogOnThanks">×</button>
-        <div class="dialog-thanks-section" style="display:block;">
-          <div class="dialog-thanks-content">
-            <h2>Xin chân thành cảm ơn!</h2>
-            <p>Rất hân hạnh được đón tiếp</p>
-            <p class="dialog-couple-signature">Thanh Tùng & Thục Anh</p>
-          </div>
-        </div>
-      `;
-      const closeButtonOnThanks = document.getElementById('closeWishesDialogOnThanks');
+      rsvpThanksDiv.style.display = 'block';
+      const closeButtonOnThanks = document.getElementById('closeWishesDialog');
       if (closeButtonOnThanks) {
         closeButtonOnThanks.addEventListener('click', () => {
           wishesDialog.style.display = 'none';

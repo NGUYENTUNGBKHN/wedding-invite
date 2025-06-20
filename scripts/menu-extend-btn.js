@@ -1,5 +1,6 @@
 // Menu-extend-btn.js
 // Logic for menu corner button
+
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggleButton = document.getElementById('menuToggleButton');
     const subButtonsContainer = document.querySelector('.sub-buttons-container');
@@ -105,6 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (wishesButton) {
         wishesButton.addEventListener('click', function() {
             if (wishesDialog) {
+                rsvpDiv.style.display = 'block';
+                rsvpThanksDiv.style.display = 'none';
                 wishesDialog.style.display = 'flex'; // Hiển thị dialog
             }
         });
@@ -115,6 +118,15 @@ document.addEventListener('DOMContentLoaded', function() {
         closeWishesDialogButton.addEventListener('click', function() {
             if (wishesDialog) {
                 wishesDialog.style.display = 'none'; // Ẩn dialog
+                db.collection('guests').doc(guestId).get()
+                .then(doc => {
+                if (doc.exists) {
+                    updateInvitationRSVPStatus(doc.data()); // Cập nhật trạng thái trên thiệp mời
+                }
+                })
+                .catch(error => {
+                console.error("Lỗi khi tải lại dữ liệu khách mời để cập nhật UI:", error);
+                });
             }
         });
     }
@@ -124,7 +136,16 @@ document.addEventListener('DOMContentLoaded', function() {
         wishesDialog.addEventListener('click', function(event) {
             if (event.target === wishesDialog) { // Chỉ đóng khi click trực tiếp vào overlay
                 wishesDialog.style.display = 'none';
-            }
+                db.collection('guests').doc(guestId).get()
+                .then(doc => {
+                if (doc.exists) {
+                    updateInvitationRSVPStatus(doc.data()); // Cập nhật trạng thái trên thiệp mời
+                }
+                })
+                .catch(error => {
+                console.error("Lỗi khi tải lại dữ liệu khách mời để cập nhật UI:", error);
+                });
+                }
         });
     }
 });
@@ -132,6 +153,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function openDialog() {
     const wishesDialog = document.getElementById('wishesDialog');
     if (wishesDialog) {
+        rsvpDiv.style.display = 'block';
+        rsvpThanksDiv.style.display = 'none';
         wishesDialog.style.display = 'flex'; // Hiển thị dialog
     }
 }

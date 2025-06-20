@@ -256,7 +256,6 @@
   <div id="wishesDialog" class="dialog-overlay">
     <div class="dialog-content">
       <button class="close-button" id="closeWishesDialog">&times;</button>
-      <!-- Response status -->
       <div id="rsvp" class="rsvp-page" style="display:none;">
         <h3 style="color :aliceblue"> Phản hồi tham dự</h3>
         <label for="wishesText">Lời chúc gửi đến cô dâu chú rể (tùy chọn):</label>
@@ -264,6 +263,13 @@
         <div class="rsvp-actions">
           <button class="rsvp-button accept-button" onclick="sendRSVP('accepted')">Tham dự</button>
           <button class="rsvp-button decline-button" onclick="sendRSVP('declined')">Không tham dự</button>
+        </div>
+      </div>
+      <div id="rsvp-thanks" class="dialog-thanks-section" style="display:none;">
+        <div class="dialog-thanks-content">
+          <h2>Xin chân thành cảm ơn!</h2>
+          <p>Rất hân hạnh được đón tiếp</p>
+          <p class="dialog-couple-signature">Thanh Tùng & Thục Anh</p>
         </div>
       </div>
     </div>
