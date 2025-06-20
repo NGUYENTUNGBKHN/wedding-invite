@@ -37,11 +37,7 @@ window.addEventListener('load', async ()  => {
             const doc = await firebase.firestore().collection("guests").doc(guestId).get();
             if (doc.exists) {
                 const guestName = doc.data().name;
-
-                // Hiển thị tên người nhận
                 welcomeText.innerHTML = `Gửi <strong>${guestName}</strong> `;
-
-                // Hiện nút "Mở thiệp"
                 openCardBtn.style.display = 'inline-block'; // hoặc 'block'
             } else {
                 welcomeText.innerHTML = "Không tìm thấy thông tin khách mời.";
