@@ -53,11 +53,13 @@ html, body {
 
 .invitation-container,
 .invitation-container_2 {
-  background-image: url('../images/background_invitation.png');
+  /* background-image: url('../images/background_invitation.png');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 20px;
+  background-repeat: no-repeat; */
+  background-color: rgba(89, 121, 108, 0.5);
+  /* backdrop-filter: blur(10px); */
+  /* border-radius: 20px; */
   max-width: 520px;
   width: 100%;
   min-height: 300px;
@@ -376,7 +378,7 @@ html, body {
   margin-top: 10px;
   margin-bottom: 10px;
   color: #fff;
-  font-family: 'Playfair Display', sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .date-layout {
@@ -396,9 +398,9 @@ html, body {
 .side-box .label {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #ccc;
+  color: #ffffff;
   margin-bottom: 5px;
-  border-top: 1px solid rgba(255, 255, 255, 0.5); /* dòng kẻ ngang */
+  border-top: 1px solid rgba(255, 255, 255, 0.5); 
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
