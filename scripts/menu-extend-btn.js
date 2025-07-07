@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
         closeWishesDialogButton.addEventListener('click', function() {
             if (wishesDialog) {
                 wishesDialog.style.display = 'none'; // Ẩn dialog
-                db.collection('guests').doc(guestId).get()
+                db.collection(guest_source).doc(guestId).get()
                 .then(doc => {
                 if (doc.exists) {
                     updateInvitationRSVPStatus(doc.data()); // Cập nhật trạng thái trên thiệp mời
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
         wishesDialog.addEventListener('click', function(event) {
             if (event.target === wishesDialog) { // Chỉ đóng khi click trực tiếp vào overlay
                 wishesDialog.style.display = 'none';
-                db.collection('guests').doc(guestId).get()
+                db.collection(guest_source).doc(guestId).get()
                 .then(doc => {
                 if (doc.exists) {
                     updateInvitationRSVPStatus(doc.data()); // Cập nhật trạng thái trên thiệp mời

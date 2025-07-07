@@ -40,10 +40,18 @@ window.addEventListener('load', async ()  => {
                 welcomeText.innerHTML = `Gửi <strong>${guestName}</strong> `;
                 openCardBtn.style.display = 'inline-block'; // hoặc 'block'
             } else {
-                welcomeText.innerHTML = "Không tìm thấy thông tin khách mời.";
+                const doc_bride = await firebase.firestore().collection("guests_bride").doc(guestId).get();
+                if (doc_bride.exists){
+                    const guestName = doc_bride.data().name;
+                    welcomeText.innerHTML = `Gửi <strong>${guestName}</strong> `;
+                    openCardBtn.style.display = 'inline-block'; // hoặc 'block'
+                }
+                else{
+                    welcomeText.innerHTML = "Không tìm thấy thông tin khách mời.";
+                }
             }
         } catch (error) {
-            // console.error("Lỗi khi lấy dữ liệu khách mời:", error);
+            console.error("Lỗi khi lấy dữ liệu khách mời:", error);
             welcomeText.innerText = "Đã xảy ra lỗi khi tải thông tin.";
         }
     } else {
