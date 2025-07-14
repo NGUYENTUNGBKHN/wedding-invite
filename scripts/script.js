@@ -5,6 +5,7 @@ function getQueryParam(param) {
 
 const guestId = getQueryParam('guest');
 const invitationDiv = document.getElementById('invitation-card-2');
+const locationDiv = document.getElementById("location_id");
 const rsvpDiv = document.getElementById('rsvp');
 const rsvpThanksDiv = document.getElementById('rsvp-thanks');
 const wishesInput = document.getElementById('wishesText'); 
@@ -66,7 +67,7 @@ if (!guestId) {
           <p>Vào lúc: 10:00 Thứ bảy</p>
           <p>24.01.2026</p>
           <p>(Tức ngày 06 tháng 12 năm Ất Tỵ)</p>
-          <p>Tại : Trường Tiểu học Thượng Thanh</p>
+          <p>Tại : Hội trường Trường Tiểu học Thượng Thanh</p>
           <p>Ngõ 94, Thượng Thanh, Long Biên, Hà Nội, Việt Nam</p>
           <p>Sự hiện diện của quý vị</p>
           <p>là niềm vinh hạnh cho gia đình chúng tôi.</p>
@@ -85,6 +86,7 @@ if (!guestId) {
             </div>
           </div>
         `;
+        locationDiv.innerHTML = `<p>Hội trường Trường Tiểu học Thượng Thanh</p>`;
         updateInvitationRSVPStatus(data); // Cập nhật trạng thái phản hồi ban đầu
         // if (data.rsvp === 'pending') {
         rsvpDiv.style.display = 'block';
@@ -121,6 +123,7 @@ if (!guestId) {
                 </div>
               </div>
             `;
+            locationDiv.innerHTML = `<p>Trống Đồng Palace Cảnh Hồ</p>`;
             updateInvitationRSVPStatus(data); // Cập nhật trạng thái phản hồi ban đầu
             // if (data.rsvp === 'pending') {
             rsvpDiv.style.display = 'block';
