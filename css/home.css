@@ -96,7 +96,8 @@
   .home-container {
     padding: 10px;
     scale: 1;
-    /* Giảm padding trên mobile */
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
   }
 
   .couple-image {
