@@ -323,6 +323,17 @@ body {
     .background-overlay h1{
         font-size: 3rem;
     }
+
+    .background-overlay {
+        background-image: none;
+        flex-direction: column;  /* <-- align all element into row */
+        border-left: 15px solid #59796c; 
+        border-right: 15px solid #59796c;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
 }
 
 /* ------------------------------------------- */

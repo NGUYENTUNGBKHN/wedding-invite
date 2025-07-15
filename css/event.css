@@ -123,6 +123,12 @@
 @media (max-width: 768px) {
     .event-section {
         padding: 30px 15px;
+        border-left: 15px solid #59796c; 
+        border-right: 15px solid #59796c;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
     }
 
     .event-section h2 {

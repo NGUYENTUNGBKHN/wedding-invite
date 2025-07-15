@@ -2,7 +2,8 @@ body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   background-image: none; /* Importance : Remove background of all pages */
-  background-color: #59796c; /* background color for all */
+  /*background-color: #59796c; /* background color for all */
+  background-color: #ffffff ; 
 }
 
 html, body {
@@ -555,6 +556,10 @@ html, body {
     flex-wrap: wrap; /* Rất quan trọng để các container xuống dòng */
     gap: 20px; /* Giảm khoảng cách giữa các khung trên mobile */
     padding: 10px; /* Giảm padding chung */
+    background-image: none;
+    flex-direction: column;  /* <-- align all element into row */
+    border-left: 15px solid #59796c; 
+    border-right: 15px solid #59796c;
   }
 
   .invitation-container,

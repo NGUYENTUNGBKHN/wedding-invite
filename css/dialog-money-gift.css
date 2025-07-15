@@ -26,13 +26,13 @@
     margin-top: 0;
     color: #333;
     font-size: 1.8em;
-    font-family: 'Playfair Display', serif; /* Font chữ đẹp hơn */
+    font-family: 'Playfair Display', serif;
 }
 
 .dialog-content p {
     color: #555;
     line-height: 1.6;
-    font-family: 'Quicksand', sans-serif; /* Font chữ đẹp hơn */
+    font-family: 'Quicksand', sans-serif;
 }
 
 .close-button {
