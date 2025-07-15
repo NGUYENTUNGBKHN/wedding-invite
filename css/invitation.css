@@ -73,15 +73,15 @@ html, body {
   flex-direction: column;
   align-items: center;
   position: relative;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   /* margin-bottom: 40px; */
 }
 
 .invitation-container_2 {
-  overflow: hidden;         /* ẩn phần ảnh vượt ra ngoài viền */
-  min-height: 850px;        /* hoặc giá trị lớn hơn */
+  overflow: hidden;
+  min-height: 850px;
   padding: 40px 30px;
-  /* padding-bottom: 80px;     chừa chỗ cho ảnh mái vòm */
+  border-radius: 20px;
 }
 
 .invitation-card {
@@ -566,9 +566,9 @@ html, body {
   .invitation-container_2 {
     /*Reduce padding inside container*/
     /* padding: 20px 15px;  */
-    min-height: 680px; /* Cho phép chiều cao tự động co giãn */
-    margin-top: 10px; /* Giảm margin top */
-    margin-bottom: 10px; /* Giảm margin bottom */
+    min-height: 680px; 
+    /* margin-top: 10px; */
+    /* margin-bottom: 10px;  */
   }
 
   .invitation-container_2 {

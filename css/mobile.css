@@ -32,10 +32,24 @@ body {
         margin: 3px 0;
     }
 
+    .background-overlay {
+        align-items: center;
+        background-image: none;
+        flex-direction: column;  /* <-- align all element into row */
+        gap: 5px; 
+        border-left: 15px solid #59796c; 
+        border-right: 15px solid #59796c;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+
     /* Invitation Section */
     .invitation-container,
     .invitation-container_2 {
         /* padding: 15px; */
+
     }
 
     .flower-section .flower {
@@ -329,6 +343,7 @@ body {
     .background-overlay {
         background-image: none;
         flex-direction: column;  /* <-- align all element into row */
+        gap: 5px; 
         border-left: 15px solid #59796c; 
         border-right: 15px solid #59796c;
         border-top-left-radius: 50px;
