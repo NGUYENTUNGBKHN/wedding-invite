@@ -6,7 +6,7 @@
     background-image: url('../images/gallery_background.jpg');
     background-size: cover;
     position: relative;
-    padding: 50px 0;
+    /* padding: 50px 0; */
 }
 
 .gallery-layout {
@@ -35,7 +35,8 @@
     display: grid;
     /* grid-template-columns: repeat(2, 1fr); */
     grid-template-columns: 1fr 1fr;
-    grid-auto-rows: minmax(100px, auto);
+    /* grid-auto-rows: minmax(100px, auto); */
+    grid-auto-rows: 80px;
     align-content: start;
     gap: 10px; 
     padding: 20px;
@@ -67,40 +68,31 @@
     display: block;
 }
 
-.gallery-item:nth-child(2) {
-    grid-row: span 1; 
-    grid-column: 2 / 3; 
+.gallery-item:nth-child(1) {
+    grid-row: 1 / 2; 
+    grid-column: 1 / 2; 
 }
 
+.gallery-item:nth-child(2) {
+    grid-row: 2 / 3; 
+    grid-column: 1 / 2; 
+}
 
 .gallery-item:nth-child(3) {
-    grid-row: span 1; 
-    grid-column: 1 / 2;
+    grid-row: 1 / 3; 
+    grid-column: 2 / 4;
 }
 
-.gallery-item:nth-child(4) {
-    grid-row: span 2; 
-    grid-column: 2 / 3;
-    grid-row: 2 / 4
+.gallery-item:nth-child(5) {
+    grid-row: 3 / 5; 
+    grid-column: 2 / 4;
 }
-
 
 .gallery-item:nth-child(6) {
-    grid-row: span 1; 
-    grid-column: 2 / 3; 
+    grid-row: 5 / 7; 
+    grid-column: 1 / 3;
 }
 
-
-.gallery-item:nth-child(7) {
-    grid-row: span 1; 
-    grid-column: 1 / 2;
-}
-
-.gallery-item:nth-child(8) {
-    grid-row: span 2; 
-    grid-column: 2 / 3;
-    grid-row: 5 / 7
-}
 
 
 .slide-caption {
@@ -157,6 +149,7 @@
    font-family: 'Great Vibes', cursive;
    font-size: 3rem;
    /* z-index: 4; */
+   margin: 0 auto;
 }
 
 /* Lớp 'animated' sẽ kích hoạt animation trên các phần tử ảnh */
@@ -197,9 +190,10 @@
 
     .gallery-container {
         /* Giữ nguyên 2 cột */
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 10px; /* Giảm gap cho màn hình nhỏ hơn */
-        grid-auto-rows: minmax(40px, auto);
+        grid-auto-rows: 60px;
+        /* grid-auto-rows: minmax(40px, auto); */
         padding: 10px;
     }
     .gallery-item img {
@@ -225,8 +219,9 @@
     }
     .gallery-container {
         /* Vẫn 2 cột, nhưng với gap nhỏ hơn và padding ít hơn */
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: minmax(20px, auto);
+        grid-template-columns: repeat(3, 1fr);
+        /* grid-auto-rows: minmax(20px, auto); */
+        grid-auto-rows: 80px;
         gap: 10px; /* Rất ít khoảng cách cho điện thoại nhỏ */
         padding: 5px;
     }
