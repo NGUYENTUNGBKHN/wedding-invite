@@ -14,8 +14,8 @@ html, body {
 }
 
 
-.background-overlay {
-  /* Background for background-overlay */
+.invitation-section {
+  /* Background for invitation-section */
   background-image: url('../images/gallery_background.jpg');
   background-size: cover;
   background-position: center;
@@ -25,22 +25,39 @@ html, body {
   /* background-color: rgba(0, 0, 0, 0.6); */
   /* min-height: 100vh; */
   display: flex;
-  flex-direction: row;  /* <-- align all element into row */
+  flex-direction: column;  /* <-- align all element into row */
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding: 20px;
   gap: 40px; 
   flex-wrap: wrap;
 }
 
-.background-overlay h1 {
+.invitation-head {
+  display: flex;
+  flex-direction: column;  /* <-- align all element into row */
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.invitation-head h1 {
   font-family: 'Great Vibes', cursive;
   font-size: 3rem;
   color: #333;
   margin: 0 auto;
 }
 
-/* .background-overlay {
+.invitation-body {
+  display: flex;
+  flex-direction: row;  /* <-- align all element into row */
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* .invitation-section {
   backdrop-filter: blur(3px);
   background-color: rgba(0, 0, 0, 0.6);
   min-height: 100vh;
@@ -562,15 +579,19 @@ html, body {
 }
 
 @media (max-width: 768px) {
-  .background-overlay {
-    /* Giữ nguyên các thuộc tính responsive đã có */
-    flex-wrap: wrap; /* Rất quan trọng để các container xuống dòng */
-    gap: 20px; /* Giảm khoảng cách giữa các khung trên mobile */
-    padding: 10px; /* Giảm padding chung */
+  .invitation-section {
+    flex-wrap: wrap;
+    padding: 10px;
     background-image: none;
     flex-direction: column;  /* <-- align all element into row */
     border-left: 15px solid #59796c; 
     border-right: 15px solid #59796c;
+  }
+
+  .invitation-body {
+    flex-wrap: wrap;
+    padding: 5px;
+    gap: 20px; 
   }
 
   .invitation-container,
@@ -627,23 +648,23 @@ html, body {
   }
 
   .side-box .label, .side-box_2 .label_2 {
-    font-size: 1rem; /* Giảm kích thước nhãn */
+    font-size: 1.1rem; /* Giảm kích thước nhãn */
   }
 
   .center-box .day, .center-box_2 .day_2 {
-    font-size: 2.5rem; /* Giảm kích thước ngày */
+    font-size: 3rem; /* Giảm kích thước ngày */
   }
 
   .center-box .month, .center-box .year,
   .center-box_2 .month_2, .center-box_2 .year_2 {
-    font-size: 0.9rem; /* Giảm kích thước tháng/năm */
+    font-size: 1.1rem; /* Giảm kích thước tháng/năm */
   }
 
   .confirm-button{
     padding: 8px 12px;
     font-size: 0.8rem;
   }
-  .background-overlay h1{
+  .invitation-section h1{
     font-size: 2rem;
   }
 }
