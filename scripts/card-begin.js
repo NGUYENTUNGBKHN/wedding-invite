@@ -31,6 +31,8 @@ window.addEventListener('load', async ()  => {
 
     const welcomeText = document.getElementById('welcomeText');
     const openCardBtn = document.getElementById('openCardBtn');
+    /* Control spinner */
+    const spinnerLoad = document.getElementById('loadingSpinner');
 
     if (guestId) {
         try {
@@ -39,12 +41,14 @@ window.addEventListener('load', async ()  => {
                 const guestName = doc.data().name;
                 welcomeText.innerHTML = `Gửi <strong>${guestName}</strong> `;
                 openCardBtn.style.display = 'inline-block'; // hoặc 'block'
+                spinnerLoad.style.display = 'none';
             } else {
                 const doc_bride = await firebase.firestore().collection("guests_bride").doc(guestId).get();
                 if (doc_bride.exists){
                     const guestName = doc_bride.data().name;
                     welcomeText.innerHTML = `Gửi <strong>${guestName}</strong> `;
                     openCardBtn.style.display = 'inline-block'; // hoặc 'block'
+                    spinnerLoad.style.display = 'none';
                 }
                 else{
                     welcomeText.innerHTML = "Không tìm thấy thông tin khách mời.";

@@ -1,4 +1,4 @@
-/* Thêm đoạn này vào card-begin.css */
+/* card-begin.css */
 html.no-scroll, body.no-scroll {
     overflow: hidden;
 }
@@ -12,11 +12,11 @@ html.no-scroll, body.no-scroll {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex ;
     overflow: hidden;
-    transition: all 1s ease-in-out; /* Hiệu ứng chuyển động */
+    transition: all 1s ease-in-out; 
     transform-origin: center;
-    z-index: 1000; /* Đảm bảo thiệp ở trên cùng */
-    width: 100vw;    /* Chiếm toàn bộ chiều rộng viewport */
-    height: 100vh;   /* Chiếm toàn bộ chiều cao viewport */
+    z-index: 1000;      
+    width: 100vw;
+    height: 100vh;
 }
 
 .card-half {
@@ -118,4 +118,25 @@ html.no-scroll, body.no-scroll {
 
 #openCardBtn:hover {
     background-color: #0d3749;
+}
+
+.spinner-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.spinner {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #333; /* Màu của phần quay */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite; /* Animation: tên, thời gian, kiểu, lặp */
+}
+
+ @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
