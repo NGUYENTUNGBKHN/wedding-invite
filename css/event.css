@@ -4,7 +4,7 @@
     padding: 50px 20px;
     background-color: #f9f9f9;
     text-align: center;
-    margin-top: 10px;
+    /* margin-top: 10px; */
 }
 
 .event-section h2 {
@@ -132,10 +132,10 @@
         padding: 30px 15px;
         border-left: 15px solid #59796c; 
         border-right: 15px solid #59796c;
-        border-top-left-radius: 50px;
+        /* border-top-left-radius: 50px;
         border-top-right-radius: 50px;
         border-bottom-left-radius: 50px;
-        border-bottom-right-radius: 50px;
+        border-bottom-right-radius: 50px; */
     }
 
     .event-section h2 {

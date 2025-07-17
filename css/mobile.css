@@ -17,8 +17,8 @@ body {
     .home-container {
         /* padding: 15px; */
         /* min-height: calc(100vh - 70px); Điều chỉnh chiều cao trừ đi nav mới */
-        border-bottom-left-radius: 50px;
-        border-bottom-right-radius: 50px;
+        /* border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px; */
     }
 
     .couple-image {
@@ -41,8 +41,8 @@ body {
         border-right: 15px solid #59796c;
         border-top-left-radius: 50px;
         border-top-right-radius: 50px;
-        border-bottom-left-radius: 50px;
-        border-bottom-right-radius: 50px;
+        /* border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px; */
     }
 
     /* Invitation Section */
@@ -348,8 +348,8 @@ body {
         border-right: 15px solid #59796c;
         border-top-left-radius: 50px;
         border-top-right-radius: 50px;
-        border-bottom-left-radius: 50px;
-        border-bottom-right-radius: 50px;
+        /* border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px; */
     }
 }
 
