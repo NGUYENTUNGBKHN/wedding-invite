@@ -56,6 +56,7 @@
     transition: transform 0.3s ease-in-out;
     /* border: 2.5px solid #59796c;  */
     grid-row: span 2;
+    cursor: pointer; /* Add cursor pointer to indicate clickability */
 }
 
 .gallery-item:hover {
@@ -64,7 +65,7 @@
 
 .gallery-item img {
     width: 100%;
-    height: 100%; /*  */
+    height: 100%; /* */
     object-fit: cover;
     display: block;
 }
@@ -167,18 +168,239 @@
 /* ----------------------------------------------- */
 
 
-/* Loại bỏ các styles liên quan đến thanh trượt */
+/* Loại bỏ các styles liên quan đến thanh trượt (if any existed before for a different gallery type) */
 .gallery-track,
 .gallery-slide,
 .gallery-slide.active,
 .gallery-slide.prev-visible,
 .gallery-slide.next-visible,
 .gallery-button {
-    display: none;
+    /* display: none; */ /* Only if these classes existed and need to be hidden */
 }
 
-/* Media query cho các thiết bị có chiều rộng màn hình tối đa 768px */
+/* ----------------------------------------------- */
+/* Lightbox styles - NEW ADDITIONS */
+/* ----------------------------------------------- */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top of everything else */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Prevent body scroll when lightbox is open */
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+.lightbox-content-wrapper {
+    position: relative;
+    width: 80%;
+    max-width: 700px;
+    display: flex;
+    justify-content: center; /* Center image within wrapper */
+    align-items: center; /* Center image within wrapper */
+    flex-grow: 1; /* Allow wrapper to take available space */
+}
+
+.lightbox-content {
+    display: block;
+    max-width: 100%;
+    max-height: 80vh; /* Allow more height for the image */
+    border-radius: 8px;
+    transform: scale(1); /* Initial scale */
+    transition: transform 0.3s ease-in-out;
+    cursor: grab; /* Indicate draggable */
+    object-fit: contain; /* Ensure image fits without cropping */
+}
+
+.lightbox-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.lightbox-controls button {
+    padding: 8px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-controls button:hover {
+    opacity: 1;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above other elements */
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+/* Navigation buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+    z-index: 1001; /* Ensure buttons are above image */
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Thumbnail strip and toggle */
+.thumbnail-container {
+    width: 100%; /* Full width of lightbox */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Background for the strip area */
+    padding: 10px 0;
+    box-sizing: border-box; /* Include padding in width */
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+.thumbnail-toggle-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Space between button and strip */
+    transition: background-color 0.3s ease;
+}
+
+.thumbnail-toggle-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.thumbnail-strip {
+    width: 80%; /* Max width for thumbnails */
+    max-width: 700px;
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px 0;
+    justify-content: center; /* Center thumbnails when not overflowing */
+    /* Hide by default, revealed by JS */
+    max-height: 0; /* Collapsed state */
+    opacity: 0;
+    overflow: hidden; /* Hide overflow content */
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+}
+
+.thumbnail-strip.expanded {
+    max-height: 100px; /* Expanded state (adjust as needed) */
+    opacity: 1;
+    padding: 10px 0; /* Restore padding */
+}
+
+.thumbnail-strip img {
+    height: 60px;
+    min-width: 60px; /* Prevent shrinking too much */
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0.6;
+    border-radius: 4px;
+    transition: opacity 0.3s ease, border 0.3s ease;
+    border: 2px solid transparent; /* For active state */
+}
+
+.thumbnail-strip img.active {
+    opacity: 1;
+    border: 2px solid #fff; /* Highlight active thumbnail */
+}
+
+/* Animations */
+.lightbox-content {
+    -webkit-animation-name: zoom-fade;
+    -webkit-animation-duration: 0.3s;
+    animation-name: zoom-fade;
+    animation-duration: 0.3s;
+}
+
+@-webkit-keyframes zoom-fade {
+    from {opacity: 0; -webkit-transform: scale(0.9)}
+    to {opacity: 1; -webkit-transform: scale(1)}
+}
+
+@keyframes zoom-fade {
+    from {opacity: 0; transform: scale(0.1)} /* Adjusted for a stronger zoom-in effect */
+    to {opacity: 1; transform: scale(1)}
+}
+
+
+/* Media query for smaller screens on Lightbox (optional, but good for responsiveness) */
 @media (max-width: 768px) {
+    .lightbox-content-wrapper {
+        width: 95%;
+        max-width: unset; /* Remove max-width for smaller screens */
+    }
+
+    .lightbox-content {
+        max-height: 70vh; /* Adjust max height for smaller screens */
+    }
+
+    .thumbnail-strip {
+        width: 95%;
+    }
+
+    .prev, .next {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .close-btn {
+        font-size: 30px;
+        right: 20px;
+    }
+
     .gallery-section {
         background-image: none;
         border-left: 15px solid #59796c; 
@@ -207,8 +429,19 @@
     }
 }
 
-/* Media query cho các thiết bị di động nhỏ hơn (tối đa 480px) */
 @media (max-width: 480px) {
+    .lightbox-content {
+        max-height: 60vh;
+    }
+    .thumbnail-strip img {
+        height: 50px;
+        min-width: 50px;
+    }
+    .lightbox-controls button {
+        padding: 5px;
+        font-size: 12px;
+    }
+
     .gallery-section {
         background-image: none;
         border-left: 15px solid #59796c; 
