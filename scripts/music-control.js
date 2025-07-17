@@ -7,11 +7,13 @@ document.addEventListener('DOMContentLoaded', function() {
     musicToggleButton.addEventListener('click', function() {
         if (isPlaying) {
             backgroundMusic.pause();
-            musicToggleButton.innerHTML = '<i class="fas fa-volume-mute"></i>'; // Icon music off
+            musicToggleButton.innerHTML = `<i class="fas fa-volume-mute"></i>
+                                        <span class="notification">Nút này để phát nhạc</span>`; // Icon music off
             isPlaying = false;
         } else {
             backgroundMusic.play().then(() => {
-                musicToggleButton.innerHTML = '<i class="fas fa-volume-up"></i>'; // Icon music on
+                musicToggleButton.innerHTML = `<i class="fas fa-volume-up"></i>
+                                                <span class="notification">Nút này để phát nhạc</span>`; // Icon music on
                 isPlaying = true;
             }).catch(error => {
 
@@ -21,20 +23,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Listen event "play" và "pause" to upgrade icon if music control by other way
     backgroundMusic.addEventListener('play', () => {
-        musicToggleButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+        musicToggleButton.innerHTML = `<i class="fas fa-volume-up"></i>
+                                        <span class="notification">Nút này để phát nhạc</span>`;
         isPlaying = true;
     });
 
     backgroundMusic.addEventListener('pause', () => {
-        musicToggleButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+        musicToggleButton.innerHTML = `<i class="fas fa-volume-mute"></i>
+                                        <span class="notification">Nút này để phát nhạc</span>`;
         isPlaying = false;
     });
 
     if (!backgroundMusic.paused) {
-        musicToggleButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+        musicToggleButton.innerHTML = `<i class="fas fa-volume-up"></i>
+                                        <span class="notification">Nút này để phát nhạc</span>`;
         isPlaying = true;
     } else {
-        musicToggleButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+        musicToggleButton.innerHTML = `<i class="fas fa-volume-mute"></i>
+                                        <span class="notification">Nút này để phát nhạc</span>`;
         isPlaying = false;
     }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const musicButton = document.getElementById('musicToggleButton');
+    const notification = musicButton.querySelector('.notification');
+
+
+    window.addEventListener('scroll', () => {
+            notification.classList.add('remove');
+    }, { once: true });
 });

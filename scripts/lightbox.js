@@ -215,4 +215,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+    let startTouchX = 0;
+    let endTouchX = 0;
+    const swipeThreshold = 50;
+
+    lightboxImg.addEventListener('touchstart', (e) => {
+        // Chỉ xử lý nếu không đang kéo ảnh để tránh xung đột với chức năng kéo khi zoom
+        if (scale === 1) { // Chỉ vuốt khi ảnh không bị zoom
+            startTouchX = e.touches[0].clientX;
+        }
+    });
+
+    lightboxImg.addEventListener('touchmove', (e) => {
+        // Ngăn chặn cuộn trang khi đang vuốt ảnh trong lightbox
+        if (scale === 1 && lightbox.style.display === 'flex') {
+            e.preventDefault();
+        }
+        if (scale === 1 && startTouchX !== 0) {
+            endTouchX = e.touches[0].clientX;
+        }
+    });
+
+    lightboxImg.addEventListener('touchend', () => {
+        if (scale === 1 && startTouchX !== 0 && endTouchX !== 0) {
+            const diffX = startTouchX - endTouchX;
+
+            if (diffX > swipeThreshold) {
+                // Vuốt từ phải sang trái (chuyển ảnh tiếp theo)
+                showImage(currentIndex + 1);
+            } else if (diffX < -swipeThreshold) {
+                // Vuốt từ trái sang phải (chuyển ảnh trước đó)
+                showImage(currentIndex - 1);
+            }
+        }
+        // Reset các biến chạm
+        startTouchX = 0;
+        endTouchX = 0;
+    })
 });

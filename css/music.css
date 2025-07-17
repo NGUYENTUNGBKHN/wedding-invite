@@ -19,6 +19,9 @@
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease, transform 0.2s ease;
+
+    /* position: relative; */
+    overflow: visible;
 }
 
 .music-toggle-button:hover {
@@ -33,6 +36,54 @@
     flex-shrink: 0;
 } */
 
+.notification {
+    position: absolute;
+    top: 50%; 
+    left: calc(100% + 5px); 
+    transform: translateY(-50%) translateX(10px); 
+
+    background-color: #333;
+    color: white;
+    padding: 8px 12px;
+    font-size: 14px;
+    white-space: nowrap; 
+    border-radius: 5px; 
+
+    pointer-events: none; 
+
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s ease-out;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: none;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%; 
+        right: 100%; 
+        transform: translateY(-50%) rotate(45deg); 
+        width: 12px;
+        height: 12px;
+        background-color: #333; 
+        z-index: -1; 
+        border-top-left-radius: 2px;
+    }
+}
+
+/* Class để hiển thị thông báo */
+.notification.remove {
+    opacity: 0;
+    visibility: hidden;
+    /* transform: translateY(-50%) translateX(10px);  */
+}
+
+#musicToggleButton:hover .notification {
+    opacity: 0;
+    visibility: hidden;
+    /* transform: translateY(-50%) translateX(10px);  */
+}
+
 
 /* @media queries cho mobile (điều chỉnh vị trí nếu cần) */
 @media (max-width: 768px) {
@@ -44,5 +95,16 @@
         font-size: 1.2rem;
         bottom: 15px; /* Điều chỉnh vị trí cho mobile */
         left: 15px;
+    }
+
+    .notification {
+        /* Giữ nguyên hoặc điều chỉnh theo ý muốn */
+        /* Ví dụ: có thể cần dịch chuyển thêm một chút nếu nút nhỏ hơn */
+        left: calc(100% + 5px);
+        transform: translateY(-50%) translateX(10px);
+    }
+
+    .notification.show {
+        transform: translateY(-50%) translateX(10px);
     }
 }

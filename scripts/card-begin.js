@@ -1,6 +1,9 @@
 // scripts/card-begin.js
 
 document.addEventListener('DOMContentLoaded', () => {
+    const musicButton = document.getElementById('musicToggleButton');
+    const notification = musicButton.querySelector('.notification');
+    
     const cardContainer = document.getElementById('cardContainer');
     const openCardBtn = document.getElementById('openCardBtn');
     const htmlElement = document.documentElement; // Lấy thẻ <html>
@@ -18,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // if (backgroundMusic && backgroundMusic.paused) {
                 //     backgroundMusic.play().catch(e => console.error("Error playing music:", e));
                 // }
+                setTimeout(() => {
+                    notification.classList.add('remove');
+                }, 5000); 
             }, 1000); // Thời gian này phải khớp với transition trong card-begin.css
         });
     }
