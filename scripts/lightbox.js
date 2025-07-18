@@ -279,4 +279,24 @@ document.addEventListener('DOMContentLoaded', () => {
         startTouchX = 0;
         endTouchX = 0;
     });
+    /* after that use
+    document.addEventListener('keydown', function(event) {
+    if (event.key === 'F12') {
+        event.preventDefault();
+    }
+
+    if ((event.ctrlKey || event.metaKey) && event.shiftKey && (event.key === 'I' || event.key === 'J' || event.key === 'C')) {
+        event.preventDefault();
+    }
+
+    if ((event.ctrlKey || event.metaKey) && event.key === 'U') {
+        event.preventDefault();
+    }
+    });
+
+    document.addEventListener('contextmenu', function(event) {
+        event.preventDefault();
+    });
+    */
 });
+
