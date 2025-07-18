@@ -80,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function resetTransform() {
-        console.log("reset transform\n");
         scale = 1;
         translateX = 0;
         translateY = 0;
@@ -197,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // No slide animation on initial open, just the fade/zoom
             slideClass = 'zoom-fade-initial';
         }
-        
+        console.log("show images\n");
         // Remove existing slide classes immediately
         lightboxImg.classList.remove('slide-in-left', 'slide-in-right', 'zoom-fade-initial');
         void lightboxImg.offsetWidth; // Trigger reflow to apply removal instantly
