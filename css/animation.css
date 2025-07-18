@@ -1,5 +1,11 @@
 /* animation.css */
 /* Hoạt ảnh rơi */
+
+.mirror-text {
+	display: inline-block;
+	transform: scaleX(-1);
+}
+
 @keyframes fall {
     0% {
         transform: translateY(0px) rotate(0deg);
