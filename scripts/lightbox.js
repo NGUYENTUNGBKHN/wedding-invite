@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function resetTransform() {
+        console.log("reset transform\n");
         scale = 1;
         translateX = 0;
         translateY = 0;
@@ -88,8 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function applyTransform() {
+        lightboxImg.classList.remove('slide-in-left', 'slide-in-right', 'zoom-fade-initial');
         lightboxImg.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
-        lightboxImg.style.cursor = scale > 1 ? 'grabbing' : 'grab';
+        lightboxImg.style.cursor = scale > 1 ? 'grabbing' : 'grab'; 
     }
 
     zoomInBtn.addEventListener('click', (e) => {
@@ -248,23 +250,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     lightboxImg.addEventListener('touchstart', (e) => {
         // Only process if not dragging the image (when zoomed in)
-        if (scale === 1) { // Only allow swipe when image is not zoomed
+        //if (scale === 1) { // Only allow swipe when image is not zoomed
             startTouchX = e.touches[0].clientX;
-        }
+        //}
     }, { passive: true }); // Use passive: true for better scroll performance
 
     lightboxImg.addEventListener('touchmove', (e) => {
         // Prevent page scrolling when swiping image in lightbox
-        if (scale === 1 && lightbox.style.display === 'flex') {
+        if (lightbox.style.display === 'flex') {
             e.preventDefault();
         }
-        if (scale === 1 && startTouchX !== 0) {
+        if (startTouchX !== 0) {
             endTouchX = e.touches[0].clientX;
         }
     }, { passive: false }); // Needs to be false to allow preventDefault
 
     lightboxImg.addEventListener('touchend', () => {
-        if (scale === 1 && startTouchX !== 0 && endTouchX !== 0) {
+        if (startTouchX !== 0 && endTouchX !== 0) {
             const diffX = startTouchX - endTouchX;
 
             if (diffX > swipeThreshold) {
