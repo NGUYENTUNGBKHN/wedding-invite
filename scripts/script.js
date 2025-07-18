@@ -216,6 +216,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Các đoạn mã JavaScript khác của bạn (gallery.js, music.js, v.v.) sẽ ở đây ---
-  // Đảm bảo rằng bạn đã kết hợp tất cả logic JS vào một tệp hoặc tải chúng theo đúng thứ tự.
 });
