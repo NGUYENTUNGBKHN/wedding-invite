@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     galleryItems.forEach((img, index) => {
         img.addEventListener('click', () => {
             lightbox.style.display = 'flex'; // Use flex for centering
-            showImage(index);
+            showImage(index, 'initial'); // 'initial' to indicate first open
         });
     });
 
@@ -174,7 +174,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Function to show the image based on index
-    function showImage(index) {
+    // Added 'direction' parameter to control slide animation
+    function showImage(index, direction = 'next') {
+        let prevIndex = currentIndex; // Store previous index for direction
         if (index < 0) {
             currentIndex = galleryItems.length - 1; // Loop to last image
         } else if (index >= galleryItems.length) {
@@ -182,30 +184,54 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             currentIndex = index;
         }
+
+        // Determine slide direction for animation
+        let slideClass = '';
+        if (direction === 'next' || (currentIndex > prevIndex && !(prevIndex === 0 && currentIndex === galleryItems.length - 1))) {
+            slideClass = 'slide-in-right';
+        } else if (direction === 'prev' || (currentIndex < prevIndex && !(prevIndex === galleryItems.length - 1 && currentIndex === 0))) {
+            slideClass = 'slide-in-left';
+        } else if (direction === 'initial') {
+            // No slide animation on initial open, just the fade/zoom
+            slideClass = 'zoom-fade-initial';
+        }
+        
+        // Remove existing slide classes immediately
+        lightboxImg.classList.remove('slide-in-left', 'slide-in-right', 'zoom-fade-initial');
+        void lightboxImg.offsetWidth; // Trigger reflow to apply removal instantly
+
+        // Reset zoom and position for the new image before setting src
+        resetTransform(); 
+
         lightboxImg.src = galleryItems.item(currentIndex).src;
-        resetTransform(); // Reset zoom for new image
+
+        // Apply slide animation after a very short delay to ensure image source is set
+        setTimeout(() => {
+            lightboxImg.classList.add(slideClass);
+        }, 50); // Small delay to allow src change to register and reflow
+        
         updateThumbnails();
     }
 
     // Previous image button
     prevBtn.addEventListener('click', (e) => {
         e.stopPropagation(); // Prevent closing lightbox
-        showImage(currentIndex - 1);
+        showImage(currentIndex - 1, 'prev');
     });
 
     // Next image button
     nextBtn.addEventListener('click', (e) => {
         e.stopPropagation(); // Prevent closing lightbox
-        showImage(currentIndex + 1);
+        showImage(currentIndex + 1, 'next');
     });
 
     // Keyboard navigation (optional)
     document.addEventListener('keydown', (e) => {
         if (lightbox.style.display === 'flex') {
             if (e.key === 'ArrowLeft') {
-                showImage(currentIndex - 1);
+                showImage(currentIndex - 1, 'prev');
             } else if (e.key === 'ArrowRight') {
-                showImage(currentIndex + 1);
+                showImage(currentIndex + 1, 'next');
             } else if (e.key === 'Escape') {
                 lightbox.style.display = 'none';
                 resetTransform();
@@ -221,36 +247,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const swipeThreshold = 50;
 
     lightboxImg.addEventListener('touchstart', (e) => {
-        // Chỉ xử lý nếu không đang kéo ảnh để tránh xung đột với chức năng kéo khi zoom
-        if (scale === 1) { // Chỉ vuốt khi ảnh không bị zoom
+        // Only process if not dragging the image (when zoomed in)
+        if (scale === 1) { // Only allow swipe when image is not zoomed
             startTouchX = e.touches[0].clientX;
         }
-    });
+    }, { passive: true }); // Use passive: true for better scroll performance
 
     lightboxImg.addEventListener('touchmove', (e) => {
-        // Ngăn chặn cuộn trang khi đang vuốt ảnh trong lightbox
+        // Prevent page scrolling when swiping image in lightbox
         if (scale === 1 && lightbox.style.display === 'flex') {
             e.preventDefault();
         }
         if (scale === 1 && startTouchX !== 0) {
             endTouchX = e.touches[0].clientX;
         }
-    });
+    }, { passive: false }); // Needs to be false to allow preventDefault
 
     lightboxImg.addEventListener('touchend', () => {
         if (scale === 1 && startTouchX !== 0 && endTouchX !== 0) {
             const diffX = startTouchX - endTouchX;
 
             if (diffX > swipeThreshold) {
-                // Vuốt từ phải sang trái (chuyển ảnh tiếp theo)
-                showImage(currentIndex + 1);
+                // Swipe from right to left (next image)
+                showImage(currentIndex + 1, 'next');
             } else if (diffX < -swipeThreshold) {
-                // Vuốt từ trái sang phải (chuyển ảnh trước đó)
-                showImage(currentIndex - 1);
+                // Swipe from left to right (previous image)
+                showImage(currentIndex - 1, 'prev');
             }
         }
-        // Reset các biến chạm
+        // Reset touch variables
         startTouchX = 0;
         endTouchX = 0;
-    })
+    });
 });

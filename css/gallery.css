@@ -212,10 +212,49 @@
     max-height: 80vh; /* Allow more height for the image */
     border-radius: 8px;
     transform: scale(1); /* Initial scale */
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-out; /* Add opacity transition */
     cursor: grab; /* Indicate draggable */
     object-fit: contain; /* Ensure image fits without cropping */
 }
+
+/* New CSS for slide animations */
+.lightbox-content.slide-in-right {
+    animation: slideInRight 0.5s ease-out forwards;
+}
+
+.lightbox-content.slide-in-left {
+    animation: slideInLeft 0.5s ease-out forwards;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Modify existing zoom-fade to ensure it respects new slide animations,
+   or add a specific one for initial display */
+.lightbox-content.zoom-fade-initial {
+    animation-name: zoom-fade;
+    animation-duration: 0.5s; /* Make initial zoom a bit longer */
+}
+
 
 .lightbox-controls {
     position: absolute;
@@ -333,6 +372,9 @@
     opacity: 0;
     overflow: hidden; /* Hide overflow content */
     transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 }
 
 .thumbnail-strip.expanded {
@@ -358,13 +400,7 @@
 }
 
 /* Animations */
-.lightbox-content {
-    -webkit-animation-name: zoom-fade;
-    -webkit-animation-duration: 0.3s;
-    animation-name: zoom-fade;
-    animation-duration: 0.3s;
-}
-
+/* Modified zoom-fade to allow for initial display without conflicting with slide animations */
 @-webkit-keyframes zoom-fade {
     from {opacity: 0; -webkit-transform: scale(0.9)}
     to {opacity: 1; -webkit-transform: scale(1)}
