@@ -29,7 +29,7 @@ body {
 
     .couple-names .couple-name {
         font-size: 3.5em; /* Giảm cỡ chữ tên cô dâu chú rể */
-        margin: 3px 0;
+        /* margin: 3px 0; */
     }
 
     .invitation-section {
@@ -480,7 +480,7 @@ body {
 
     .invitation-card-2 {
         font-size: 0.9rem; /* Giảm cỡ chữ thư mời */
-        padding: 12px 8px;
+        /* padding: 12px 8px; */
     }
 
     .flower {

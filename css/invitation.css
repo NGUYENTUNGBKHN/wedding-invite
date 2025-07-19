@@ -20,12 +20,12 @@ html, body {
 
 .invitation-section {
   /* Background for invitation-section */
-  background-image: url('../images/gallery_background.jpg');
+  /* background-image: url('../images/gallery_background.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center; */
   /* background-repeat: no-repeat; */
   /*background-attachment: fixed; */
-  backdrop-filter: blur(3px);
+  /* backdrop-filter: blur(3px); */
   /* background-color: rgba(0, 0, 0, 0.6); */
   /* min-height: 100vh; */
   display: flex;
@@ -128,7 +128,7 @@ html, body {
   font-size: 2.5rem;
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-family: 'Great Vibes', cursive;
+  font-family: "Imperial Script", cursive;
   color: #ffffff;
 }
 
@@ -142,12 +142,12 @@ html, body {
 .names {
   font-weight: bold;
   color: #ffffff;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-family: 'Great Vibes', cursive;
+  /* margin-top: 0;
+  margin-bottom: 1rem; */
+  font-family: "Imperial Script", cursive;
   font-size: 3rem;
-  margin: 5px 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0px 0;
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
 }
 
 .names.heart {
@@ -183,6 +183,7 @@ html, body {
   text-align: center;
   margin-bottom: 25px;
   color: #333;
+  font-family: "Cormorant", serif;
 }
 
 .invitation-container {
@@ -296,11 +297,11 @@ html, body {
 
 /* Khi class 'is-visible-text' được thêm vào */
 .animate-text-left-to-right.is-visible-text {
-  animation: run_right_to_left 1s ease-out forwards; /* Chạy animation */
+  animation: run_right_to_left 1s ease-out forwards; /* Run animation */
 }
 
 .animate-text-right-to-left.is-visible-text {
-  animation: run_left_to_right 1s ease-out forwards; /* Chạy animation */
+  animation: run_left_to_right 1s ease-out forwards; /* Run animation */
 }
 
 .animate-text-pulse.is-visible-text{
@@ -313,32 +314,6 @@ html, body {
   animation: pulse_home_flower 1s ease-out forwards; /* Chạy animation */
 }
 
-.flower-section .flower {
-
-}
-
-.title .names{
-    
-}
-
-.names-group .title,
-.names-group .names {
-
-}
-
-/* Bạn có thể tạo độ trễ cho từng phần tử để chúng xuất hiện lần lượt */
-.date-layout .side-box .label {
-    /* Đảm bảo class 'animate-text-on-scroll' được thêm vào phần tử này */
-    /* opacity và transform ban đầu được định nghĩa trong .animate-text-on-scroll */
-}
-
-.date-layout .center-box .month,
-.date-layout .center-box .day,
-.date-layout .center-box .year
-.location {
-    /* Đảm bảo class 'animate-text-on-scroll' được thêm vào phần tử này */
-    /* opacity và transform ban đầu được định nghĩa trong .animate-text-on-scroll */
-}
 
 /* Thêm độ trễ cho từng phần tử để hiệu ứng xuất hiện tuần tự */
 .side-box .label.is-visible-text { animation-delay: 0.1s; }
