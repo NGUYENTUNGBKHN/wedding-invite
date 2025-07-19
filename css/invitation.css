@@ -89,7 +89,7 @@ html, body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; */
-  background-color: rgba(89, 121, 108, 0.5);
+  background-color: rgba(89, 121, 108, 0.8);
   /* backdrop-filter: blur(10px); */
   /* border-radius: 20px; */
   max-width: 520px;
@@ -116,19 +116,19 @@ html, body {
 }
 
 .invitation-card {
+  margin-top: 20px;
   width: 100%;
   text-align: center;
-  margin-bottom: 30px;
   padding: 0;
   background: none;
   box-shadow: none;
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-family: "Imperial Script", cursive;
+  font-family: "Roboto", sans-serif;
   color: #ffffff;
 }
 
@@ -140,12 +140,12 @@ html, body {
 }
 
 .names {
-  font-weight: bold;
+  /* font-weight: bold; */
   color: #ffffff;
   /* margin-top: 0;
   margin-bottom: 1rem; */
   font-family: "Imperial Script", cursive;
-  font-size: 3rem;
+  font-size: 4rem;
   margin: 0px 0;
   /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
 }
@@ -177,6 +177,9 @@ html, body {
   background: #fefefe;
   padding: 25px 20px;
   border-radius: 15px;
+  background-image: url('../images/background_2.jpg');
+  background-size: cover;
+  background-position: center; 
   box-shadow: 0 0 25px rgba(0,0,0,0.1);
   font-size: 1.1rem;
   margin-top: 40px;
@@ -435,6 +438,7 @@ html, body {
   font-size: 3rem;
   font-weight: bold;
   color: #ffd700;
+  /* color: #a6ff00; */
 }
 
 .center-box .year {

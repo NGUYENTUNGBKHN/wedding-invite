@@ -58,7 +58,7 @@ body {
 
     .invitation-card {
         padding: 15px;
-        margin: 10px; /* Giảm margin */
+        margin: 10px;
     }
 
     .invitation-card .title {
@@ -250,7 +250,7 @@ body {
 
     /* Invitation Section */
     .invitation-card .names {
-        font-size: 1.8em;
+        font-size: 3em;
     }
 
     .invitation-card .names.heart {
@@ -373,7 +373,7 @@ body {
 
     /* Invitation Section */
     .invitation-card .names {
-        font-size: 1.6em;
+        font-size: 3em;
     }
 
     .invitation-card .names.heart {
@@ -459,11 +459,11 @@ body {
 
     /* Invitation Section */
     .invitation-card .title {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
     }
 
     .invitation-card .names {
-        font-size: 2.2rem;
+        font-size: 3.5rem;
     }
 
     .invitation-card .names.heart {
