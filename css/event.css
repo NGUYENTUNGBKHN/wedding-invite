@@ -1,10 +1,12 @@
 /* css/event.css */
 
 .event-section {
-    padding: 50px 20px;
-    background-color: #f9f9f9;
+    /* padding: 50px 20px; */
     text-align: center;
+    background-color: #ffffff ; 
     /* margin-top: 10px; */
+    border-left: 15px solid #59796c; 
+    border-right: 15px solid #59796c;
 }
 
 .event-section h2 {
@@ -32,6 +34,7 @@
 
 .groom-map-container,
 .bride-map-container {
+    margin: 0px 30px;
     /* Loại bỏ max-width: 600px; ở đây để flexbox kiểm soát */
     width: 100%; /* Mặc định là 100% trên mobile */
     flex: 1 1 45%; /* flex-grow, flex-shrink, flex-basis (đặt basis ~45% để chừa gap) */
@@ -129,7 +132,7 @@
 
 @media (max-width: 768px) {
     .event-section {
-        padding: 30px 15px;
+        /* padding: 30px 15px; */
         border-left: 15px solid #59796c; 
         border-right: 15px solid #59796c;
         /* border-top-left-radius: 50px;
@@ -144,6 +147,7 @@
 
     .groom-map-container,
     .bride-map-container {
+        margin: 0px 30px;
         max-width: 100%; /* Full chiều rộng trên di động */
         flex-basis: 100%; /* Luôn chiếm toàn bộ chiều rộng trên mobile */
     }

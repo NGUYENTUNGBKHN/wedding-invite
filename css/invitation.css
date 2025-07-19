@@ -3,7 +3,7 @@ body {
   font-family: 'Quicksand', sans-serif;
   background-image: none; /* Importance : Remove background of all pages */
   /*background-color: #59796c; /* background color for all */
-  background-color: #ffffff ; 
+  background-color: #59796c ; 
   -webkit-user-select: none;  /* Safari */
   -moz-user-select: none;     /* Firefox */
   -ms-user-select: none;      /* IE 10+ */
@@ -28,13 +28,17 @@ html, body {
   /* backdrop-filter: blur(3px); */
   /* background-color: rgba(0, 0, 0, 0.6); */
   /* min-height: 100vh; */
+  background-color: #ffffff ; 
   display: flex;
   flex-direction: column;  /* <-- align all element into row */
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  /* padding: 20px; */
+  padding-top: 10px;
   gap: 40px; 
   flex-wrap: wrap;
+  border-left: 15px solid #59796c; 
+  border-right: 15px solid #59796c;
 }
 
 .invitation-head {
@@ -58,6 +62,7 @@ html, body {
   justify-content: center;
   align-items: flex-start;
   gap: 20px;
+  padding: 10px;
   flex-wrap: wrap;
 }
 
@@ -73,14 +78,70 @@ html, body {
   gap: 40px; 
 } */
 
-.top-logo{
+.top-logo {
   text-align: center;
+  position: relative;
+  padding: 20px;
 }
 
-.top-logo img{
+.top-logo::after,
+.top-logo::before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  background-color: #59796c;
+}
+
+.top-logo::after {
+  top: calc(50% - 20px);
+  left: -20px;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.top-logo::before {
+  top: calc(50% - 20px);
+  right: -20px;
+  border-bottom-left-radius: 20px; 
+  border-top-left-radius: 20px;
+}
+
+.top-logo_2 {
+  text-align: center;
+  position: relative;
+  padding: 10px;
+}
+
+.top-logo img,
+.top-logo_2 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.top-logo_2::after,
+.top-logo_2::before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #59796c;
+}
+
+.top-logo_2::after {
+  top: calc(50% - 20px);
+  left: -30px;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.top-logo_2::before {
+  top: calc(50% - 20px);
+  right: -30px;
+  border-bottom-left-radius: 20px; 
+  border-top-left-radius: 20px;
 }
 
 .invitation-container,
@@ -95,7 +156,7 @@ html, body {
   max-width: 520px;
   width: 100%;
   min-height: 300px;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px rgba(89, 121, 108, 0.8);
   /* padding: 40px 30px; */
   box-sizing: border-box;
   color: #ffffff;
@@ -561,10 +622,17 @@ html, body {
   white-space: nowrap;
 }
 
+.message-container {
+  font-size: 1.5em;
+  color: #ff0000;
+  text-align: center;
+  margin: 0px 50px;
+  border-bottom: 1px solid #000000;
+}
+
 @media (max-width: 768px) {
   .invitation-section {
     flex-wrap: wrap;
-    padding: 10px;
     background-image: none;
     flex-direction: column;  /* <-- align all element into row */
     border-left: 15px solid #59796c; 
@@ -573,7 +641,7 @@ html, body {
 
   .invitation-body {
     flex-wrap: wrap;
-    padding: 5px;
+    padding: 10px;
     gap: 20px; 
   }
 

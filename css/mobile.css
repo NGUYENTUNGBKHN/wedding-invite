@@ -39,8 +39,8 @@ body {
         gap: 5px; 
         border-left: 15px solid #59796c; 
         border-right: 15px solid #59796c;
-        border-top-left-radius: 50px;
-        border-top-right-radius: 50px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
         /* border-bottom-left-radius: 50px;
         border-bottom-right-radius: 50px; */
     }
@@ -66,11 +66,11 @@ body {
     }
 
     .invitation-card .names {
-        font-size: 2em; /* Giảm cỡ chữ tên */
+        font-size: 4em; /* Giảm cỡ chữ tên */
     }
 
     .invitation-card .names.heart {
-        font-size: 1.2em; /* Giảm kích thước trái tim */
+        font-size: 1.8em; /* Giảm kích thước trái tim */
     }
 
     .date-display {
@@ -90,7 +90,11 @@ body {
 
     .date-layout .month,
     .date-layout .year {
-        font-size: 1.1em; /* Giảm cỡ chữ ngày tháng */
+        font-size: 1.5em; 
+    }
+
+    .date-layout .label {
+        font-size: 1.8em; 
     }
 
     .location {
@@ -262,6 +266,10 @@ body {
         font-size: 1em;
     }
 
+    .date-layout .label {
+        font-size: 1.3em; 
+    }
+
     .location {
         font-size: 0.8em;
     }
@@ -346,10 +354,70 @@ body {
         gap: 5px; 
         border-left: 15px solid #59796c; 
         border-right: 15px solid #59796c;
-        border-top-left-radius: 50px;
-        border-top-right-radius: 50px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
         /* border-bottom-left-radius: 50px;
         border-bottom-right-radius: 50px; */
+    }
+
+    .top-corners {
+        position: relative;
+        top: 0; 
+        left: 0;
+        width: 100%; 
+        height: 20px;
+        pointer-events: none; 
+    }
+    
+    .top-corners::before,
+    .top-corners::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: #59796c;
+    }
+    
+    .top-corners::before {
+        top: 0px;
+        left: -1px;
+        border-bottom-right-radius: 20px;
+    }
+    
+    .top-corners::after {
+        top: 0px;
+        right: -1px;
+        border-bottom-left-radius: 20px; 
+    }
+
+    .bottom-corners {
+        position: relative;
+        top: 0; 
+        left: 0;
+        width: 100%; 
+        height: 20px;
+        pointer-events: none; 
+    }
+    
+    .bottom-corners::before,
+    .bottom-corners::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: #59796c;
+    }
+    
+    .bottom-corners::before {
+        top: 0px;
+        left: -1px;
+        border-top-right-radius: 20px;
+    }
+    
+    .bottom-corners::after {
+        top: 0px;
+        right: -1px;
+        border-top-left-radius: 20px; 
     }
 }
 
@@ -383,6 +451,10 @@ body {
     .date-layout .month,
     .date-layout .year {
         font-size: 0.9em;
+    }
+
+    .date-layout .label {
+        font-size: 1em; 
     }
 
     .location {
@@ -463,7 +535,7 @@ body {
     }
 
     .invitation-card .names {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
 
     .invitation-card .names.heart {
@@ -494,6 +566,10 @@ body {
     .date-layout .month,
     .date-layout .year {
         font-size: 1.1em;
+    }
+
+    .date-layout .label {
+        font-size: 1.2em; 
     }
 
     .date-layout .time {
