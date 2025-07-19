@@ -61,11 +61,12 @@ if (!guestId) {
       if (doc.exists) {
         const data = doc.data();
         invitationDiv.innerHTML = `
-          <h2> ${data.name} </h2>
-          <p>Thân mời ${data.message}</p>
-          <p>Tới dự bữa cơm thân mật chung vui cùng gia đình chúng tôi.</p>
-          <p>Vào lúc: 10:00 Thứ bảy</p>
-          <p>24.01.2026</p>
+          <h2> TRÂN TRỌNG KÍNH MỜI </h2>
+          <p> ${data.message} </p>
+          <p>TỚI DỰ LỄ THÀNH HÔN</p>
+          <p>CHUNG VUI CÙNG GIA ĐÌNH CHÚNG TÔI</p>
+          <h2>Vào lúc: 10:00 Thứ bảy</h2>
+          <h2>24.01.2026</h2>
           <p>(Tức ngày 06 tháng 12 năm Ất Tỵ)</p>
           <p>Tại : Hội trường Trường Tiểu học Thượng Thanh</p>
           <p>Ngõ 94, Thượng Thanh, Long Biên, Hà Nội, Việt Nam</p>
